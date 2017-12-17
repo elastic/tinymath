@@ -75,5 +75,6 @@ describe('Evaluate', () => {
     expect(evaluate('3 + foo', {foo: 5})).to.be.equal(8);
     expect(evaluate('sum(foo)', {foo: [5, 10, 15]})).to.be.equal(30);
     expect(evaluate('90 / sum(foo)', {foo: [5, 10, 15]})).to.be.equal(3);
+    expect(evaluate('multiply(foo, bar)', {foo: [1, 2, 3], bar: [4, 5, 6]})).to.be.deep.equal([4, 10, 18]);
   });
 });
