@@ -8,20 +8,24 @@ export function evaluate(expression, scope) {
 }
 
 export function interpret(node, scope) {
-  const type = getType(node);
-  if (type === 'function') {
-    return invoke(node);
+  return exec(node);
+
+  function exec(node) {
+    const type = getType(node);
+    if (type === 'function') {
+      return invoke(node);
+    }
+    if (type === 'string') {
+      if (typeof scope[node] === 'undefined') throw new Error(`Unknown variable: ${node}`);
+      return scope[node];
+    }
+    return node; // Can only be a number at this point
   }
-  if (type === 'string') {
-    if (typeof scope[node] === 'undefined') throw new Error(`Unknown variable: ${node}`);
-    return scope[node];
-  }
-  return node; // Can only be a number at this point
 
   function invoke(node) {
     const { name, args } = node;
     if (!functions[name]) throw new Error(`No such function: ${name}`);
-    return functions[name](...args.map(interpret));
+    return functions[name](...args.map(exec));
   }
 }
 
