@@ -63,4 +63,17 @@ describe('Evaluate', () => {
     expect(evaluate('1 + 1 + 2 + 3 + 12')).to.be.equal(19);
     expect(evaluate('100 / 10 / 10')).to.be.equal(1);
   });
+
+  it('equations with functions', () => {
+    expect(evaluate('3 + multiply(10, 4)')).to.be.equal(43);
+    expect(evaluate('3 + multiply(10, 4, 5)')).to.be.equal(203);
+  });
+
+  it('equations with variables', () => {
+    expect(evaluate('3 + foo', {foo: 5})).to.be.equal(8);
+    expect(evaluate('3 + foo', {foo: [5, 10]})).to.be.deep.equal([8, 13]);
+    expect(evaluate('3 + foo', {foo: 5})).to.be.equal(8);
+    expect(evaluate('sum(foo)', {foo: [5, 10, 15]})).to.be.equal(30);
+    expect(evaluate('90 / sum(foo)', {foo: [5, 10, 15]})).to.be.equal(3);
+  });
 });
