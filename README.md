@@ -17,4 +17,4 @@ See the `src/functions` directory. Add a new file and export it from `index.js`
 - Functions are just functions. This needs definition files so we can generate documentation
 - Basic arithmetic only, eg, no exponents. You could easily write a power function though
 - A lot more functions, eg `round()`
-- Add to npm
+- An AST here is overkill, we could definitely do this by injecting functions and scope into the peg parser. 
