@@ -4,7 +4,7 @@
 */
 
 import chai from 'chai';
-import { evaluate, parse } from '../lib/library.js';
+import { evaluate, parse } from '../lib/tinymath.js';
 
 chai.expect();
 const expect = chai.expect;
