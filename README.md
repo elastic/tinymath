@@ -1,13 +1,17 @@
 # Tinymath
 
+Import it:
+
 ```javascript
 import { evaluate } from tinymath
 ```
 
+Then use it:
+
 ```javascript
-tinymath.evaluate('foo + 20', {foo: [1, 2, 3]});
-tinymath.evaluate('foo + bar', {foo: [1, 2, 3], bar: [4, 5, 6]});
-tinymath.evaluate('multiply(foo, bar) / 10', {foo: [1, 2, 3], bar: [4, 5, 6]});
+evaluate('foo + 20', {foo: [1, 2, 3]});
+evaluate('foo + bar', {foo: [1, 2, 3], bar: [4, 5, 6]});
+evaluate('multiply(foo, bar) / 10', {foo: [1, 2, 3], bar: [4, 5, 6]});
 ```
 
 ### Adding Functions
