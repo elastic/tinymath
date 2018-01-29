@@ -1,8 +1,5 @@
-import chai from 'chai';
+import { expect } from 'chai';
 import { fix } from '../../src/functions/fix.js';
-
-chai.expect();
-const expect = chai.expect;
 
 describe('Fix', () => {
   it('numbers', () => {

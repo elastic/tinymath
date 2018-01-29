@@ -1,8 +1,5 @@
-import chai from 'chai';
+import { expect } from 'chai';
 import { multiply } from '../../src/functions/multiply.js';
-
-chai.expect();
-const expect = chai.expect;
 
 describe('Multiply', () => {
   it('number, number', () => {

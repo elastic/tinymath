@@ -1,8 +1,5 @@
-import chai from 'chai';
+import { expect } from 'chai';
 import { round } from '../../src/functions/round.js';
-
-chai.expect();
-const expect = chai.expect;
 
 describe('Round', () => {
   it('numbers', () => {

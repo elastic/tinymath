@@ -1,8 +1,5 @@
-import chai from 'chai';
+import { expect } from 'chai';
 import { floor } from '../../src/functions/floor.js';
-
-chai.expect();
-const expect = chai.expect;
 
 describe('Floor', () => {
   it('numbers', () => {

@@ -1,8 +1,5 @@
-import chai from 'chai';
+import { expect } from 'chai';
 import { divide } from '../../src/functions/divide.js';
-
-chai.expect();
-const expect = chai.expect;
 
 describe('Divide', () => {
   it('number, number', () => {

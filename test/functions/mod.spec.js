@@ -1,8 +1,5 @@
-import chai from 'chai';
+import { expect } from 'chai';
 import { mod } from '../../src/functions/mod.js';
-
-chai.expect();
-const expect = chai.expect;
 
 describe('Modulus', () => {
   it('number, number', () => {

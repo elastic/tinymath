@@ -1,8 +1,5 @@
-import chai from 'chai';
+import { expect } from 'chai';
 import { ceil } from '../../src/functions/ceil.js';
-
-chai.expect();
-const expect = chai.expect;
 
 describe('Ceil', () => {
   it('numbers', () => {

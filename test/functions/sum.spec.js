@@ -1,8 +1,5 @@
-import chai from 'chai';
+import { expect } from 'chai';
 import { sum } from '../../src/functions/sum.js';
-
-chai.expect();
-const expect = chai.expect;
 
 describe('Sum', () => {
   it('numbers', () => {

@@ -1,8 +1,5 @@
-import chai from 'chai';
+import { expect } from 'chai';
 import { subtract } from '../../src/functions/subtract.js';
-
-chai.expect();
-const expect = chai.expect;
 
 describe('Subtract', () => {
   it('number, number', () => {
