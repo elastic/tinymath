@@ -1,5 +1,5 @@
 import { parse as parseFn } from './grammar';
-import { functions } from './functions';
+import { functions as includedFunctions } from './functions';
 
 export const parse = parseFn;
 
@@ -7,7 +7,9 @@ export function evaluate(expression, scope) {
   return interpret(parse(expression), scope);
 }
 
-export function interpret(node, scope) {
+export function interpret(node, scope, injectedFunctions) {
+  const functions = Object.assign({}, includedFunctions, injectedFunctions);
+
   return exec(node);
 
   function exec(node) {
