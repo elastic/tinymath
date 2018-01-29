@@ -19,9 +19,10 @@ describe('Divide', () => {
   });
 
   it('array, array', () => {
-    // const lengthErr = new Error('Matrix length mismatch');
     expect(divide([11, 48, 60, 72], [1, 2, 3, 4])).to.be.eql([11, 24, 20, 18]);
+  });
 
+  it('array length mismatch', () => {
     expect(() => divide([1, 2], [3])).to.throw();
   });
 });

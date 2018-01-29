@@ -19,9 +19,10 @@ describe('Multiply', () => {
   });
 
   it('array, array', () => {
-    // const lengthErr = new Error('Matrix length mismatch');
     expect(multiply([11, 48, 60, 72], [1, 2, 3, 4])).to.be.eql([11, 96, 180, 288]);
+  });
 
+  it('array length mismatch', () => {
     expect(() => multiply([1, 2], [3])).to.throw();
   });
 });

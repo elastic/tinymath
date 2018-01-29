@@ -1,15 +1,10 @@
-export function sum(...args) {
-  if (args.length === 1) {
-    return args[0].reduce((result, current) => result + current);
-  }
+const add = (total, current) => total + current;
 
-  return args.reduce((result, current) => {
-    if (Array.isArray(result) && Array.isArray(current)) {
-      if (current.length !== result.length) throw new Error('Matrix length mismatch');
-      return result.map((val, i) => val + current[i]);
+export function sum(...args) {
+  return args.reduce((total, current) => {
+    if (Array.isArray(current)) {
+      return total + current.reduce(add, 0);
     }
-    if (Array.isArray(result)) return result.map(val => val + current);
-    if (Array.isArray(current)) return current.map(val => val + result);
-    return result + current;
-  });
+    return total + current;
+  }, 0);
 };
