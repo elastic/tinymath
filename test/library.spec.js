@@ -33,11 +33,11 @@ describe('Parser', () => {
 
   describe('Functions', () => {
     it('no arguments', () => {
-      expect(parse('foo()')).to.be.deep.equal({name: 'foo', args: []});
+      expect(parse('foo()')).to.be.eql({name: 'foo', args: []});
     });
 
     it('arguments', () => {
-      expect(parse('foo(5,10)')).to.be.deep.equal({name: 'foo', args: [5, 10]});
+      expect(parse('foo(5,10)')).to.be.eql({name: 'foo', args: [5, 10]});
     });
   });
 });
@@ -49,7 +49,7 @@ describe('Evaluate', () => {
 
   it('variables', () => {
     expect(evaluate('foo', {foo: 10})).to.be.equal(10);
-    expect(evaluate('bar', {bar: [1, 2]})).to.be.deep.equal([1, 2]);
+    expect(evaluate('bar', {bar: [1, 2]})).to.be.eql([1, 2]);
   });
 
   it('equations', () => {
@@ -71,10 +71,10 @@ describe('Evaluate', () => {
 
   it('equations with variables', () => {
     expect(evaluate('3 + foo', {foo: 5})).to.be.equal(8);
-    expect(evaluate('3 + foo', {foo: [5, 10]})).to.be.deep.equal([8, 13]);
+    expect(evaluate('3 + foo', {foo: [5, 10]})).to.be.eql([8, 13]);
     expect(evaluate('3 + foo', {foo: 5})).to.be.equal(8);
     expect(evaluate('sum(foo)', {foo: [5, 10, 15]})).to.be.equal(30);
     expect(evaluate('90 / sum(foo)', {foo: [5, 10, 15]})).to.be.equal(3);
-    expect(evaluate('multiply(foo, bar)', {foo: [1, 2, 3], bar: [4, 5, 6]})).to.be.deep.equal([4, 10, 18]);
+    expect(evaluate('multiply(foo, bar)', {foo: [1, 2, 3], bar: [4, 5, 6]})).to.be.eql([4, 10, 18]);
   });
 });
