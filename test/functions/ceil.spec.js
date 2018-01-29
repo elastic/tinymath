@@ -8,7 +8,7 @@ describe('Ceil', () => {
   it('numbers', () => {
     expect(ceil(-10.5)).to.be.equal(-10);
     expect(ceil(-10.1)).to.be.equal(-10);
-    expect(ceil(10.9)).to.be.eql(11);
+    expect(ceil(10.9)).to.be.equal(11);
   });
 
   it('arrays', () => {

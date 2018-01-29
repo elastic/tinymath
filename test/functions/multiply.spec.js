@@ -7,7 +7,7 @@ const expect = chai.expect;
 describe('Multiply', () => {
   it('number, number', () => {
     expect(multiply(10, 2)).to.be.equal(20);
-    expect(multiply(0.1, 0.2)).to.be.eql(0.1 * 0.2);
+    expect(multiply(0.1, 0.2)).to.be.equal(0.1 * 0.2);
   });
 
   it('array, number', () => {

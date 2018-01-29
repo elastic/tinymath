@@ -7,7 +7,7 @@ const expect = chai.expect;
 describe('Abs', () => {
   it('numbers', () => {
     expect(abs(-10)).to.be.equal(10);
-    expect(abs(10)).to.be.eql(10);
+    expect(abs(10)).to.be.equal(10);
   });
 
   it('arrays', () => {

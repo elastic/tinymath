@@ -7,7 +7,7 @@ const expect = chai.expect;
 describe('Subtract', () => {
   it('number, number', () => {
     expect(subtract(10, 2)).to.be.equal(8);
-    expect(subtract(0.1, 0.2)).to.be.eql(0.1 - 0.2);
+    expect(subtract(0.1, 0.2)).to.be.equal(0.1 - 0.2);
   });
 
   it('array, number', () => {
