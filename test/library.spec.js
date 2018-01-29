@@ -3,11 +3,8 @@
   Need tests for spacing, etc
 */
 
-import chai from 'chai';
+import {expect} from 'chai';
 import { evaluate, parse } from '../lib/tinymath.js';
-
-chai.expect();
-const expect = chai.expect;
 
 describe('Parser', () => {
   describe('Numbers', () => {
