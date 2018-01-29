@@ -1,8 +1,3 @@
-/*
-  TODO: These tests are wildly imcomplete
-  Need tests for spacing, etc
-*/
-
 import chai from 'chai';
 import { divide } from '../../src/functions/divide.js';
 
