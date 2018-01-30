@@ -22,3 +22,4 @@ See the `src/functions` directory. Add a new file and export it from `index.js`
 - Basic arithmetic only, eg, no exponents. You could easily write a power function though
 - A lot more functions, eg `round()`
 - An AST here is overkill, we could definitely do this by injecting functions and scope into the peg parser. 
+- Support floating point operations
