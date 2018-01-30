@@ -1,8 +1,6 @@
 export function add(...args) {
   if (args.length === 1) {
-    if (Array.isArray(args[0])) {
-      return args[0].reduce((result, current) => result + current);
-    }
+    if (Array.isArray(args[0])) return args[0].reduce((result, current) => result + current);
     return args[0];
   }
 

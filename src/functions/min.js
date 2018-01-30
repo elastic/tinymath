@@ -1,8 +1,6 @@
 export function min(...args) {
   if (args.length === 1) {
-    if (Array.isArray(args[0])) {
-      return args[0].reduce((result, current) => Math.min(result, current));
-    }
+    if (Array.isArray(args[0])) return args[0].reduce((result, current) => Math.min(result, current));
     return args[0];
   }
 
