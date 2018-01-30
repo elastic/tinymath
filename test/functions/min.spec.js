@@ -3,7 +3,7 @@ import { min } from '../../src/functions/min.js';
 
 describe('Min', () => {
   it('numbers', () => {
-
+    expect(min(1)).to.be.equal(1);
     expect(min(10, 2, 5, 8)).to.be.equal(2);
     expect(min(0.1, 0.2, 0.4, 0.3)).to.be.equal(0.1);
   });

@@ -3,7 +3,7 @@ import { max } from '../../src/functions/max.js';
 
 describe('Max', () => {
   it('numbers', () => {
-
+    expect(max(1)).to.be.equal(1);
     expect(max(10, 2, 5, 8)).to.be.equal(10);
     expect(max(0.1, 0.2, 0.4, 0.3)).to.be.equal(0.4);
   });

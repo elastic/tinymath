@@ -3,7 +3,7 @@ import { mean } from '../../src/functions/mean.js';
 
 describe('Mean', () => {
   it('numbers', () => {
-
+    expect(mean(1)).to.be.equal(1);
     expect(mean(10, 2, 5, 8)).to.be.equal(25 / 4);
     expect(mean(0.1, 0.2, 0.4, 0.3)).to.be.equal((0.1 + 0.2 + 0.3 + 0.4) / 4);
   });

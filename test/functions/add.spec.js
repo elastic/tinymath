@@ -3,7 +3,7 @@ import { add } from '../../src/functions/add.js';
 
 describe('Add', () => {
   it('numbers', () => {
-
+    expect(add(1)).to.be.equal(1);
     expect(add(10, 2, 5, 8)).to.be.equal(25);
     expect(add(0.1, 0.2, 0.4, 0.3)).to.be.equal(0.1 + 0.2 + 0.3 + 0.4);
   });
