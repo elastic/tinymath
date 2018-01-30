@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { mod } from '../../src/functions/mod.js';
 
-describe('Modulus', () => {
+describe('Mod', () => {
   it('number, number', () => {
     expect(mod(13, 8)).to.be.equal(5);
     expect(mod(0.10, 0.02)).to.be.equal(0.10 % 0.02);
