@@ -15,6 +15,7 @@ import { range } from './range';
 import { round } from './round';
 import { subtract } from './subtract';
 import { sum } from './sum';
+import { unique } from './unique';
 
 export const functions = {
   abs,
@@ -33,5 +34,6 @@ export const functions = {
   range,
   round,
   subtract,
-  sum
+  sum,
+  unique
 };

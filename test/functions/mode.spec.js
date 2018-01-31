@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { mode } from '../../src/functions/mode.js';
 
-describe.only('Mode', () => {
+describe('Mode', () => {
   it('numbers', () => {
     expect(mode(1)).to.be.equal(1);
     expect(mode(10, 2, 5, 8)).to.be.eql([2, 5, 8, 10]);
