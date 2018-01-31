@@ -5,11 +5,11 @@ export function mean(...args) {
     if (Array.isArray(args[0])) return add(args[0]) / args[0].length;
     return args[0];
   }
-  const result = add(...args);
+  const sum = add(...args);
 
-  if (Array.isArray(result)) {
-    return result.map(val => val / args.length);
+  if (Array.isArray(sum)) {
+    return sum.map(val => val / args.length);
   }
 
-  return result / args.length;
+  return sum / args.length;
 }
