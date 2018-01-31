@@ -8,7 +8,7 @@ export function evaluate(expression, scope) {
 }
 
 export function interpret(node, scope, injectedFunctions) {
-  const functions = Object.assign({}, includedFunctions, injectedFunctions);
+  const functions = { ...includedFunctions, ...injectedFunctions };
 
   return exec(node);
 
