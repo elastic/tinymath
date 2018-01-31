@@ -1,5 +1,5 @@
 export function round(a, b = undefined) {
-  let isArray = Array.isArray(a);
+  const isArray = Array.isArray(a);
   if (b) {
     if (isArray) {
       return a.map(a => Math.round(a, b));
@@ -11,4 +11,4 @@ export function round(a, b = undefined) {
     return a.map(a => Math.round(a));
   }
   return Math.round(a);
-};
+}

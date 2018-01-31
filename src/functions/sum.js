@@ -7,4 +7,4 @@ export function sum(...args) {
     }
     return total + current;
   }, 0);
-};
+}

@@ -10,6 +10,6 @@ describe('Ceil', () => {
 
   it('arrays', () => {
     expect(ceil([-10.5, -20.9, -30.1, -40.2])).to.be.eql([-10, -20, -30, -40]);
-    expect(ceil([ 2.9, 5.1, 3.5, 4.3])).to.be.eql([3, 6, 4, 5]);
+    expect(ceil([2.9, 5.1, 3.5, 4.3])).to.be.eql([3, 6, 4, 5]);
   });
 });

@@ -8,4 +8,4 @@ export function abs(a) {
     return a.map(a => Math.abs(a));
   }
   return Math.abs(a);
-};
+}

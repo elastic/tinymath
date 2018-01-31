@@ -3,4 +3,4 @@ export function ceil(a) {
     return a.map(a => Math.ceil(a));
   }
   return Math.ceil(a);
-};
+}

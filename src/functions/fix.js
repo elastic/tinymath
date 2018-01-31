@@ -1,4 +1,4 @@
-const fixer = (a) => {
+const fixer = a => {
   if (a > 0) {
     return Math.floor(a);
   }
@@ -10,4 +10,4 @@ export function fix(a) {
     return a.map(a => fixer(a));
   }
   return fixer(a);
-};
+}
