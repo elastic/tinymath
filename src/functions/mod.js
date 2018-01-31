@@ -6,4 +6,4 @@ export function mod(a, b) {
   if (Array.isArray(a)) return a.map(a => a % b);
   if (Array.isArray(b)) return b.map(b => a % b);
   return a % b;
-};
+}

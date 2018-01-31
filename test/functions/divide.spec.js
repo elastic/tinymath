@@ -4,7 +4,7 @@ import { divide } from '../../src/functions/divide.js';
 describe('Divide', () => {
   it('number, number', () => {
     expect(divide(10, 2)).to.be.equal(5);
-    expect(divide(0.10, 0.02)).to.be.equal(0.10 / 0.02);
+    expect(divide(0.1, 0.02)).to.be.equal(0.1 / 0.02);
   });
 
   it('array, number', () => {

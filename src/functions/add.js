@@ -12,4 +12,4 @@ export function add(...args) {
     if (Array.isArray(current)) return current.map(val => val + result);
     return result + current;
   });
-};
+}
