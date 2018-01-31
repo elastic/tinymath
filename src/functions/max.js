@@ -1,6 +1,7 @@
 export function max(...args) {
   if (args.length === 1) {
-    if (Array.isArray(args[0])) return args[0].reduce((result, current) => Math.max(result, current));
+    if (Array.isArray(args[0]))
+      return args[0].reduce((result, current) => Math.max(result, current));
     return args[0];
   }
 
@@ -13,4 +14,4 @@ export function max(...args) {
     if (Array.isArray(current)) return current.map(val => Math.max(val, result));
     return Math.max(result, current);
   });
-};
+}

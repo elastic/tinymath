@@ -18,7 +18,6 @@ describe('Range', () => {
     expect(range([6, 2, 3, 10], [11, 2, 5, 10])).to.be.eql([5, 0, 2, 0]);
     expect(range([30, 55, 9, 4], [72, 24, 48, 10], [10, 20, 30, 40])).to.be.eql([62, 35, 39, 36]);
     expect(range([11, 28, 60, 10], [1, 48, 3, -17])).to.be.eql([10, 20, 57, 27]);
-
   });
 
   it('array length mismatch', () => {

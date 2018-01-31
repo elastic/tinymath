@@ -1,4 +1,4 @@
-const findMode = (a) => {
+const findMode = a => {
   let maxFreq = 0;
   const mapping = {};
 
@@ -12,18 +12,23 @@ const findMode = (a) => {
     }
   });
 
-  return Object.keys(mapping).filter(key => mapping[key] === maxFreq).map(val => parseFloat(val)).sort((a, b) => a - b);
+  return Object.keys(mapping)
+    .filter(key => mapping[key] === maxFreq)
+    .map(val => parseFloat(val))
+    .sort((a, b) => a - b);
 };
 
 const transpose = (args, index) => {
-  let len = args[index].length;
-  return args[index].map((col, i) => args.map(row => {
-    if (Array.isArray(row)) {
-      if (row.length !== len) throw new Error('Matrix length mismatch');
-      return row[i];
-    }
-    return row;
-  }));
+  const len = args[index].length;
+  return args[index].map((col, i) =>
+    args.map(row => {
+      if (Array.isArray(row)) {
+        if (row.length !== len) throw new Error('Matrix length mismatch');
+        return row[i];
+      }
+      return row;
+    })
+  );
 };
 
 export function mode(...args) {
@@ -32,10 +37,10 @@ export function mode(...args) {
     return args[0];
   }
 
-  let firstArray = args.findIndex(element => Array.isArray(element));
+  const firstArray = args.findIndex(element => Array.isArray(element));
   if (firstArray !== -1) {
-    let result = transpose(args, firstArray);
+    const result = transpose(args, firstArray);
     return result.map(val => findMode(val));
   }
   return findMode(args);
-};
+}

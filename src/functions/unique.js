@@ -10,4 +10,4 @@ export function unique(a) {
     return a.filter((val, i) => a.indexOf(val) === i).length;
   }
   return 1;
-};
+}

@@ -1,6 +1,6 @@
-const findMedian = (a) => {
-  let len = a.length;
-  let half = Math.floor(len / 2);
+const findMedian = a => {
+  const len = a.length;
+  const half = Math.floor(len / 2);
 
   a.sort((a, b) => a > b);
 
@@ -12,14 +12,16 @@ const findMedian = (a) => {
 };
 
 const transpose = (args, index) => {
-  let len = args[index].length;
-  return args[index].map((col, i) => args.map(row => {
-    if (Array.isArray(row)) {
-      if (row.length !== len) throw new Error('Matrix length mismatch');
-      return row[i];
-    }
-    return row;
-  }));
+  const len = args[index].length;
+  return args[index].map((col, i) =>
+    args.map(row => {
+      if (Array.isArray(row)) {
+        if (row.length !== len) throw new Error('Matrix length mismatch');
+        return row[i];
+      }
+      return row;
+    })
+  );
 };
 
 export function median(...args) {
@@ -28,10 +30,10 @@ export function median(...args) {
     return args[0];
   }
 
-  let firstArray = args.findIndex(element => Array.isArray(element));
+  const firstArray = args.findIndex(element => Array.isArray(element));
   if (firstArray !== -1) {
-    let result = transpose(args, firstArray);
+    const result = transpose(args, firstArray);
     return result.map(val => findMedian(val));
   }
   return findMedian(args);
-};
+}

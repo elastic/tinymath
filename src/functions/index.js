@@ -35,5 +35,5 @@ export const functions = {
   round,
   subtract,
   sum,
-  unique
+  unique,
 };
