@@ -8,7 +8,7 @@ import { evaluate, parse } from '../lib/tinymath.js';
 
 describe('Parser', () => {
   describe('Numbers', () => {
-    it('intergers', () => {
+    it('integers', () => {
       expect(parse('10')).to.be.equal(10);
     });
 
