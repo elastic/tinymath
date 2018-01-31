@@ -4,7 +4,7 @@ import { mod } from '../../src/functions/mod.js';
 describe('Modulus', () => {
   it('number, number', () => {
     expect(mod(13, 8)).to.be.equal(5);
-    expect(mod(0.10, 0.02)).to.be.equal(0.10 % 0.02);
+    expect(mod(0.1, 0.02)).to.be.equal(0.1 % 0.02);
   });
 
   it('array, number', () => {

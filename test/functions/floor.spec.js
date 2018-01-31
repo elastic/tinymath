@@ -10,6 +10,6 @@ describe('Floor', () => {
 
   it('arrays', () => {
     expect(floor([-10.5, -20.9, -30.1, -40.2])).to.be.eql([-11, -21, -31, -41]);
-    expect(floor([ 2.9, 5.1, 3.5, 4.3])).to.be.eql([2, 5, 3, 4]);
+    expect(floor([2.9, 5.1, 3.5, 4.3])).to.be.eql([2, 5, 3, 4]);
   });
 });
