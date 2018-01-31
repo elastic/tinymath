@@ -6,9 +6,12 @@ import { fix } from './fix';
 import { floor } from './floor';
 import { max } from './max';
 import { mean } from './mean';
+import { median } from './median';
 import { min } from './min';
 import { mod } from './mod';
+import { mode } from './mode';
 import { multiply } from './multiply';
+import { range } from './range';
 import { round } from './round';
 import { subtract } from './subtract';
 import { sum } from './sum';
@@ -22,9 +25,12 @@ export const functions = {
   floor,
   max,
   mean,
+  median,
   min,
   mod,
+  mode,
   multiply,
+  range,
   round,
   subtract,
   sum
