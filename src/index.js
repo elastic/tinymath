@@ -8,7 +8,7 @@ export function evaluate(expression, scope) {
 }
 
 export function interpret(node, scope, injectedFunctions) {
-  const functions = { ...includedFunctions, ...injectedFunctions };
+  const functions = Object.assign({}, includedFunctions, injectedFunctions); // eslint-disable-line
 
   return exec(node);
 
