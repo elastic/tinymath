@@ -1,14 +1,6 @@
-export function round(a, b = undefined) {
-  const isArray = Array.isArray(a);
-  if (b) {
-    if (isArray) {
-      return a.map(a => Math.round(a, b));
-    }
-    return Math.round(a, b);
+export function round(a, b = 0) {
+  if (Array.isArray(a)) {
+    return a.map(a => Math.round(a * Math.pow(10, b)) / Math.pow(10, b));
   }
-
-  if (isArray) {
-    return a.map(a => Math.round(a));
-  }
-  return Math.round(a);
+  return Math.round(a * Math.pow(10, b)) / Math.pow(10, b);
 }
