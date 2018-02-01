@@ -78,4 +78,15 @@ describe('Evaluate', () => {
       18,
     ]);
   });
+
+  it('equations with arrays using special operator functions', () => {
+    expect(evaluate('foo + bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).to.be.eql([5, 7, 9]);
+    expect(evaluate('foo - bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).to.be.eql([-3, -3, -3]);
+    expect(evaluate('foo * bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).to.be.eql([4, 10, 18]);
+    expect(evaluate('foo / bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).to.be.eql([
+      1 / 4,
+      2 / 5,
+      3 / 6,
+    ]);
+  });
 });

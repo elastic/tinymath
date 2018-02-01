@@ -9,7 +9,7 @@ Expression
 AddSubtract
  = _ left:MultiplyDivide rest:(('+' / '-') MultiplyDivide)* _ {
   return rest.reduce((acc, curr) => ({
-   name: curr[0] === '+' ? 'sum' : 'subtract',
+   name: curr[0] === '+' ? 'add' : 'subtract',
    args: [acc, curr[1]]
   }), left)
  }
