@@ -3,8 +3,9 @@ import { pow } from '../../src/functions/pow.js';
 
 describe('Pow', () => {
   it('numbers', () => {
-    expect(pow(3, 2)).to.be.equal(Math.pow(3, 2));
-    expect(pow(-1, -1)).to.be.equal(Math.pow(-1, -1));
+    expect(pow(3, 2)).to.be.equal(9);
+    expect(pow(-1, -1)).to.be.equal(-1);
+    expect(pow(5, 0)).to.be.equal(1);
   });
 
   it('arrays', () => {

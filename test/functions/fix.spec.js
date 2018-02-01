@@ -3,9 +3,9 @@ import { fix } from '../../src/functions/fix.js';
 
 describe('Fix', () => {
   it('numbers', () => {
-    expect(fix(-10.5)).to.be.equal(Math.ceil(-10.5));
-    expect(fix(-10.1)).to.be.equal(Math.ceil(-10.1));
-    expect(fix(10.9)).to.be.equal(Math.floor(10.9));
+    expect(fix(-10.5)).to.be.equal(-10);
+    expect(fix(-10.1)).to.be.equal(-10);
+    expect(fix(10.9)).to.be.equal(10);
   });
 
   it('arrays', () => {
