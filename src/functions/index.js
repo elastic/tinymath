@@ -16,6 +16,7 @@ import { mod } from './mod';
 import { mode } from './mode';
 import { multiply } from './multiply';
 import { pow } from './pow';
+import { random } from './random';
 import { range } from './range';
 import { round } from './round';
 import { sqrt } from './sqrt';
@@ -43,6 +44,7 @@ export const functions = {
   mode,
   multiply,
   pow,
+  random,
   range,
   round,
   sqrt,
