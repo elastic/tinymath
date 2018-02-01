@@ -9,9 +9,9 @@ import { evaluate } from tinymath
 Then use it:
 
 ```javascript
-evaluate('foo + 20', {foo: [1, 2, 3]});
-evaluate('foo + bar', {foo: [1, 2, 3], bar: [4, 5, 6]});
-evaluate('multiply(foo, bar) / 10', {foo: [1, 2, 3], bar: [4, 5, 6]});
+evaluate('foo + 20', {foo: [1, 2, 3]}); // [21, 22, 23]
+evaluate('foo + bar', {foo: [1, 2, 3], bar: [4, 5, 6]}); // [5, 7, 9]
+evaluate('multiply(foo, bar) / 10', {foo: [1, 2, 3], bar: [4, 5, 6]}); // [0.4, 1, 1.8]
 ```
 
 ### Adding Functions
