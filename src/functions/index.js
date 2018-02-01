@@ -4,6 +4,7 @@ import { cbrt } from './cbrt';
 import { ceil } from './ceil';
 import { cube } from './cube';
 import { divide } from './divide';
+import { exp } from './exp';
 import { fix } from './fix';
 import { floor } from './floor';
 import { log } from './log';
@@ -32,6 +33,7 @@ export const functions = {
   ceil,
   cube,
   divide,
+  exp,
   fix,
   floor,
   log,
