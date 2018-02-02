@@ -2,6 +2,7 @@ import { abs } from './abs';
 import { add } from './add';
 import { cbrt } from './cbrt';
 import { ceil } from './ceil';
+import { count } from './count';
 import { cube } from './cube';
 import { divide } from './divide';
 import { exp } from './exp';
@@ -20,6 +21,7 @@ import { pow } from './pow';
 import { random } from './random';
 import { range } from './range';
 import { round } from './round';
+import { size } from './size';
 import { sqrt } from './sqrt';
 import { square } from './square';
 import { subtract } from './subtract';
@@ -31,6 +33,7 @@ export const functions = {
   add,
   cbrt,
   ceil,
+  count,
   cube,
   divide,
   exp,
@@ -49,6 +52,7 @@ export const functions = {
   random,
   range,
   round,
+  size,
   sqrt,
   square,
   subtract,
