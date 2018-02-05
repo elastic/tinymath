@@ -1,16 +1,24 @@
 import { parse as parseFn } from './grammar';
 import { functions as includedFunctions } from './functions';
 
-export const parse = parseFn;
+export function parse(input, options) {
+  if (input == null) {
+    throw new Error('Missing expression');
+  }
+
+  if (typeof input !== 'string') {
+    throw new Error('Expression must be a string');
+  }
+
+  try {
+    return parseFn(input, options);
+  } catch (e) {
+    throw new Error(`Failed to parse expression. ${e.message}`);
+  }
+}
 
 export function evaluate(expression, scope) {
-  let parsedExp;
-  try {
-    parsedExp = parse(expression);
-  } catch (e) {
-    throw new Error('Failed to parse empty expression.');
-  }
-  return interpret(parsedExp, scope);
+  return interpret(parse(expression), scope);
 }
 
 export function interpret(node, scope, injectedFunctions) {

@@ -38,8 +38,17 @@ describe('Parser', () => {
     });
   });
 
-  describe('Error: missing expression', () => {
-    expect(parse('')).to.throw('Failed to parse empty expression');
+  it('missing expression', () => {
+    expect(() => parse(undefined)).to.throw('Missing expression');
+    expect(() => parse(null)).to.throw('Missing expression');
+  });
+
+  it('Failed parse', () => {
+    expect(() => parse('')).to.throw('Failed to parse expression');
+  });
+
+  it('Not a string', () => {
+    expect(() => parse(3)).to.throw('Expression must be a string');
   });
 });
 
@@ -92,5 +101,9 @@ describe('Evaluate', () => {
       2 / 5,
       3 / 6,
     ]);
+  });
+
+  it('missing expression', () => {
+    expect(() => evaluate('')).to.throw('Failed to parse expression');
   });
 });
