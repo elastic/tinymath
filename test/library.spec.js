@@ -37,6 +37,10 @@ describe('Parser', () => {
       expect(parse('foo(5,10)')).to.be.eql({ name: 'foo', args: [5, 10] });
     });
   });
+
+  describe('Error: missing expression', () => {
+    expect(parse('')).to.throw('Failed to parse empty expression');
+  });
 });
 
 describe('Evaluate', () => {

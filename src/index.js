@@ -4,7 +4,13 @@ import { functions as includedFunctions } from './functions';
 export const parse = parseFn;
 
 export function evaluate(expression, scope) {
-  return interpret(parse(expression), scope);
+  let parsedExp;
+  try {
+    parsedExp = parse(expression);
+  } catch (e) {
+    throw new Error('Failed to parse empty expression.');
+  }
+  return interpret(parsedExp, scope);
 }
 
 export function interpret(node, scope, injectedFunctions) {
