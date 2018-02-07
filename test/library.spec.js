@@ -111,6 +111,13 @@ describe('Evaluate', () => {
         },
       })
     ).to.be.equal(-1);
+    expect(
+      evaluate('stringify(2)', null, {
+        stringify: function(a) {
+          return '' + a;
+        },
+      })
+    ).to.be.equal('2');
   });
 
   it('equations with arrays using special operator functions', () => {
