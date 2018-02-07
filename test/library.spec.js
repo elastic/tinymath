@@ -38,7 +38,7 @@ describe('Parser', () => {
     });
   });
 
-  it('missing expression', () => {
+  it('Missing expression', () => {
     expect(() => parse(undefined)).to.throw('Missing expression');
     expect(() => parse(null)).to.throw('Missing expression');
   });
@@ -126,5 +126,15 @@ describe('Evaluate', () => {
 
   it('missing expression', () => {
     expect(() => evaluate('')).to.throw('Failed to parse expression');
+  });
+
+  it('missing referenced scope when used in injected function', () => {
+    expect(() =>
+      evaluate('increment(foo)', null, {
+        increment: function(a) {
+          return a + 1;
+        },
+      })
+    ).to.throw('Unknown variable: foo');
   });
 });
