@@ -37,6 +37,19 @@ describe('Parser', () => {
       expect(parse('foo(5,10)')).to.be.eql({ name: 'foo', args: [5, 10] });
     });
   });
+
+  it('Missing expression', () => {
+    expect(() => parse(undefined)).to.throw('Missing expression');
+    expect(() => parse(null)).to.throw('Missing expression');
+  });
+
+  it('Failed parse', () => {
+    expect(() => parse('')).to.throw('Failed to parse expression');
+  });
+
+  it('Not a string', () => {
+    expect(() => parse(3)).to.throw('Expression must be a string');
+  });
 });
 
 describe('Evaluate', () => {
@@ -79,6 +92,34 @@ describe('Evaluate', () => {
     ]);
   });
 
+  it('equations with injected functions', () => {
+    expect(
+      evaluate(
+        'plustwo(foo)',
+        { foo: 5 },
+        {
+          plustwo: function(a) {
+            return a + 2;
+          },
+        }
+      )
+    ).to.be.equal(7);
+    expect(
+      evaluate('negate(1)', null, {
+        negate: function(a) {
+          return -a;
+        },
+      })
+    ).to.be.equal(-1);
+    expect(
+      evaluate('stringify(2)', null, {
+        stringify: function(a) {
+          return '' + a;
+        },
+      })
+    ).to.be.equal('2');
+  });
+
   it('equations with arrays using special operator functions', () => {
     expect(evaluate('foo + bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).to.be.eql([5, 7, 9]);
     expect(evaluate('foo - bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).to.be.eql([-3, -3, -3]);
@@ -88,5 +129,19 @@ describe('Evaluate', () => {
       2 / 5,
       3 / 6,
     ]);
+  });
+
+  it('missing expression', () => {
+    expect(() => evaluate('')).to.throw('Failed to parse expression');
+  });
+
+  it('missing referenced scope when used in injected function', () => {
+    expect(() =>
+      evaluate('increment(foo)', null, {
+        increment: function(a) {
+          return a + 1;
+        },
+      })
+    ).to.throw('Unknown variable: foo');
   });
 });
