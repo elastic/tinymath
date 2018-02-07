@@ -1,6 +1,6 @@
 {
   "name": "tinymath",
-  "version": "0.1.3",
+  "version": "0.1.6",
   "description":
     "A tiny math expression library with only the stuff I personally care about. Deal with it.",
   "main": "lib/tinymath.js",
@@ -15,13 +15,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rashidkpc/tinymath.git"
+    "url": "https://github.com/elastic/tinymath.git"
   },
   "author": "Rashid Khan <rashid.khan@elastic.co>",
   "contributors": ["Catherine Liu <catherine.liu@elastic.co>"],
   "license": "Apache 2",
   "bugs": {
-    "url": "https://github.com/rashidkpc/tinymath"
+    "url": "https://github.com/elastic/tinymath"
   },
   "prettier": {
     "printWidth": 100,
