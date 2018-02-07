@@ -92,6 +92,27 @@ describe('Evaluate', () => {
     ]);
   });
 
+  it('equations with injected functions', () => {
+    expect(
+      evaluate(
+        'plustwo(foo)',
+        { foo: 5 },
+        {
+          plustwo: function(a) {
+            return a + 2;
+          },
+        }
+      )
+    ).to.be.equal(7);
+    expect(
+      evaluate('negate(1)', null, {
+        negate: function(a) {
+          return -a;
+        },
+      })
+    ).to.be.equal(-1);
+  });
+
   it('equations with arrays using special operator functions', () => {
     expect(evaluate('foo + bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).to.be.eql([5, 7, 9]);
     expect(evaluate('foo - bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).to.be.eql([-3, -3, -3]);
