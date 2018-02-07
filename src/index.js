@@ -3,8 +3,8 @@ import { functions as includedFunctions } from './functions';
 
 export const parse = parseFn;
 
-export function evaluate(expression, scope) {
-  return interpret(parse(expression), scope);
+export function evaluate(expression, scope, injectedFunctions) {
+  return interpret(parse(expression), scope, injectedFunctions || {});
 }
 
 export function interpret(node, scope, injectedFunctions) {
