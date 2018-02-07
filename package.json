@@ -1,8 +1,7 @@
 {
   "name": "tinymath",
-  "version": "0.1.6",
-  "description":
-    "A tiny math expression library with only the stuff I personally care about. Deal with it.",
+  "version": "0.1.7",
+  "description": "A tiny math expression library with only the stuff I personally care about. Deal with it.",
   "main": "lib/tinymath.js",
   "scripts": {
     "build": "webpack --env dev && webpack --env build && npm run test",
