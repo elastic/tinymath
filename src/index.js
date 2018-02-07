@@ -1,15 +1,29 @@
 import { parse as parseFn } from './grammar';
 import { functions as includedFunctions } from './functions';
 
-export const parse = parseFn;
+export function parse(input, options) {
+  if (input == null) {
+    throw new Error('Missing expression');
+  }
 
-export function evaluate(expression, scope, injectedFunctions) {
-  return interpret(parse(expression), scope, injectedFunctions || {});
+  if (typeof input !== 'string') {
+    throw new Error('Expression must be a string');
+  }
+
+  try {
+    return parseFn(input, options);
+  } catch (e) {
+    throw new Error(`Failed to parse expression. ${e.message}`);
+  }
+}
+
+export function evaluate(expression, scope = {}, injectedFunctions = {}) {
+  scope = scope || {};
+  return interpret(parse(expression), scope, injectedFunctions);
 }
 
 export function interpret(node, scope, injectedFunctions) {
   const functions = Object.assign({}, includedFunctions, injectedFunctions); // eslint-disable-line
-
   return exec(node);
 
   function exec(node) {
