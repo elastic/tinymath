@@ -1,8 +1,5 @@
-import chai from 'chai';
+import { expect } from 'chai';
 import { unique } from '../../src/functions/unique.js';
-
-chai.expect();
-const expect = chai.expect;
 
 describe('Unique', () => {
   it('numbers', () => {
