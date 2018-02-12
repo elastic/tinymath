@@ -6,8 +6,10 @@ import { count } from './count';
 import { cube } from './cube';
 import { divide } from './divide';
 import { exp } from './exp';
+import { first } from './first';
 import { fix } from './fix';
 import { floor } from './floor';
+import { last } from './last';
 import { log } from './log';
 import { log10 } from './log10';
 import { max } from './max';
@@ -37,8 +39,10 @@ export const functions = {
   cube,
   divide,
   exp,
+  first,
   fix,
   floor,
+  last,
   log,
   log10,
   max,
