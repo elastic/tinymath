@@ -1,8 +1,5 @@
-import chai from 'chai';
+import { expect } from 'chai';
 import { first } from '../../src/functions/first.js';
-
-chai.expect();
-const expect = chai.expect;
 
 describe('First', () => {
   it('numbers', () => {
