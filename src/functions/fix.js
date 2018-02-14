@@ -1,3 +1,13 @@
+/**
+ * Calculates the fix of a number, i.e. rounds a number towards 0. For arrays, the function will be applied to each element.
+ * @param {(number|number[])} a a number or an array of numbers
+ * @return {(number|number[])} The fix of a number or an array of the fixes for each element.
+ *
+ * Examples:
+ * - fix(1.2) returns 1
+ * - fix(-1.8) returns 1
+ * - fix([1.8, 2.9, -3.7, -4.6]) returns [1, 2, -3, -4]
+ */
 const fixer = a => {
   if (a > 0) {
     return Math.floor(a);
