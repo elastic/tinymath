@@ -1,3 +1,13 @@
+/**
+ * Calculates the sum of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will be applied to each element.
+ * @param {...(number|number[])} args numbers and/or arrays of numbers
+ * @return {(number|number[])} The sum of all numbers if all inputs are numbers or an array of sums applied to each element.
+ *
+ * Examples:
+ * - add(1, 2, 3) returns 6
+ * - add([10, 20, 30, 40], 10, 20, 30) returns [70, 80, 90, 100]
+ * - add([1, 2], 3, [4, 5], 6) returns [14, 16]
+ */
 export function add(...args) {
   if (args.length === 1) {
     if (Array.isArray(args[0])) return args[0].reduce((result, current) => result + current);
