@@ -5,7 +5,7 @@
  *
  * Examples:
  * - abs(-1) returns 1
- * - abs([-1, -2, -3, -4]) returns [1, 2, 3, 4]
+ * - abs([-1git , -2, -3, -4]) returns [1, 2, 3, 4]
  */
 export function abs(a) {
   if (Array.isArray(a)) {
