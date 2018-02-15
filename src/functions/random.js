@@ -1,3 +1,15 @@
+/**
+ * Generates a random number within the given range where the lower bound is inclusive and the upper bound is exclusive. If no numbers are passed in, it will return a number between 0 and 1. If only one number is passed in, it will return .
+ * @param {number} a (optional) must be greater than 0 if 'b' is not provided
+ * @param {number} b optional, must be greater
+ * @return {number} generates a number between 0 and 1 if no numbers are passed in, a number between 0 and 'a' if only one number is passed in, or a number between 'a' and 'b' if two numbers are passed in
+ *
+ * Examples:
+ * random() returns a number between 0 and 1
+ * random(10) returns a number between 0 and 10
+ * random(-10,10) returns a number between -10 and 10
+ */
+
 export function random(a, b) {
   if (a == null) return Math.random();
 
