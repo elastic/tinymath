@@ -7,7 +7,8 @@
   "scripts": {
     "build": "webpack --env dev && webpack --env build && npm run test",
     "dev": "webpack --progress --colors --watch --env dev",
-    "docs": "jsdoc2md src/functions/*.js > docs/functions.md",
+    "docs":
+      "jsdoc2md --template docs/template/functions.hbs src/functions/*.js > docs/functions.md",
     "lint": "eslint src/*.js src/**/*.js test/*.js test/**/*.js",
     "lint:fix": "eslint --fix src/*.js src/**/*.js test/*.js test/**/*.js",
     "test": "mocha --require babel-core/register --colors ./test/*.spec.js ./test/**/*.spec.js ",
