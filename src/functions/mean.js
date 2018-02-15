@@ -1,4 +1,5 @@
 import { add } from './add.js';
+
 /**
  * Finds the mean value of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the mean by index.
  * @param {...(number|number[])} args numbers and/or arrays of numbers
@@ -9,6 +10,7 @@ import { add } from './add.js';
  * - mean([10, 20, 30, 40], 20) returns [15, 20, 25, 30]
  * - mean([1, 9], 5, [3, 4]) returns [3, 6]
  */
+
 export function mean(...args) {
   if (args.length === 1) {
     if (Array.isArray(args[0])) return add(args[0]) / args[0].length;

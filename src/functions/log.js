@@ -9,6 +9,7 @@
  * - log(64, 8) returns 2
  * - log([2, 4, 8, 16, 32], 2) returns [1, 2, 3, 4, 5]
  */
+
 export function log(a, b) {
   if (b == null) {
     if (Array.isArray(a)) {

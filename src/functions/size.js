@@ -7,6 +7,7 @@
  * - size([]) returns 0
  * - size([-1, -2, -3, -4]) returns 4
  */
+
 export function size(a) {
   if (Array.isArray(a)) return a.length;
   throw new Error('Must pass an array');

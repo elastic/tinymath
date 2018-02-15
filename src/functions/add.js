@@ -8,6 +8,7 @@
  * - add([10, 20, 30, 40], 10, 20, 30) returns [70, 80, 90, 100]
  * - add([1, 2], 3, [4, 5], 6) returns [14, 16]
  */
+
 export function add(...args) {
   if (args.length === 1) {
     if (Array.isArray(args[0])) return args[0].reduce((result, current) => result + current);

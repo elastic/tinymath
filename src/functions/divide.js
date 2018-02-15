@@ -10,6 +10,7 @@
  * - divide(10, [1, 2, 5, 10]) returns [10, 5, 2, 1]
  * - divide([14, 42, 65, 108], [2, 7, 5, 12]) returns [7, 6, 13, 9]
  */
+
 export function divide(a, b) {
   if (Array.isArray(a) && Array.isArray(b)) {
     if (a.length !== b.length) throw new Error('Matrix length mismatch');

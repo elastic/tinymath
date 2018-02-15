@@ -8,6 +8,7 @@
  * - min([10, 20, 30, 40], 25) returns [10, 20, 25, 25]
  * - min([1, 9], 4, [3, 5]) returns [1, 4]
  */
+
 export function min(...args) {
   if (args.length === 1) {
     if (Array.isArray(args[0]))

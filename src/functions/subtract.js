@@ -10,6 +10,7 @@
  * - subtract(10, [1, 2, 5, 10]) returns [9, 8, 5, 0]
  * - subtract([14, 42, 65, 108], [2, 7, 5, 12]) returns [12, 35, 52, 96]
  */
+
 export function subtract(a, b) {
   if (Array.isArray(a) && Array.isArray(b)) {
     if (a.length !== b.length) throw new Error('Matrix length mismatch');

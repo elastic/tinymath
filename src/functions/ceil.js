@@ -7,6 +7,7 @@
  * - ceil(1.2) returns 2
  * - ceil([1.1, 2.2, 3.3]) returns [2, 3, 4]
  */
+
 export function ceil(a) {
   if (Array.isArray(a)) {
     return a.map(a => Math.ceil(a));

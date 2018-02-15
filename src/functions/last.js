@@ -7,7 +7,9 @@
  * - last(2) returns 2
  * - last('foo') returns 'foo'
  * - last([1, 2, 3]) returns 3
- */ export function last(a) {
+ */
+
+export function last(a) {
   if (Array.isArray(a)) {
     return a[a.length - 1];
   }

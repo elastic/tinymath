@@ -8,6 +8,7 @@
  * - pow(2,3) returns 8
  * - pow([1, 2, 3], 4) returns [1, 16, 81]
  */
+
 export function pow(a, b) {
   if (b == null) throw new Error('Missing exponent');
   if (Array.isArray(a)) {

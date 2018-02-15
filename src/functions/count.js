@@ -1,4 +1,5 @@
 import { size } from './size.js';
+
 /**
  * Returns the length of an array. Alias for size
  * @param {Array} a any array
@@ -8,6 +9,7 @@ import { size } from './size.js';
  * - count([]) returns 0
  * - count([-1, -2, -3, -4]) returns 4
  */
+
 export function count(a) {
   return size(a);
 }
