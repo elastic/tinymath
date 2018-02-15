@@ -1,4 +1,5 @@
 import { transpose } from './lib/transpose';
+
 const findMode = a => {
   let maxFreq = 0;
   const mapping = {};

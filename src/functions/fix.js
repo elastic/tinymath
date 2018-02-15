@@ -4,6 +4,7 @@ const fixer = a => {
   }
   return Math.ceil(a);
 };
+
 /**
  * Calculates the fix of a number, i.e. rounds a number towards 0. For arrays, the function will be applied to each element.
  * @param {(number|number[])} a a number or an array of numbers
@@ -14,6 +15,7 @@ const fixer = a => {
  * - fix(-1.8) returns 1
  * - fix([1.8, 2.9, -3.7, -4.6]) returns [1, 2, -3, -4]
  */
+
 export function fix(a) {
   if (Array.isArray(a)) {
     return a.map(a => fixer(a));

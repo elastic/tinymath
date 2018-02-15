@@ -10,6 +10,7 @@
  * - multiply(10, [1, 2, 5, 10]) returns [10, 20, 50, 100]
  * - multiply([1, 2, 3, 4], [2, 7, 5, 12]) returns [2, 14, 15, 48]
  */
+
 export function multiply(...args) {
   return args.reduce((result, current) => {
     if (Array.isArray(result) && Array.isArray(current)) {

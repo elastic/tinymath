@@ -8,6 +8,7 @@
  * - max([10, 20, 30, 40], 15) returns [15, 20, 30, 40]
  * - max([1, 9], 4, [3, 5]) returns [4, 9]
  */
+
 export function max(...args) {
   if (args.length === 1) {
     if (Array.isArray(args[0]))

@@ -1,4 +1,5 @@
 import { log } from './log.js';
+
 /**
  * Calculates the logarithm base 10 of a number. For arrays, the function will be applied to each element.
  * @param {(number|number[])} a a number or an array of numbers
@@ -9,6 +10,7 @@ import { log } from './log.js';
  * - log(64, 8) returns 2
  * - log([2, 4, 8, 16, 32], 2) returns [1, 2, 3, 4, 5]
  */
+
 export function log10(a) {
   return log(a, 10);
 }

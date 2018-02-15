@@ -7,6 +7,7 @@
  * - sqrt(9) returns 3
  * - sqrt([9, 16, 25]) returns [3, 4, 5]
  */
+
 export function sqrt(a) {
   if (Array.isArray(a)) {
     return a.map(a => {

@@ -8,6 +8,7 @@
  * - first('foo') returns 'foo'
  * - first([1, 2, 3]) returns 1
  */
+
 export function first(a) {
   if (Array.isArray(a)) {
     return a[0];
