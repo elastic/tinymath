@@ -6,9 +6,9 @@ import { log } from './log.js';
  * @return {(number|number[])} logarithm of a number or an array of logarithms of each element.
  *
  * Examples:
- * - log(1) returns 0
- * - log(64, 8) returns 2
- * - log([2, 4, 8, 16, 32], 2) returns [1, 2, 3, 4, 5]
+ * - log(10) returns 1
+ * - log(100) returns 2
+ * - log([10, 100, 1000, 10000, 100000]) returns [1, 2, 3, 4, 5]
  */
 
 export function log10(a) {
