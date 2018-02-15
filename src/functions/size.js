@@ -3,9 +3,9 @@
  * @param {Array} a any array
  * @return {(number)} the length of the array
  *
- * Examples:
- * - size([]) returns 0
- * - size([-1, -2, -3, -4]) returns 4
+ * @example
+ * size([]) //returns 0
+ * size([-1, -2, -3, -4]) //returns 4
  */
 
 export function size(a) {

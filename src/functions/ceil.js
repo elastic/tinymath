@@ -3,9 +3,9 @@
  * @param {(number|number[])} a a number or an array of numbers
  * @return {(number|number[])} The ceiling of a number or an array of the ceilings of each element.
  *
- * Examples:
- * - ceil(1.2) returns 2
- * - ceil([1.1, 2.2, 3.3]) returns [2, 3, 4]
+ * @example
+ * ceil(1.2) //returns 2
+ * ceil([1.1, 2.2, 3.3]) //returns [2, 3, 4]
  */
 
 export function ceil(a) {

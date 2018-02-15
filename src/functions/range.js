@@ -7,10 +7,10 @@ import { subtract } from './subtract.js';
  * @param {...(number|number[])} args numbers and/or arrays of numbers
  * @return {(number|number[])} The range value of all numbers if all inputs are numbers or an array of range values at each index, including scalar numbers.
  *
- * Examples:
- * - range(1, 2, 3) returns 2
- * - range([10, 20, 30, 40], 15) returns [5, 5, 15, 25]
- * - range([1, 9], 4, [3, 5]) returns [3, 5]
+ * @example
+ * range(1, 2, 3) //returns 2
+ * range([10, 20, 30, 40], 15) //returns [5, 5, 15, 25]
+ * range([1, 9], 4, [3, 5]) //returns [3, 5]
  */
 
 export function range(...args) {

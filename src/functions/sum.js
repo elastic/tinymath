@@ -5,10 +5,10 @@ const findSum = (total, current) => total + current;
  * @param {...(number|number[])} args numbers and/or arrays of numbers
  * @return {number} The sum of all numbers including distinct values in any arrays.
  *
- * Examples:
- * - sum(1, 2, 3) returns 6
- * - sum([10, 20, 30, 40], 10, 20, 30) returns 160
- * - sum([1, 2], 3, [4, 5], 6) returns 21
+ * @example
+ * sum(1, 2, 3) //returns 6
+ * sum([10, 20, 30, 40], 10, 20, 30) //returns 160
+ * sum([1, 2], 3, [4, 5], 6) //returns 21
  */
 
 export function sum(...args) {

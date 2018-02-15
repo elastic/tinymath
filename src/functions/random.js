@@ -4,10 +4,10 @@
  * @param {number} b optional, must be greater
  * @return {number} generates a number between 0 and 1 if no numbers are passed in, a number between 0 and 'a' if only one number is passed in, or a number between 'a' and 'b' if two numbers are passed in
  *
- * Examples:
- * random() returns a number between 0 and 1
- * random(10) returns a number between 0 and 10
- * random(-10,10) returns a number between -10 and 10
+ * @example
+ * random() //returns a number between 0 and 1
+ * random(10) //returns a number between 0 and 10
+ * random(-10,10) //returns a number between -10 and 10
  */
 
 export function random(a, b) {

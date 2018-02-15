@@ -3,10 +3,10 @@
  * @param {...(number|number[])} args numbers and/or arrays of numbers
  * @return {(number|number[])} The minimum value of all numbers if all inputs are numbers or an array of minimum values of each index, including scalar numbers.
  *
- * Examples:
- * - min(1, 2, 3) returns 1
- * - min([10, 20, 30, 40], 25) returns [10, 20, 25, 25]
- * - min([1, 9], 4, [3, 5]) returns [1, 4]
+ * @example
+ * min(1, 2, 3) //returns 1
+ * min([10, 20, 30, 40], 25) //returns [10, 20, 25, 25]
+ * min([1, 9], 4, [3, 5]) //returns [1, 4]
  */
 
 export function min(...args) {

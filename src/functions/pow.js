@@ -4,9 +4,9 @@
  * @param {(number)} b the power that 'a' is raised to
  * @return {(number|number[])} 'a' raised to the power of 'b' or an array of each element raised to the power of 'b'.
  *
- * Examples:
- * - pow(2,3) returns 8
- * - pow([1, 2, 3], 4) returns [1, 16, 81]
+ * @example
+ * pow(2,3) //returns 8
+ * pow([1, 2, 3], 4) //returns [1, 16, 81]
  */
 
 export function pow(a, b) {

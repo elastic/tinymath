@@ -5,10 +5,10 @@ import { log } from './log.js';
  * @param {(number|number[])} a a number or an array of numbers
  * @return {(number|number[])} logarithm of a number or an array of logarithms of each element.
  *
- * Examples:
- * - log(10) returns 1
- * - log(100) returns 2
- * - log([10, 100, 1000, 10000, 100000]) returns [1, 2, 3, 4, 5]
+ * @example
+ * log(10) //returns 1
+ * log(100) //returns 2
+ * log([10, 100, 1000, 10000, 100000]) //returns [1, 2, 3, 4, 5]
  */
 
 export function log10(a) {

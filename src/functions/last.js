@@ -3,10 +3,10 @@
  * @param {*} a preferably an array but any input is accepted
  * @return {*} last element of an array or the same input is returned
  *
- * Examples:
- * - last(2) returns 2
- * - last('foo') returns 'foo'
- * - last([1, 2, 3]) returns 3
+ * @example
+ * last(2) //returns 2
+ * last('foo') //returns 'foo'
+ * last([1, 2, 3]) //returns 3
  */
 
 export function last(a) {

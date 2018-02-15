@@ -1,0 +1,1142 @@
+[
+  {
+    "id": "abs",
+    "longname": "abs",
+    "name": "abs",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the absolute value of a number. For arrays, the function will be applied to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      }
+    ],
+    "examples": ["abs(-1) //returns 1\nabs([-1 , -2, -3, -4]) //returns [1, 2, 3, 4]"],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description":
+          "The absolute value of 'a' or an array with the absolute values of each element."
+      }
+    ],
+    "meta": {
+      "lineno": 11,
+      "filename": "abs.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 0
+  },
+  {
+    "id": "add",
+    "longname": "add",
+    "name": "add",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the sum of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will calculate the sum by index.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "variable": true,
+        "description": "numbers and/or arrays of numbers",
+        "name": "args"
+      }
+    ],
+    "examples": [
+      "add(1, 2, 3) //returns 6\nadd([10, 20, 30, 40], 10, 20, 30) //returns [70, 80, 90, 100]\nadd([1, 2], 3, [4, 5], 6) //returns [14, 16]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description":
+          "The sum of all numbers if all inputs are numbers or an array of sums of the elements at each index, including scalar numbers."
+      }
+    ],
+    "meta": {
+      "lineno": 12,
+      "filename": "add.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 1
+  },
+  {
+    "id": "cbrt",
+    "longname": "cbrt",
+    "name": "cbrt",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the cube root of a number. For arrays, the function will be applied to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      }
+    ],
+    "examples": ["cbrt(-27) //returns -3\ncbrt([27, 64, 125]) //returns [3, 4, 5]"],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "The cube root of 'a' or an array with the cube roots of each element."
+      }
+    ],
+    "meta": {
+      "lineno": 11,
+      "filename": "cbrt.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 2
+  },
+  {
+    "id": "ceil",
+    "longname": "ceil",
+    "name": "ceil",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the ceiling of a number, i.e. rounds a number towards positive infinity. For arrays, the function will be applied to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      }
+    ],
+    "examples": ["ceil(1.2) //returns 2\nceil([1.1, 2.2, 3.3]) //returns [2, 3, 4]"],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "The ceiling of a number or an array of the ceilings of each element."
+      }
+    ],
+    "meta": {
+      "lineno": 11,
+      "filename": "ceil.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 3
+  },
+  {
+    "id": "count",
+    "longname": "count",
+    "name": "count",
+    "kind": "function",
+    "scope": "global",
+    "description": "Returns the length of an array. Alias for size",
+    "params": [
+      {
+        "type": {
+          "names": ["Array"]
+        },
+        "description": "any array",
+        "name": "a"
+      }
+    ],
+    "examples": ["count([]) //returns 0\ncount([-1, -2, -3, -4]) //returns 4"],
+    "returns": [
+      {
+        "type": {
+          "names": ["number"]
+        },
+        "description": "the length of the array"
+      }
+    ],
+    "meta": {
+      "lineno": 13,
+      "filename": "count.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 4
+  },
+  {
+    "id": "cube",
+    "longname": "cube",
+    "name": "cube",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the cube of a number. For arrays, the function will be applied to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      }
+    ],
+    "examples": ["cube(-3) //returns -27\ncube([3, 4, 5]) //returns [27, 64, 125]"],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "The cube of 'a' or an array with the cubes of each element."
+      }
+    ],
+    "meta": {
+      "lineno": 13,
+      "filename": "cube.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 5
+  },
+  {
+    "id": "divide",
+    "longname": "divide",
+    "name": "divide",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Divides two numbers. If at least one array of numbers is passed into the function, the function will be applied index-wise to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "dividend, a number or an array of numbers",
+        "name": "a"
+      },
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "divisor, a number or an array of numbers",
+        "name": "b"
+      }
+    ],
+    "examples": [
+      "divide(6, 3) //returns 2\ndivide([10, 20, 30, 40], 10) //returns [1, 2, 3, 4]\ndivide(10, [1, 2, 5, 10]) //returns [10, 5, 2, 1]\ndivide([14, 42, 65, 108], [2, 7, 5, 12]) //returns [7, 6, 13, 9]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description":
+          "The quotient of 'a' and 'b' if both are numbers or an array of quotients applied index-wise to each element."
+      }
+    ],
+    "meta": {
+      "lineno": 14,
+      "filename": "divide.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 6
+  },
+  {
+    "id": "exp",
+    "longname": "exp",
+    "name": "exp",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the exponent of a number. For arrays, the function will be applied to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      }
+    ],
+    "examples": [
+      "exp(2) //returns e^2 = 7.3890560989306495\nexp([1, 2, 3]) //returns [e^1, e^2, e^3] = [2.718281828459045, 7.3890560989306495, 20.085536923187668]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "exponent of a number or an array of exponents of each element."
+      }
+    ],
+    "meta": {
+      "lineno": 11,
+      "filename": "exp.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 7
+  },
+  {
+    "id": "first",
+    "longname": "first",
+    "name": "first",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Returns the first element of an array. If anything other than an array is passed in, the input is returned.",
+    "params": [
+      {
+        "type": {
+          "names": ["*"]
+        },
+        "description": "preferably an array but any input is accepted",
+        "name": "a"
+      }
+    ],
+    "examples": [
+      "first(2) //returns 2\nfirst('foo') //returns 'foo'\nfirst([1, 2, 3]) //returns 1"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["*"]
+        },
+        "description": "first element of an array or the same input is returned"
+      }
+    ],
+    "meta": {
+      "lineno": 12,
+      "filename": "first.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 8
+  },
+  {
+    "id": "fix",
+    "longname": "fix",
+    "name": "fix",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the fix of a number, i.e. rounds a number towards 0. For arrays, the function will be applied to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      }
+    ],
+    "examples": [
+      "fix(1.2) //returns 1\nfix(-1.8) //returns 1\nfix([1.8, 2.9, -3.7, -4.6]) //returns [1, 2, -3, -4]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "The fix of a number or an array of the fixes for each element."
+      }
+    ],
+    "meta": {
+      "lineno": 19,
+      "filename": "fix.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 9
+  },
+  {
+    "id": "floor",
+    "longname": "floor",
+    "name": "floor",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the floor of a number, i.e. rounds a number towards negative infinity. For arrays, the function will be applied to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      }
+    ],
+    "examples": ["floor(1.2) //returns 1\nfloor([1.7, 2.8, 3.9]) //returns [1, 2, 3]"],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "The floor of a number or an array of the floor of each element."
+      }
+    ],
+    "meta": {
+      "lineno": 11,
+      "filename": "floor.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 10
+  },
+  {
+    "id": "last",
+    "longname": "last",
+    "name": "last",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Returns the last element of an array. If anything other than an array is passed in, the input is returned.",
+    "params": [
+      {
+        "type": {
+          "names": ["*"]
+        },
+        "description": "preferably an array but any input is accepted",
+        "name": "a"
+      }
+    ],
+    "examples": ["last(2) //returns 2\nlast('foo') //returns 'foo'\nlast([1, 2, 3]) //returns 3"],
+    "returns": [
+      {
+        "type": {
+          "names": ["*"]
+        },
+        "description": "last element of an array or the same input is returned"
+      }
+    ],
+    "meta": {
+      "lineno": 12,
+      "filename": "last.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 11
+  },
+  {
+    "id": "log",
+    "longname": "log",
+    "name": "log",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the logarithm of a number. For arrays, the function will be applied to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      },
+      {
+        "type": {
+          "names": ["Object"]
+        },
+        "description":
+          "optional base for the logarithm. If not provided a value, the default base is e, and the natural log is calculated.",
+        "name": "b"
+      }
+    ],
+    "examples": [
+      "log(1) //returns 0\nlog(64, 8) //returns 2\nlog([2, 4, 8, 16, 32], 2) //returns [1, 2, 3, 4, 5]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "logarithm of a number or an array of logarithms of each element."
+      }
+    ],
+    "meta": {
+      "lineno": 13,
+      "filename": "log.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 12
+  },
+  {
+    "id": "log10",
+    "longname": "log10",
+    "name": "log10",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the logarithm base 10 of a number. For arrays, the function will be applied to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      }
+    ],
+    "examples": [
+      "log(10) //returns 1\nlog(100) //returns 2\nlog([10, 100, 1000, 10000, 100000]) //returns [1, 2, 3, 4, 5]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "logarithm of a number or an array of logarithms of each element."
+      }
+    ],
+    "meta": {
+      "lineno": 14,
+      "filename": "log10.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 13
+  },
+  {
+    "id": "max",
+    "longname": "max",
+    "name": "max",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Finds the maximum value of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the maximum by index.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "variable": true,
+        "description": "numbers and/or arrays of numbers",
+        "name": "args"
+      }
+    ],
+    "examples": [
+      "max(1, 2, 3) //returns 3\nmax([10, 20, 30, 40], 15) //returns [15, 20, 30, 40]\nmax([1, 9], 4, [3, 5]) //returns [4, 9]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description":
+          "The maximum value of all numbers if all inputs are numbers or an array of maximum values at each index, including scalar numbers."
+      }
+    ],
+    "meta": {
+      "lineno": 12,
+      "filename": "max.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 14
+  },
+  {
+    "id": "mean",
+    "longname": "mean",
+    "name": "mean",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Finds the mean value of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the mean by index.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "variable": true,
+        "description": "numbers and/or arrays of numbers",
+        "name": "args"
+      }
+    ],
+    "examples": [
+      "mean(1, 2, 3) //returns 2\nmean([10, 20, 30, 40], 20) //returns [15, 20, 25, 30]\nmean([1, 9], 5, [3, 4]) //returns [3, 6]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description":
+          "The mean value of all numbers if all inputs are numbers or an array of mean values of each index, including scalar numbers."
+      }
+    ],
+    "meta": {
+      "lineno": 14,
+      "filename": "mean.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 15
+  },
+  {
+    "id": "median",
+    "longname": "median",
+    "name": "median",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Finds the median value(s) of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the median by index.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "variable": true,
+        "description": "numbers and/or arrays of numbers",
+        "name": "args"
+      }
+    ],
+    "examples": [
+      "median(1, 1, 2, 3) //returns 1.5\nmedian(1, 1, 2, 2, 3) //returns 2\nmedian([10, 20, 30, 40], 10, 20, 30) //returns [15, 20, 25, 25]\nmedian([1, 9], 4, [3, 5]) //returns [3, 4]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["Array.<number>", "Array.<Array.<number>>"]
+        },
+        "description":
+          "an array median value(s) of all numbers if all inputs are numbers or an array of arrays of median values of each index, including scalar numbers."
+      }
+    ],
+    "meta": {
+      "lineno": 28,
+      "filename": "median.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 16
+  },
+  {
+    "id": "min",
+    "longname": "min",
+    "name": "min",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Finds the minimum value of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the minimum by index.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "variable": true,
+        "description": "numbers and/or arrays of numbers",
+        "name": "args"
+      }
+    ],
+    "examples": [
+      "min(1, 2, 3) //returns 1\nmin([10, 20, 30, 40], 25) //returns [10, 20, 25, 25]\nmin([1, 9], 4, [3, 5]) //returns [1, 4]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description":
+          "The minimum value of all numbers if all inputs are numbers or an array of minimum values of each index, including scalar numbers."
+      }
+    ],
+    "meta": {
+      "lineno": 12,
+      "filename": "min.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 17
+  },
+  {
+    "id": "mod",
+    "longname": "mod",
+    "name": "mod",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Remainder after dividing two numbers. If at least one array of numbers is passed into the function, the function will be applied index-wise to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "dividend, a number or an array of numbers",
+        "name": "a"
+      },
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "divisor, a number or an array of numbers",
+        "name": "b"
+      }
+    ],
+    "examples": [
+      "mod(10, 7) //returns 3\nmod([11, 22, 33, 44], 10) //returns [1, 2, 3, 4]\nmod(100, [3, 7, 11, 23]) //returns [1, 2, 1, 8]\nmod([14, 42, 65, 108], [5, 4, 14, 2]) //returns [5, 2, 9, 0]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description":
+          "The remainder of 'a' divided by 'b' if both are numbers or an array of remainders applied index-wise to each element."
+      }
+    ],
+    "meta": {
+      "lineno": 14,
+      "filename": "mod.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 18
+  },
+  {
+    "id": "mode",
+    "longname": "mode",
+    "name": "mode",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Finds the mode value(s) of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the mode by index.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "variable": true,
+        "description": "numbers and/or arrays of numbers",
+        "name": "args"
+      }
+    ],
+    "examples": [
+      "mode(1, 1, 2, 3) //returns [1]\nmode(1, 1, 2, 2, 3) //returns [1,2]\nmode([10, 20, 30, 40], 10, 20, 30) //returns [[10], [20], [30], [10, 20, 30, 40]]\nmode([1, 9], 4, [3, 5]) //returns [[1, 3, 4], [4, 5, 9]]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["Array.<number>", "Array.<Array.<number>>"]
+        },
+        "description":
+          "an array mode value(s) of all numbers if all inputs are numbers or an array of arrays of mode values of each index, including scalar numbers."
+      }
+    ],
+    "meta": {
+      "lineno": 35,
+      "filename": "mode.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 19
+  },
+  {
+    "id": "multiply",
+    "longname": "multiply",
+    "name": "multiply",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Multiplies two numbers. If at least one array of numbers is passed into the function, the function will be applied index-wise to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      },
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "b"
+      }
+    ],
+    "examples": [
+      "multiply(6, 3) //returns 18\nmultiply([10, 20, 30, 40], 10) //returns [100, 200, 300, 400]\nmultiply(10, [1, 2, 5, 10]) //returns [10, 20, 50, 100]\nmultiply([1, 2, 3, 4], [2, 7, 5, 12]) //returns [2, 14, 15, 48]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description":
+          "The product of 'a' and 'b' if both are numbers or an array of products applied index-wise to each element."
+      }
+    ],
+    "meta": {
+      "lineno": 14,
+      "filename": "multiply.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 20
+  },
+  {
+    "id": "pow",
+    "longname": "pow",
+    "name": "pow",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the cube root of a number. For arrays, the function will be applied to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      },
+      {
+        "type": {
+          "names": ["number"]
+        },
+        "description": "the power that 'a' is raised to",
+        "name": "b"
+      }
+    ],
+    "examples": ["pow(2,3) //returns 8\npow([1, 2, 3], 4) //returns [1, 16, 81]"],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description":
+          "'a' raised to the power of 'b' or an array of each element raised to the power of 'b'."
+      }
+    ],
+    "meta": {
+      "lineno": 12,
+      "filename": "pow.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 21
+  },
+  {
+    "id": "random",
+    "longname": "random",
+    "name": "random",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Generates a random number within the given range where the lower bound is inclusive and the upper bound is exclusive. If no numbers are passed in, it will return a number between 0 and 1. If only one number is passed in, it will return .",
+    "params": [
+      {
+        "type": {
+          "names": ["number"]
+        },
+        "description": "(optional) must be greater than 0 if 'b' is not provided",
+        "name": "a"
+      },
+      {
+        "type": {
+          "names": ["number"]
+        },
+        "description": "optional, must be greater",
+        "name": "b"
+      }
+    ],
+    "examples": [
+      "random() //returns a number between 0 and 1\nrandom(10) //returns a number between 0 and 10\nrandom(-10,10) //returns a number between -10 and 10"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number"]
+        },
+        "description":
+          "generates a number between 0 and 1 if no numbers are passed in, a number between 0 and 'a' if only one number is passed in, or a number between 'a' and 'b' if two numbers are passed in"
+      }
+    ],
+    "meta": {
+      "lineno": 13,
+      "filename": "random.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 22
+  },
+  {
+    "id": "range",
+    "longname": "range",
+    "name": "range",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Finds the range of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the range by index.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "variable": true,
+        "description": "numbers and/or arrays of numbers",
+        "name": "args"
+      }
+    ],
+    "examples": [
+      "range(1, 2, 3) //returns 2\nrange([10, 20, 30, 40], 15) //returns [5, 5, 15, 25]\nrange([1, 9], 4, [3, 5]) //returns [3, 5]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description":
+          "The range value of all numbers if all inputs are numbers or an array of range values at each index, including scalar numbers."
+      }
+    ],
+    "meta": {
+      "lineno": 16,
+      "filename": "range.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 23
+  },
+  {
+    "id": "round",
+    "longname": "round",
+    "name": "round",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Rounds a number towards the nearest integer by default or decimal place if specified. For arrays, the function will be applied to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      },
+      {
+        "type": {
+          "names": ["number"]
+        },
+        "description": "number of decimal places, default value: 0",
+        "name": "b"
+      }
+    ],
+    "examples": [
+      "round(1.2) //returns 2\nround(-10.51) //returns -11\nround(-10.1, 2) //returns -10.1\nround(10.93745987, 4) //returns 10.9375\nround([2.9234, 5.1234, 3.5234, 4.49234324], 2) //returns [2.92, 5.12, 3.52, 4.49]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "The ceiling of a number or an array of the ceilings of each element."
+      }
+    ],
+    "meta": {
+      "lineno": 17,
+      "filename": "round.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 24
+  },
+  {
+    "id": "size",
+    "longname": "size",
+    "name": "size",
+    "kind": "function",
+    "scope": "global",
+    "description": "Returns the length of an array. Alias for count",
+    "params": [
+      {
+        "type": {
+          "names": ["Array"]
+        },
+        "description": "any array",
+        "name": "a"
+      }
+    ],
+    "examples": ["size([]) //returns 0\nsize([-1, -2, -3, -4]) //returns 4"],
+    "returns": [
+      {
+        "type": {
+          "names": ["number"]
+        },
+        "description": "the length of the array"
+      }
+    ],
+    "meta": {
+      "lineno": 11,
+      "filename": "size.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 25
+  },
+  {
+    "id": "sqrt",
+    "longname": "sqrt",
+    "name": "sqrt",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the square root of a number. For arrays, the function will be applied to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      }
+    ],
+    "examples": ["sqrt(9) //returns 3\nsqrt([9, 16, 25]) //returns [3, 4, 5]"],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "The square root of 'a' or an array with the square roots of each element."
+      }
+    ],
+    "meta": {
+      "lineno": 11,
+      "filename": "sqrt.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 26
+  },
+  {
+    "id": "square",
+    "longname": "square",
+    "name": "square",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the square of a number. For arrays, the function will be applied to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      }
+    ],
+    "examples": ["square(-3) //returns 9\nsquare([3, 4, 5]) //returns [9, 16, 25]"],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "The square of 'a' or an array with the squares of each element."
+      }
+    ],
+    "meta": {
+      "lineno": 13,
+      "filename": "square.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 27
+  },
+  {
+    "id": "subtract",
+    "longname": "subtract",
+    "name": "subtract",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Subtracts two numbers. If at least one array of numbers is passed into the function, the function will be applied index-wise to each element.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "a"
+      },
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description": "a number or an array of numbers",
+        "name": "b"
+      }
+    ],
+    "examples": [
+      "subtract(6, 3) //returns 3\nsubtract([10, 20, 30, 40], 10) //returns [0, 10, 20, 30]\nsubtract(10, [1, 2, 5, 10]) //returns [9, 8, 5, 0]\nsubtract([14, 42, 65, 108], [2, 7, 5, 12]) //returns [12, 35, 52, 96]"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "description":
+          "The difference of 'a' and 'b' if both are numbers or an array of differences applied index-wise to each element."
+      }
+    ],
+    "meta": {
+      "lineno": 14,
+      "filename": "subtract.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 28
+  },
+  {
+    "id": "sum",
+    "longname": "sum",
+    "name": "sum",
+    "kind": "function",
+    "scope": "global",
+    "description":
+      "Calculates the sum of all numbers and distinct values in arrays passed into the function.",
+    "params": [
+      {
+        "type": {
+          "names": ["number", "Array.<number>"]
+        },
+        "variable": true,
+        "description": "numbers and/or arrays of numbers",
+        "name": "args"
+      }
+    ],
+    "examples": [
+      "sum(1, 2, 3) //returns 6\nsum([10, 20, 30, 40], 10, 20, 30) //returns 160\nsum([1, 2], 3, [4, 5], 6) //returns 21"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number"]
+        },
+        "description": "The sum of all numbers including distinct values in any arrays."
+      }
+    ],
+    "meta": {
+      "lineno": 14,
+      "filename": "sum.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 29
+  },
+  {
+    "id": "unique",
+    "longname": "unique",
+    "name": "unique",
+    "kind": "function",
+    "scope": "global",
+    "description": "Counts the number of unique values in an array",
+    "params": [
+      {
+        "type": {
+          "names": ["Array.<any>"]
+        },
+        "description": "array of any values",
+        "name": "a"
+      }
+    ],
+    "examples": [
+      "unique(100) //returns 1\nunique([]) //returns 0\nunique([1, 2, 3, 4]) //returns 4\nunique([1, 2, 3, 4, 2, 2, 2, 3, 4, 2, 4, 5, 2, 1, 4, 2]) //returns 5"
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": ["number"]
+        },
+        "description":
+          "number of unique values in the array or 1 if anything other than an array is passed in"
+      }
+    ],
+    "meta": {
+      "lineno": 13,
+      "filename": "unique.js",
+      "path": "/Users/catherine/elastic/tinymath/src/functions"
+    },
+    "order": 30
+  }
+]

@@ -25,11 +25,11 @@ const findMode = a => {
  * @param {...(number|number[])} args numbers and/or arrays of numbers
  * @return {(number[]|number[][])} an array mode value(s) of all numbers if all inputs are numbers or an array of arrays of mode values of each index, including scalar numbers.
  *
- * Examples:
- * - mode(1, 1, 2, 3) returns [1]
- * - mode(1, 1, 2, 2, 3) returns [1,2]
- * - mode([10, 20, 30, 40], 10, 20, 30) returns [[10], [20], [30], [10, 20, 30, 40]]
- * - mode([1, 9], 4, [3, 5]) returns [[1, 3, 4], [4, 5, 9]]
+ * @example
+ * mode(1, 1, 2, 3) //returns [1]
+ * mode(1, 1, 2, 2, 3) //returns [1,2]
+ * mode([10, 20, 30, 40], 10, 20, 30) //returns [[10], [20], [30], [10, 20, 30, 40]]
+ * mode([1, 9], 4, [3, 5]) //returns [[1, 3, 4], [4, 5, 9]]
  */
 
 export function mode(...args) {

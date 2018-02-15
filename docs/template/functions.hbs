@@ -1,0 +1,25 @@
+# Functions
+{{#functions}}
+{{#if @first~}}{{>heading-indent}}{{../title}}
+<dl>
+{{/if~}}
+<dt>{{>sig-link-html}}</dt>
+<dd>{{{md (inlineLinks description)}}}</dd>
+{{#if @last~}}
+</dl>
+{{/if~}}
+{{/functions}}
+
+{{#functions}}
+## {{name}}({{#each params}}{{name}}{{#unless @last}}, {{/unless}}{{/each}})
+{{description}}
+
+{{>returns~}}
+{{>params~}}
+{{>examples~}}
+{{#unless @last}}
+***
+{{/unless}}
+{{/functions}}
+
+

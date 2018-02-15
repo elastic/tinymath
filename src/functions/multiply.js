@@ -4,11 +4,11 @@
  * @param {(number|number[])} b a number or an array of numbers
  * @return {(number|number[])} The product of 'a' and 'b' if both are numbers or an array of products applied index-wise to each element.
  *
- * Examples:
- * - multiply(6, 3) returns 18
- * - multiply([10, 20, 30, 40], 10) returns [100, 200, 300, 400]
- * - multiply(10, [1, 2, 5, 10]) returns [10, 20, 50, 100]
- * - multiply([1, 2, 3, 4], [2, 7, 5, 12]) returns [2, 14, 15, 48]
+ * @example
+ * multiply(6, 3) //returns 18
+ * multiply([10, 20, 30, 40], 10) //returns [100, 200, 300, 400]
+ * multiply(10, [1, 2, 5, 10]) //returns [10, 20, 50, 100]
+ * multiply([1, 2, 3, 4], [2, 7, 5, 12]) //returns [2, 14, 15, 48]
  */
 
 export function multiply(...args) {

@@ -3,9 +3,9 @@
  * @param {(number|number[])} a a number or an array of numbers
  * @return {(number|number[])} The square root of 'a' or an array with the square roots of each element.
  *
- * Examples:
- * - sqrt(9) returns 3
- * - sqrt([9, 16, 25]) returns [3, 4, 5]
+ * @example
+ * sqrt(9) //returns 3
+ * sqrt([9, 16, 25]) //returns [3, 4, 5]
  */
 
 export function sqrt(a) {
