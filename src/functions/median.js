@@ -1,3 +1,5 @@
+import { transpose } from './lib/transpose';
+
 const findMedian = a => {
   const len = a.length;
   const half = Math.floor(len / 2);
@@ -9,19 +11,6 @@ const findMedian = a => {
   }
 
   return a[half];
-};
-
-const transpose = (args, index) => {
-  const len = args[index].length;
-  return args[index].map((col, i) =>
-    args.map(row => {
-      if (Array.isArray(row)) {
-        if (row.length !== len) throw new Error('Matrix length mismatch');
-        return row[i];
-      }
-      return row;
-    })
-  );
 };
 
 export function median(...args) {

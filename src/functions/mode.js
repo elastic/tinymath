@@ -1,3 +1,4 @@
+import { transpose } from './lib/transpose';
 const findMode = a => {
   let maxFreq = 0;
   const mapping = {};
@@ -16,31 +17,6 @@ const findMode = a => {
     .filter(key => mapping[key] === maxFreq)
     .map(val => parseFloat(val))
     .sort((a, b) => a - b);
-};
-
-/**
- * Transposes a 2D array, i.e. turns the rows into columns and vice versa. Scalar values are also included in the transpose.
- * @param {any[][]} args an array or an array that contains arrays
- * @param {number} index index of the first array element in args
- * @return {any[][]} transpose of args
- *
- * Examples:
- * - transpose([[1,2],[3,4],[5,6]) returns [[1, 3, 5], [2, 4, 6]]
- * - transpose([10, 20, 30, 40], 10, 20, 30) returns [[10, 10, 20, 30], [20, 10, 20, 30], [30, 10, 20, 30], [40, 10, 20, 30]]
- * - transpose([1, 9], 4, [3, 5]) returns [[1, 4, 3], [9, 4, 5]]
- */
-
-const transpose = (args, index) => {
-  const len = args[index].length;
-  return args[index].map((col, i) =>
-    args.map(row => {
-      if (Array.isArray(row)) {
-        if (row.length !== len) throw new Error('Matrix length mismatch');
-        return row[i];
-      }
-      return row;
-    })
-  );
 };
 
 /**
