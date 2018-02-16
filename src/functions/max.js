@@ -4,9 +4,9 @@
  * @return {(number|number[])} The maximum value of all numbers if `args` contains only numbers. Returns an array with the the maximum values at each index, including all scalar numbers in `args` in the calculation at each index if `args` contains at least one array.
  * @throws `'Matrix length mismatch'` if `args` contains arrays of different lengths
  * @example
- * max(1, 2, 3) //returns 3
- * max([10, 20, 30, 40], 15) //returns [15, 20, 30, 40]
- * max([1, 9], 4, [3, 5]) //returns [4, 9]
+ * max(1, 2, 3) // returns 3
+ * max([10, 20, 30, 40], 15) // returns [15, 20, 30, 40]
+ * max([1, 9], 4, [3, 5]) // returns [4, 9]
  */
 
 export function max(...args) {

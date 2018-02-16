@@ -6,10 +6,10 @@
  * @throws `'Matrix length mismatch'` if `a` and `b` are arrays with different lengths
  * - `'Cannot divide by 0'` if 'b' equals 0 or contains 0
  * @example
- * divide(6, 3) //returns 2
- * divide([10, 20, 30, 40], 10) //returns [1, 2, 3, 4]
- * divide(10, [1, 2, 5, 10]) //returns [10, 5, 2, 1]
- * divide([14, 42, 65, 108], [2, 7, 5, 12]) //returns [7, 6, 13, 9]
+ * divide(6, 3) // returns 2
+ * divide([10, 20, 30, 40], 10) // returns [1, 2, 3, 4]
+ * divide(10, [1, 2, 5, 10]) // returns [10, 5, 2, 1]
+ * divide([14, 42, 65, 108], [2, 7, 5, 12]) // returns [7, 6, 13, 9]
  */
 
 export function divide(a, b) {

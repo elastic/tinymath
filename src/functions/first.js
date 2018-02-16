@@ -4,9 +4,9 @@
  * @return {*} The first element of 'a'. Returns `a` if `a` is not an array.
  *
  * @example
- * first(2) //returns 2
- * first('foo') //returns 'foo'
- * first([1, 2, 3]) //returns 1
+ * first(2) // returns 2
+ * first('foo') // returns 'foo'
+ * first([1, 2, 3]) // returns 1
  */
 
 export function first(a) {

@@ -4,9 +4,9 @@
  * @return {*} The last element of 'a'. Returns `a` if `a` is not an array.
  *
  * @example
- * last(2) //returns 2
- * last('foo') //returns 'foo'
- * last([1, 2, 3]) //returns 3
+ * last(2) // returns 2
+ * last('foo') // returns 'foo'
+ * last([1, 2, 3]) // returns 3
  */
 
 export function last(a) {

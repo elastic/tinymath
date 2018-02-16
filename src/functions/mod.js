@@ -6,10 +6,10 @@
  * @throws `'Matrix length mismatch'` if `a` and `b` are arrays with different lengths
  * - `'Cannot divide by 0'` if 'b' equals 0 or contains 0
  * @example
- * mod(10, 7) //returns 3
- * mod([11, 22, 33, 44], 10) //returns [1, 2, 3, 4]
- * mod(100, [3, 7, 11, 23]) //returns [1, 2, 1, 8]
- * mod([14, 42, 65, 108], [5, 4, 14, 2]) //returns [5, 2, 9, 0]
+ * mod(10, 7) // returns 3
+ * mod([11, 22, 33, 44], 10) // returns [1, 2, 3, 4]
+ * mod(100, [3, 7, 11, 23]) // returns [1, 2, 1, 8]
+ * mod([14, 42, 65, 108], [5, 4, 14, 2]) // returns [5, 2, 9, 0]
  */
 
 export function mod(a, b) {

@@ -5,9 +5,9 @@
  * @return {number} A random number between 0 and 1 if no numbers are passed in. Returns a random number between 0 and `a` if only one number is passed in. Returns a random number between `a` and `b` if two numbers are passed in.
  * @throws `'Min is be greater than max'` if `a` < 0 when only `a` is passed in or if `a` > `b` when both `a` and `b` are passed in
  * @example
- * random() //returns a random number between 0 (inclusive) and 1 (exclusive)
- * random(10) //returns a random number between 0 (inclusive) and 10 (exclusive)
- * random(-10,10) //returns a random number between -10 (inclusive) and 10 (exclusive)
+ * random() // returns a random number between 0 (inclusive) and 1 (exclusive)
+ * random(10) // returns a random number between 0 (inclusive) and 10 (exclusive)
+ * random(-10,10) // returns a random number between -10 (inclusive) and 10 (exclusive)
  */
 
 export function random(a, b) {

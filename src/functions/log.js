@@ -5,9 +5,10 @@
  * @return {(number|number[])} The logarithm of `a`. Returns an array with the the logarithms of each element if `a` is an array.
  * @throws `'Base out of range'` if `b` <= 0
  * @example
- * log(1) //returns 0
- * log(64, 8) //returns 2
- * log([2, 4, 8, 16, 32], 2) //returns [1, 2, 3, 4, 5]
+ * log(1) // returns 0
+ * log(64, 8) // returns 2
+ * log(42, 5) // returns 2.322344707681546
+ * log([2, 4, 8, 16, 32], 2) // returns [1, 2, 3, 4, 5]
  */
 
 export function log(a, b) {

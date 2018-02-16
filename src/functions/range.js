@@ -8,9 +8,9 @@ import { subtract } from './subtract.js';
  * @return {(number|number[])} The range value of all numbers if `args` contains only numbers. Returns an array with the the range values at each index, including all scalar numbers in `args` in the calculation at each index if `args` contains at least one array.
  *
  * @example
- * range(1, 2, 3) //returns 2
- * range([10, 20, 30, 40], 15) //returns [5, 5, 15, 25]
- * range([1, 9], 4, [3, 5]) //returns [3, 5]
+ * range(1, 2, 3) // returns 2
+ * range([10, 20, 30, 40], 15) // returns [5, 5, 15, 25]
+ * range([1, 9], 4, [3, 5]) // returns [3, 5]
  */
 
 export function range(...args) {

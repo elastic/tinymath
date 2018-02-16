@@ -6,8 +6,8 @@ import { pow } from './pow.js';
  * @return {(number|number[])} The square of `a`. Returns an array with the the squares of each element if `a` is an array.
  *
  * @example
- * square(-3) //returns 9
- * square([3, 4, 5]) //returns [9, 16, 25]
+ * square(-3) // returns 9
+ * square([3, 4, 5]) // returns [9, 16, 25]
  */
 
 export function square(a) {

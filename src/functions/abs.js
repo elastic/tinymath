@@ -4,9 +4,9 @@
  * @return {(number|number[])} The absolute value of `a`. Returns an array with the the absolute values of each element if `a` is an array.
  *
  * @example
- * abs(-1) //returns 1
- * abs(2) //returns 2
- * abs([-1 , -2, 3, -4]) //returns [1, 2, 3, 4]
+ * abs(-1) // returns 1
+ * abs(2) // returns 2
+ * abs([-1 , -2, 3, -4]) // returns [1, 2, 3, 4]
  */
 
 export function abs(a) {

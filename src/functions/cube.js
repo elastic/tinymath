@@ -6,8 +6,8 @@ import { pow } from './pow.js';
  * @return {(number|number[])} The cube of `a`. Returns an array with the the cubes of each element if `a` is an array.
  *
  * @example
- * cube(-3) //returns -27
- * cube([3, 4, 5]) //returns [27, 64, 125]
+ * cube(-3) // returns -27
+ * cube([3, 4, 5]) // returns [27, 64, 125]
  */
 
 export function cube(a) {

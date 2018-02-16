@@ -11,9 +11,9 @@ const fixer = a => {
  * @return {(number|number[])} The fix of `a`. Returns an array with the the fixes for each element if `a` is an array.
  *
  * @example
- * fix(1.2) //returns 1
- * fix(-1.8) //returns 1
- * fix([1.8, 2.9, -3.7, -4.6]) //returns [1, 2, -3, -4]
+ * fix(1.2) // returns 1
+ * fix(-1.8) // returns 1
+ * fix([1.8, 2.9, -3.7, -4.6]) // returns [1, 2, -3, -4]
  */
 
 export function fix(a) {

@@ -7,11 +7,11 @@ const rounder = (a, b) => Math.round(a * Math.pow(10, b)) / Math.pow(10, b);
  * @return {(number|number[])} The rounded value of `a`. Returns an array with the the rounded values of each element if `a` is an array.
  *
  * @example
- * round(1.2) //returns 2
- * round(-10.51) //returns -11
- * round(-10.1, 2) //returns -10.1
- * round(10.93745987, 4) //returns 10.9375
- * round([2.9234, 5.1234, 3.5234, 4.49234324], 2) //returns [2.92, 5.12, 3.52, 4.49]
+ * round(1.2) // returns 2
+ * round(-10.51) // returns -11
+ * round(-10.1, 2) // returns -10.1
+ * round(10.93745987, 4) // returns 10.9375
+ * round([2.9234, 5.1234, 3.5234, 4.49234324], 2) // returns [2.92, 5.12, 3.52, 4.49]
  */
 
 export function round(a, b = 0) {
