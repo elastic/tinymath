@@ -6,7 +6,7 @@ export function add(...args) {
 
   return args.reduce((result, current) => {
     if (Array.isArray(result) && Array.isArray(current)) {
-      if (current.length !== result.length) throw new Error('Matrix length mismatch');
+      if (current.length !== result.length) throw new Error('Array length mismatch');
       return result.map((val, i) => val + current[i]);
     }
     if (Array.isArray(result)) return result.map(val => val + current);

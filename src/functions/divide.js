@@ -1,6 +1,6 @@
 export function divide(a, b) {
   if (Array.isArray(a) && Array.isArray(b)) {
-    if (a.length !== b.length) throw new Error('Matrix length mismatch');
+    if (a.length !== b.length) throw new Error('Array length mismatch');
     return a.map((val, i) => val / b[i]);
   }
   if (Array.isArray(a)) return a.map(a => a / b);

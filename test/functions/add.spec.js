@@ -21,6 +21,6 @@ describe('Add', () => {
   });
 
   it('array length mismatch', () => {
-    expect(() => add([1, 2], [3])).to.throw();
+    expect(() => add([1, 2], [3])).to.throw('Array length mismatch');
   });
 });
