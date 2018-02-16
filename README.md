@@ -2,7 +2,7 @@
 
 Tinymath is a tiny arithmetic and function evaluator for simple numbers and arrays. Named properties can be accessed from an optional scope parameter and new functions can be added without rebuilding. Enjoy.
 
-See [Function Documentation](docs/function.md) for details on built-in functions available in Tinymath.
+See [Function Documentation](/docs/functions.md) for details on built-in functions available in Tinymath.
 
 ```javascript
 import { evaluate } from tinymath
