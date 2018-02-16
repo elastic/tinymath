@@ -5,6 +5,7 @@
  *
  * @example
  * cbrt(-27) //returns -3
+ * cbrt(94) // returns 4.546835943776344
  * cbrt([27, 64, 125]) //returns [3, 4, 5]
  */
 
