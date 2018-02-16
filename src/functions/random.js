@@ -1,8 +1,8 @@
 /**
  * Generates a random number within the given range where the lower bound is inclusive and the upper bound is exclusive. If no numbers are passed in, it will return a number between 0 and 1. If only one number is passed in, it will return .
- * @param {number} a (optional) must be greater than 0 if 'b' is not provided
+ * @param {number} a (optional) must be greater than 0 if `b` is not provided
  * @param {number} b optional, must be greater
- * @return {number} generates a number between 0 and 1 if no numbers are passed in, a number between 0 and 'a' if only one number is passed in, or a number between 'a' and 'b' if two numbers are passed in
+ * @return {number} generates a number between 0 and 1 if no numbers are passed in, a number between 0 and `a` if only one number is passed in, or a number between `a` and `b` if two numbers are passed in
  *
  * @example
  * random() //returns a number between 0 and 1

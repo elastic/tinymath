@@ -2,14 +2,14 @@
 This document provides detailed information about the functions available in Tinymath and lists what parameters each function accepts, the return value of that function, and examples of how each function behaves. Most of the functions below accept arrays and apply JavaScript Math methods to each element of that array. For the functions that accept multiple arrays as parameters, the function generally does calculation index by index. Any function below can be wrapped by another function as long as the return type of the inner function matches the acceptable parameter type of the outer function.
 
 ## abs( a )
-Calculates the absolute value of a number. For arrays, the function will be applied to each element.
+Calculates the absolute value of a number. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
 | a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The absolute value of 'a' or an array with the absolute values of each element.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The absolute value of `a` or an array with the absolute values of each element.  
 **Example**  
 ```js
 abs(-1) //returns 1
@@ -24,7 +24,7 @@ Calculates the sum of one or more numbers/arrays passed into the function. If at
 | --- | --- | --- |
 | ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The sum of one or more numbers/arrays of numbers if all arguments are numbers or an array of sums of the elements at each index, including scalar numbers.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The sum of one or more numbers/arrays of numbers if all arguments are numbers or an array of sums of the elements at each index, including all scalar numbers in `args` in the calculation at each index..  
 **Example**  
 ```js
 add(1, 2, 3) //returns 6
@@ -33,14 +33,14 @@ add([1, 2], 3, [4, 5], 6) //returns [14, 16]
 ```
 ***
 ## cbrt( a )
-Calculates the cube root of a number. For arrays, the function will be applied to each element.
+Calculates the cube root of a number. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
 | a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The cube root of 'a' or an array with the cube roots of each element.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The cube root of `a` or an array with the cube roots of each element.  
 **Example**  
 ```js
 cbrt(-27) //returns -3
@@ -48,7 +48,7 @@ cbrt([27, 64, 125]) //returns [3, 4, 5]
 ```
 ***
 ## ceil( a )
-Calculates the ceiling of a number, i.e. rounds a number towards positive infinity. For arrays, the function will be applied to each element.
+Calculates the ceiling of a number, i.e. rounds a number towards positive infinity. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
@@ -78,14 +78,14 @@ count([-1, -2, -3, -4]) //returns 4
 ```
 ***
 ## cube( a )
-Calculates the cube of a number. For arrays, the function will be applied to each element.
+Calculates the cube of a number. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
 | a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The cube of 'a' or an array with the cubes of each element.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The cube of `a` or an array with the cubes of each element.  
 **Example**  
 ```js
 cube(-3) //returns -27
@@ -101,7 +101,7 @@ Divides two numbers. If at least one array of numbers is passed into the functio
 | a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | dividend, a number or an array of numbers |
 | b | <code>number</code> \| <code>Array.&lt;number&gt;</code> | divisor, a number or an array of numbers |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The quotient of 'a' and 'b' if both are numbers or an array of quotients applied index-wise to each element.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The quotient of `a` and `b` if both are numbers or an array of quotients applied index-wise to each element.  
 **Example**  
 ```js
 divide(6, 3) //returns 2
@@ -111,14 +111,14 @@ divide([14, 42, 65, 108], [2, 7, 5, 12]) //returns [7, 6, 13, 9]
 ```
 ***
 ## exp( a )
-Calculates the exponent of a number. For arrays, the function will be applied to each element.
+Calculates the exponent of a number. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
 | a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - exponent of a number or an array of exponents of each element.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The exponent of a number or an array of exponents of each element.  
 **Example**  
 ```js
 exp(2) //returns e^2 = 7.3890560989306495
@@ -133,7 +133,7 @@ Returns the first element of an array. If anything other than an array is passed
 | --- | --- | --- |
 | a | <code>\*</code> | preferably an array but any input is accepted |
 
-**Returns**: <code>\*</code> - first element of an array or the same input is returned  
+**Returns**: <code>\*</code> - The first element of an array or the same input is returned  
 **Example**  
 ```js
 first(2) //returns 2
@@ -142,7 +142,7 @@ first([1, 2, 3]) //returns 1
 ```
 ***
 ## fix( a )
-Calculates the fix of a number, i.e. rounds a number towards 0. For arrays, the function will be applied to each element.
+Calculates the fix of a number, i.e. rounds a number towards 0. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
@@ -158,7 +158,7 @@ fix([1.8, 2.9, -3.7, -4.6]) //returns [1, 2, -3, -4]
 ```
 ***
 ## floor( a )
-Calculates the floor of a number, i.e. rounds a number towards negative infinity. For arrays, the function will be applied to each element.
+Calculates the floor of a number, i.e. rounds a number towards negative infinity. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
@@ -180,7 +180,7 @@ Returns the last element of an array. If anything other than an array is passed 
 | --- | --- | --- |
 | a | <code>\*</code> | preferably an array but any input is accepted |
 
-**Returns**: <code>\*</code> - last element of an array or the same input is returned  
+**Returns**: <code>\*</code> - The last element of an array or the same input is returned  
 **Example**  
 ```js
 last(2) //returns 2
@@ -189,7 +189,7 @@ last([1, 2, 3]) //returns 3
 ```
 ***
 ## log( a,   b )
-Calculates the logarithm of a number. For arrays, the function will be applied to each element.
+Calculates the logarithm of a number. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
@@ -197,7 +197,7 @@ Calculates the logarithm of a number. For arrays, the function will be applied t
 | a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
 | b | <code>Object</code> | optional base for the logarithm. If not provided a value, the default base is e, and the natural log is calculated. |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - logarithm of a number or an array of logarithms of each element.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The logarithm of a number or an array of logarithms of each element.  
 **Example**  
 ```js
 log(1) //returns 0
@@ -206,14 +206,14 @@ log([2, 4, 8, 16, 32], 2) //returns [1, 2, 3, 4, 5]
 ```
 ***
 ## log10( a )
-Calculates the logarithm base 10 of a number. For arrays, the function will be applied to each element.
+Calculates the logarithm base 10 of a number. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
 | a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - logarithm of a number or an array of logarithms of each element.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The logarithm of a number or an array of logarithms of each element.  
 **Example**  
 ```js
 log(10) //returns 1
@@ -229,7 +229,7 @@ Finds the maximum value of one of more numbers/arrays of numbers into the functi
 | --- | --- | --- |
 | ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The maximum value of all numbers if all inputs are numbers or an array of maximum values at each index, including scalar numbers.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The maximum value of all numbers if all inputs are numbers or an array of maximum values at each index, including all scalar numbers in `args` in the calculation at each index.  
 **Example**  
 ```js
 max(1, 2, 3) //returns 3
@@ -245,7 +245,7 @@ Finds the mean value of one of more numbers/arrays of numbers into the function.
 | --- | --- | --- |
 | ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The mean value of all numbers if all inputs are numbers or an array of mean values of each index, including scalar numbers.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The mean value of all numbers if all inputs are numbers or an array of mean values of each index, including all scalar numbers in `args` in the calculation at each index.  
 **Example**  
 ```js
 mean(1, 2, 3) //returns 2
@@ -261,7 +261,7 @@ Finds the median value(s) of one of more numbers/arrays of numbers into the func
 | --- | --- | --- |
 | ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
-**Returns**: <code>Array.&lt;number&gt;</code> - an array median value(s) of all numbers if all inputs are numbers or an array of arrays of median values of each index, including scalar numbers.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The median value of all numbers if all inputs are numbers or an array of median values of each index, including all scalar numbers in `args` in the calculation at each index.  
 **Example**  
 ```js
 median(1, 1, 2, 3) //returns 1.5
@@ -278,7 +278,7 @@ Finds the minimum value of one of more numbers/arrays of numbers into the functi
 | --- | --- | --- |
 | ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The minimum value of all numbers if all inputs are numbers or an array of minimum values of each index, including scalar numbers.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The minimum value of all numbers if all inputs are numbers or an array of minimum values of each index, including all scalar numbers in `args` in the calculation at each index..  
 **Example**  
 ```js
 min(1, 2, 3) //returns 1
@@ -295,7 +295,7 @@ Remainder after dividing two numbers. If at least one array of numbers is passed
 | a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | dividend, a number or an array of numbers |
 | b | <code>number</code> \| <code>Array.&lt;number&gt;</code> | divisor, a number or an array of numbers |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The remainder of 'a' divided by 'b' if both are numbers or an array of remainders applied index-wise to each element.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The remainder of `a` divided by `b` if both are numbers or an array of remainders applied index-wise to each element.  
 **Example**  
 ```js
 mod(10, 7) //returns 3
@@ -312,7 +312,7 @@ Finds the mode value(s) of one of more numbers/arrays of numbers into the functi
 | --- | --- | --- |
 | ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
-**Returns**: <code>Array.&lt;number&gt;</code> \| <code>Array.&lt;Array.&lt;number&gt;&gt;</code> - an array mode value(s) of all numbers if all inputs are numbers or an array of arrays of mode values of each index, including scalar numbers.  
+**Returns**: <code>Array.&lt;number&gt;</code> \| <code>Array.&lt;Array.&lt;number&gt;&gt;</code> - an array mode value(s) of all numbers if all inputs are numbers or an array of arrays of mode values of each index, including all scalar numbers in `args` in the calculation at each index.  
 **Example**  
 ```js
 mode(1, 1, 2, 3) //returns [1]
@@ -330,7 +330,7 @@ Multiplies two numbers. If at least one array of numbers is passed into the func
 | a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
 | b | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The product of 'a' and 'b' if both are numbers or an array of products applied index-wise to each element.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The product of `a` and `b` if both are numbers or an array of products applied index-wise to each element.  
 **Example**  
 ```js
 multiply(6, 3) //returns 18
@@ -340,15 +340,15 @@ multiply([1, 2, 3, 4], [2, 7, 5, 12]) //returns [2, 14, 15, 48]
 ```
 ***
 ## pow( a,   b )
-Calculates the cube root of a number. For arrays, the function will be applied to each element.
+Calculates the cube root of a number. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
 | a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
-| b | <code>number</code> | the power that 'a' is raised to |
+| b | <code>number</code> | the power that `a` is raised to |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - 'a' raised to the power of 'b' or an array of each element raised to the power of 'b'.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - `a` raised to the power of `b` or an array of each element raised to the power of `b`.  
 **Example**  
 ```js
 pow(2,3) //returns 8
@@ -361,10 +361,10 @@ Generates a random number within the given range where the lower bound is inclus
 
 | Param | Type | Description |
 | --- | --- | --- |
-| a | <code>number</code> | (optional) must be greater than 0 if 'b' is not provided |
+| a | <code>number</code> | (optional) must be greater than 0 if `b` is not provided |
 | b | <code>number</code> | optional, must be greater |
 
-**Returns**: <code>number</code> - generates a number between 0 and 1 if no numbers are passed in, a number between 0 and 'a' if only one number is passed in, or a number between 'a' and 'b' if two numbers are passed in  
+**Returns**: <code>number</code> - generates a number between 0 and 1 if no numbers are passed in, a number between 0 and `a` if only one number is passed in, or a number between `a` and `b` if two numbers are passed in  
 **Example**  
 ```js
 random() //returns a number between 0 and 1
@@ -380,7 +380,7 @@ Finds the range of one of more numbers/arrays of numbers into the function. If a
 | --- | --- | --- |
 | ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The range value of all numbers if all inputs are numbers or an array of range values at each index, including scalar numbers.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The range value of all numbers if all inputs are numbers or an array of range values at each index, including all scalar numbers in `args` in the calculation at each index..  
 **Example**  
 ```js
 range(1, 2, 3) //returns 2
@@ -389,7 +389,7 @@ range([1, 9], 4, [3, 5]) //returns [3, 5]
 ```
 ***
 ## round( a,   b )
-Rounds a number towards the nearest integer by default or decimal place if specified. For arrays, the function will be applied to each element.
+Rounds a number towards the nearest integer by default or decimal place if specified. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
@@ -423,14 +423,14 @@ size([-1, -2, -3, -4]) //returns 4
 ```
 ***
 ## sqrt( a )
-Calculates the square root of a number. For arrays, the function will be applied to each element.
+Calculates the square root of a number. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
 | a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The square root of 'a' or an array with the square roots of each element.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The square root of `a` or an array with the square roots of each element.  
 **Example**  
 ```js
 sqrt(9) //returns 3
@@ -438,14 +438,14 @@ sqrt([9, 16, 25]) //returns [3, 4, 5]
 ```
 ***
 ## square( a )
-Calculates the square of a number. For arrays, the function will be applied to each element.
+Calculates the square of a number. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
 | a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The square of 'a' or an array with the squares of each element.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The square of `a` or an array with the squares of each element.  
 **Example**  
 ```js
 square(-3) //returns 9
@@ -461,7 +461,7 @@ Subtracts two numbers. If at least one array of numbers is passed into the funct
 | a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
 | b | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The difference of 'a' and 'b' if both are numbers or an array of differences applied index-wise to each element.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The difference of `a` and `b` if both are numbers or an array of differences applied index-wise to each element.  
 **Example**  
 ```js
 subtract(6, 3) //returns 3

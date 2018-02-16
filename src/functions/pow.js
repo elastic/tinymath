@@ -1,8 +1,8 @@
 /**
- * Calculates the cube root of a number. For arrays, the function will be applied to each element.
+ * Calculates the cube root of a number. For arrays, the function will be applied index-wise to each element.
  * @param {(number|number[])} a a number or an array of numbers
- * @param {(number)} b the power that 'a' is raised to
- * @return {(number|number[])} 'a' raised to the power of 'b' or an array of each element raised to the power of 'b'.
+ * @param {(number)} b the power that `a` is raised to
+ * @return {(number|number[])} `a` raised to the power of `b` or an array of each element raised to the power of `b`.
  *
  * @example
  * pow(2,3) //returns 8

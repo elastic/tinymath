@@ -2,7 +2,7 @@
  * Remainder after dividing two numbers. If at least one array of numbers is passed into the function, the function will be applied index-wise to each element.
  * @param {(number|number[])} a dividend, a number or an array of numbers
  * @param {(number|number[])} b divisor, a number or an array of numbers
- * @return {(number|number[])} The remainder of 'a' divided by 'b' if both are numbers or an array of remainders applied index-wise to each element.
+ * @return {(number|number[])} The remainder of `a` divided by `b` if both are numbers or an array of remainders applied index-wise to each element.
  *
  * @example
  * mod(10, 7) //returns 3

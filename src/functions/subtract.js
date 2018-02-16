@@ -2,7 +2,7 @@
  * Subtracts two numbers. If at least one array of numbers is passed into the function, the function will be applied index-wise to each element.
  * @param {(number|number[])} a a number or an array of numbers
  * @param {(number|number[])} b a number or an array of numbers
- * @return {(number|number[])} The difference of 'a' and 'b' if both are numbers or an array of differences applied index-wise to each element.
+ * @return {(number|number[])} The difference of `a` and `b` if both are numbers or an array of differences applied index-wise to each element.
  *
  * @example
  * subtract(6, 3) //returns 3

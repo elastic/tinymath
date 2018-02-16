@@ -1,7 +1,7 @@
 /**
- * Calculates the square root of a number. For arrays, the function will be applied to each element.
+ * Calculates the square root of a number. For arrays, the function will be applied index-wise to each element.
  * @param {(number|number[])} a a number or an array of numbers
- * @return {(number|number[])} The square root of 'a' or an array with the square roots of each element.
+ * @return {(number|number[])} The square root of `a` or an array with the square roots of each element.
  *
  * @example
  * sqrt(9) //returns 3

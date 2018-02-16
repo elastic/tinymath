@@ -5,7 +5,7 @@ import { subtract } from './subtract.js';
 /**
  * Finds the range of one of more numbers/arrays of numbers into the function. If at least one array of numbers is passed into the function, the function will find the range by index.
  * @param {...(number|number[])} args any number of arguments
- * @return {(number|number[])} The range value of all numbers if all inputs are numbers or an array of range values at each index, including scalar numbers.
+ * @return {(number|number[])} The range value of all numbers if all inputs are numbers or an array of range values at each index, including all scalar numbers in `args` in the calculation at each index..
  *
  * @example
  * range(1, 2, 3) //returns 2

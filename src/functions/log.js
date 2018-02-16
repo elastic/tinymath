@@ -1,8 +1,8 @@
 /**
- * Calculates the logarithm of a number. For arrays, the function will be applied to each element.
+ * Calculates the logarithm of a number. For arrays, the function will be applied index-wise to each element.
  * @param {(number|number[])} a a number or an array of numbers
  * @param {{number}} b optional base for the logarithm. If not provided a value, the default base is e, and the natural log is calculated.
- * @return {(number|number[])} logarithm of a number or an array of logarithms of each element.
+ * @return {(number|number[])} The logarithm of a number or an array of logarithms of each element.
  *
  * @example
  * log(1) //returns 0

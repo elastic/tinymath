@@ -1,9 +1,9 @@
 import { pow } from './pow.js';
 
 /**
- * Calculates the square of a number. For arrays, the function will be applied to each element.
+ * Calculates the square of a number. For arrays, the function will be applied index-wise to each element.
  * @param {(number|number[])} a a number or an array of numbers
- * @return {(number|number[])} The square of 'a' or an array with the squares of each element.
+ * @return {(number|number[])} The square of `a` or an array with the squares of each element.
  *
  * @example
  * square(-3) //returns 9

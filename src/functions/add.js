@@ -1,7 +1,7 @@
 /**
  * Calculates the sum of one or more numbers/arrays passed into the function. If at least one array of numbers is passed into the function, the function will calculate the sum by index.
  * @param {...(number|number[])} args any number of arguments
- * @return {(number|number[])} The sum of one or more numbers/arrays of numbers if all arguments are numbers or an array of sums of the elements at each index, including scalar numbers.
+ * @return {(number|number[])} The sum of one or more numbers/arrays of numbers if all arguments are numbers or an array of sums of the elements at each index, including all scalar numbers in `args` in the calculation at each index..
  *
  * @example
  * add(1, 2, 3) //returns 6
