@@ -20,6 +20,6 @@ describe('Divide', () => {
   });
 
   it('array length mismatch', () => {
-    expect(() => divide([1, 2], [3])).to.throw();
+    expect(() => divide([1, 2], [3])).to.throw('Array length mismatch');
   });
 });

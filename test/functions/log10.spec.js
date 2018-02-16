@@ -21,4 +21,8 @@ describe('Log10', () => {
       Math.log(10) / Math.log(10),
     ]);
   });
+
+  it('number less than 1', () => {
+    expect(() => log10(-1)).to.throw('Must be greater than 0');
+  });
 });
