@@ -6,7 +6,7 @@
  * @example
  * add(1, 2, 3) //returns 6
  * add([10, 20, 30, 40], 10, 20, 30) //returns [70, 80, 90, 100]
- * add([1, 2], 3, [4, 5], 6) //returns [14, 16]
+ * add([1, 2], 3, [4, 5], 6) //returns [(1 + 3 + 4 + 6), (2 + 3 + 5 + 6)] = [14, 16]
  */
 
 export function add(...args) {
