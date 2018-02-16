@@ -5,6 +5,7 @@ describe('Sqrt', () => {
   it('numbers', () => {
     expect(sqrt(9)).to.be.equal(3);
     expect(sqrt(0)).to.be.equal(0);
+    expect(sqrt(30)).to.be.equal(5.477225575051661);
   });
 
   it('arrays', () => {
