@@ -20,6 +20,6 @@ describe('Multiply', () => {
   });
 
   it('array length mismatch', () => {
-    expect(() => multiply([1, 2], [3])).to.throw();
+    expect(() => multiply([1, 2], [3])).to.throw('Array length mismatch');
   });
 });

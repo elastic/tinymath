@@ -3,7 +3,7 @@
  * @param {(number|number[])} a dividend, a number or an array of numbers
  * @param {(number|number[])} b divisor, a number or an array of numbers, `b` != 0
  * @return {(number|number[])} The remainder of `a` divided by `b` if both are numbers. Returns an array with the the remainders applied index-wise to each element if `a` or `b` is an array.
- * @throws `'Matrix length mismatch'` if `a` and `b` are arrays with different lengths
+ * @throws `'Array length mismatch'` if `a` and `b` are arrays with different lengths
  * - `'Cannot divide by 0'` if `b` equals 0 or contains 0
  * @example
  * mod(10, 7) // returns 3
@@ -14,7 +14,7 @@
 
 export function mod(a, b) {
   if (Array.isArray(a) && Array.isArray(b)) {
-    if (a.length !== b.length) throw new Error('Matrix length mismatch');
+    if (a.length !== b.length) throw new Error('Array length mismatch');
     return a.map((val, i) => {
       if (b[i] === 0) throw new Error('Cannot divide by 0');
       return val % b[i];

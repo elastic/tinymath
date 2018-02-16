@@ -14,6 +14,6 @@ describe('Sqrt', () => {
   });
 
   it('Invalid negative number', () => {
-    expect(() => sqrt(-1)).to.throw();
+    expect(() => sqrt(-1)).to.throw('Unable find the square root of a negative number');
   });
 });

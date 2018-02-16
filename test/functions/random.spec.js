@@ -13,7 +13,7 @@ describe('Random', () => {
   });
 
   it('min greater than max', () => {
-    expect(() => random(-1)).to.throw();
-    expect(() => random(3, 1)).to.throw();
+    expect(() => random(-1)).to.throw('Min is greater than max');
+    expect(() => random(3, 1)).to.throw('Min is greater than max');
   });
 });

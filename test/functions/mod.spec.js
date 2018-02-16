@@ -20,6 +20,6 @@ describe('Mod', () => {
   });
 
   it('array length mismatch', () => {
-    expect(() => mod([1, 2], [3])).to.throw();
+    expect(() => mod([1, 2], [3])).to.throw('Array length mismatch');
   });
 });

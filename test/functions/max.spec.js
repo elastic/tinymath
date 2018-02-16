@@ -21,6 +21,6 @@ describe('Max', () => {
   });
 
   it('array length mismatch', () => {
-    expect(() => max([1, 2], [3])).to.throw();
+    expect(() => max([1, 2], [3])).to.throw('Array length mismatch');
   });
 });
