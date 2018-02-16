@@ -12,7 +12,7 @@ const fixer = a => {
  *
  * @example
  * fix(1.2) // returns 1
- * fix(-1.8) // returns 1
+ * fix(-1.8) // returns -1
  * fix([1.8, 2.9, -3.7, -4.6]) // returns [1, 2, -3, -4]
  */
 
