@@ -1,4 +1,5 @@
 # Functions
+This document provides detailed information about the functions available in Tinymath and lists what parameters each function accepts, the return value of that function, and examples of how each function behaves. Most of the functions below accept arrays and apply JavaScript Math methods to each element of that array. For the functions that accept multiple arrays as parameters, the function generally does calculation index by index. Any function below can be wrapped by another function as long as the return type of the inner function matches the acceptable parameter type of the outer function.
 
 ## abs( a )
 Calculates the absolute value of a number. For arrays, the function will be applied to each element.
@@ -260,7 +261,7 @@ Finds the median value(s) of one of more numbers/arrays of numbers into the func
 | --- | --- | --- |
 | ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
-**Returns**: <code>Array.&lt;number&gt;</code> \| <code>Array.&lt;Array.&lt;number&gt;&gt;</code> - an array median value(s) of all numbers if all inputs are numbers or an array of arrays of median values of each index, including scalar numbers.  
+**Returns**: <code>Array.&lt;number&gt;</code> - an array median value(s) of all numbers if all inputs are numbers or an array of arrays of median values of each index, including scalar numbers.  
 **Example**  
 ```js
 median(1, 1, 2, 3) //returns 1.5
