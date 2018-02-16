@@ -4,7 +4,8 @@
  * @return {(number|number[])} The floor of `a`. Returns an array with the the floor of each element if `a` is an array.
  *
  * @example
- * floor(1.2) // returns 1
+ * floor(1.8) // returns 1
+ * floor(-1.2) // returns -2
  * floor([1.7, 2.8, 3.9]) // returns [1, 2, 3]
  */
 

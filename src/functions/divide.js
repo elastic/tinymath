@@ -4,7 +4,7 @@
  * @param {(number|number[])} b divisor, a number or an array of numbers, `b` != 0
  * @return {(number|number[])} The quotient of `a` and `b` if both are numbers. Returns an array with the quotients applied index-wise to each element if `a` or `b` is an array.
  * @throws `'Matrix length mismatch'` if `a` and `b` are arrays with different lengths
- * - `'Cannot divide by 0'` if 'b' equals 0 or contains 0
+ * - `'Cannot divide by 0'` if `b` equals 0 or contains 0
  * @example
  * divide(6, 3) // returns 2
  * divide([10, 20, 30, 40], 10) // returns [1, 2, 3, 4]

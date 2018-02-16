@@ -7,7 +7,6 @@
  * size([]) // returns 0
  * size([-1, -2, -3, -4]) // returns 4
  * size(100) // returns 1
- * size('foo') // returns 1
  */
 
 export function size(a) {

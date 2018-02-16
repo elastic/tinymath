@@ -6,7 +6,7 @@
  * @example
  * max(1, 2, 3) // returns 3
  * max([10, 20, 30, 40], 15) // returns [15, 20, 30, 40]
- * max([1, 9], 4, [3, 5]) // returns [4, 9]
+ * max([1, 9], 4, [3, 5]) // returns [max([1, 4, 3]), max([9, 4, 5])] = [4, 9]
  */
 
 export function max(...args) {

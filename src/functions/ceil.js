@@ -5,6 +5,7 @@
  *
  * @example
  * ceil(1.2) // returns 2
+ * ceil(-1.8) // returns -1
  * ceil([1.1, 2.2, 3.3]) // returns [2, 3, 4]
  */
 

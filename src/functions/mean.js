@@ -8,7 +8,7 @@ import { add } from './add.js';
  * @example
  * mean(1, 2, 3) // returns 2
  * mean([10, 20, 30, 40], 20) // returns [15, 20, 25, 30]
- * mean([1, 9], 5, [3, 4]) // returns [3, 6]
+ * mean([1, 9], 5, [3, 4]) // returns [mean([1, 5, 3]), mean([9, 5, 4])] = [3, 6]
  */
 
 export function mean(...args) {

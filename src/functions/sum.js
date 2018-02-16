@@ -8,8 +8,8 @@ const findSum = (total, current) => total + current;
  * @example
  * sum(1, 2, 3) // returns 6
  * sum([10, 20, 30, 40], 10, 20, 30) // returns 160
- * sum([1, 2], 3, [4, 5], 6) // returns 21
- * sum([10, 20, 30, 40], 10, [1, 2, 3], 22) // returns 138
+ * sum([1, 2], 3, [4, 5], 6) // returns sum(1, 2, 3, 4, 5, 6) = 21
+ * sum([10, 20, 30, 40], 10, [1, 2, 3], 22) // returns sum(10, 20, 30, 40, 10, 1, 2, 3, 22) = 138
  */
 
 export function sum(...args) {

@@ -6,7 +6,7 @@
  * @example
  * min(1, 2, 3) // returns 1
  * min([10, 20, 30, 40], 25) // returns [10, 20, 25, 25]
- * min([1, 9], 4, [3, 5]) // returns [1, 4]
+ * min([1, 9], 4, [3, 5]) // returns [min([1, 4, 3]), min([9, 4, 5])] = [1, 4]
  */
 
 export function min(...args) {

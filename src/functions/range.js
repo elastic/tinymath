@@ -10,7 +10,7 @@ import { subtract } from './subtract.js';
  * @example
  * range(1, 2, 3) // returns 2
  * range([10, 20, 30, 40], 15) // returns [5, 5, 15, 25]
- * range([1, 9], 4, [3, 5]) // returns [3, 5]
+ * range([1, 9], 4, [3, 5]) // returns [range([1, 4, 3]), range([9, 4, 5])] = [3, 5]
  */
 
 export function range(...args) {

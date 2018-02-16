@@ -22,7 +22,7 @@ const findMedian = a => {
  * median(1, 1, 2, 3) // returns 1.5
  * median(1, 1, 2, 2, 3) // returns 2
  * median([10, 20, 30, 40], 10, 20, 30) // returns [15, 20, 25, 25]
- * median([1, 9], 4, [3, 5]) // returns [3, 4]
+ * median([1, 9], 2, 4, [3, 5]) // returns [median([1, 2, 4, 3]), median([9, 2, 4, 5])] = [2.5, 4.5]
  */
 
 export function median(...args) {

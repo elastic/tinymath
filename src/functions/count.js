@@ -9,7 +9,6 @@ import { size } from './size.js';
  * count([]) // returns 0
  * count([-1, -2, -3, -4]) // returns 4
  * count(100) // returns 1
- * count('foo') // returns 1
  */
 
 export function count(a) {

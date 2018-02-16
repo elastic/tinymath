@@ -1,7 +1,7 @@
 /**
- * Calculates the exponent of a number. For arrays, the function will be applied index-wise to each element.
+ * Calculates _e^x_ where _e_ is Euler's number. For arrays, the function will be applied index-wise to each element.
  * @param {(number|number[])} a a number or an array of numbers
- * @return {(number|number[])} The exponent of `a`. Returns an array with the exponents of each element if `a` is an array.
+ * @return {(number|number[])} `e^a`. Returns an array with the values of `e^x` evaluated where `x` is each element of `a` if `a` is an array.
  *
  * @example
  * exp(2) // returns e^2 = 7.3890560989306495

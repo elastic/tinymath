@@ -29,7 +29,7 @@ const findMode = a => {
  * mode(1, 1, 2, 3) // returns [1]
  * mode(1, 1, 2, 2, 3) // returns [1,2]
  * mode([10, 20, 30, 40], 10, 20, 30) // returns [[10], [20], [30], [10, 20, 30, 40]]
- * mode([1, 9], 4, [3, 5]) // returns [[1, 3, 4], [4, 5, 9]]
+ * mode([1, 9], 1, 4, [3, 5]) // returns [mode([1, 1, 4, 3]), mode([9, 1, 4, 5])] = [[1], [4, 5, 9]]
  */
 
 export function mode(...args) {
