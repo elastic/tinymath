@@ -2,7 +2,7 @@
  * Remainder after dividing two numbers. If at least one array of numbers is passed into the function, the function will be applied index-wise to each element.
  * @param {(number|number[])} a dividend, a number or an array of numbers
  * @param {(number|number[])} b divisor, a number or an array of numbers, `b` != 0
- * @return {(number|number[])} The remainder of `a` divided by `b` if both are numbers. If `a` or `b` is an array, returns an array with the the remainders applied index-wise to each element.
+ * @return {(number|number[])} The remainder of `a` divided by `b` if both are numbers. Returns an array with the the remainders applied index-wise to each element if `a` or `b` is an array.
  * @throws `'Matrix length mismatch'` if `a` and `b` are arrays with different lengths
  * - `'Cannot divide by 0'` if 'b' equals 0 or contains 0
  * @example
