@@ -3,7 +3,7 @@ import { add } from './add.js';
 /**
  * Finds the mean value of one of more numbers/arrays of numbers into the function. If at least one array of numbers is passed into the function, the function will find the mean by index.
  * @param {...(number|number[])} args one or more numbers or arrays of numbers
- * @return {(number|number[])} The mean value of all numbers if `args` contains only numbers. If `a` is an array, returns an array with the the mean values of each index, including all scalar numbers in `args` in the calculation at each index.
+ * @return {(number|number[])} The mean value of all numbers if `args` contains only numbers. If `args` contains at least one array, returns an array with the the mean values of each index, including all scalar numbers in `args` in the calculation at each index.
  *
  * @example
  * mean(1, 2, 3) //returns 2

@@ -16,7 +16,7 @@ const findMedian = a => {
 /**
  * Finds the median value(s) of one of more numbers/arrays of numbers into the function. If at least one array of numbers is passed into the function, the function will find the median by index.
  * @param {...(number|number[])} args one or more numbers or arrays of numbers
- * @return {(number|number[])} The median value of all numbers if `args` contains only numbers. If `a` is an array, returns an array with the the median values of each index, including all scalar numbers in `args` in the calculation at each index.
+ * @return {(number|number[])} The median value of all numbers if `args` contains only numbers. If `args` contains at least one array, returns an array with the the median values of each index, including all scalar numbers in `args` in the calculation at each index.
  *
  * @example
  * median(1, 1, 2, 3) //returns 1.5
