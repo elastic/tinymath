@@ -1,6 +1,6 @@
 /**
- * Finds the minimum value of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the minimum by index.
- * @param {...(number|number[])} args numbers and/or arrays of numbers
+ * Finds the minimum value of one of more numbers/arrays of numbers into the function. If at least one array of numbers is passed into the function, the function will find the minimum by index.
+ * @param {...(number|number[])} args any number of arguments
  * @return {(number|number[])} The minimum value of all numbers if all inputs are numbers or an array of minimum values of each index, including scalar numbers.
  *
  * @example

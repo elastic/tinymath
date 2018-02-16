@@ -16,14 +16,14 @@ abs([-1 , -2, -3, -4]) //returns [1, 2, 3, 4]
 ```
 ***
 ## add( ...args )
-Calculates the sum of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will calculate the sum by index.
+Calculates the sum of one or more numbers/arrays passed into the function. If at least one array of numbers is passed into the function, the function will calculate the sum by index.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | numbers and/or arrays of numbers |
+| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
-**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The sum of all numbers if all inputs are numbers or an array of sums of the elements at each index, including scalar numbers.  
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The sum of one or more numbers/arrays of numbers if all arguments are numbers or an array of sums of the elements at each index, including scalar numbers.  
 **Example**  
 ```js
 add(1, 2, 3) //returns 6
@@ -221,12 +221,12 @@ log([10, 100, 1000, 10000, 100000]) //returns [1, 2, 3, 4, 5]
 ```
 ***
 ## max( ...args )
-Finds the maximum value of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the maximum by index.
+Finds the maximum value of one of more numbers/arrays of numbers into the function. If at least one array of numbers is passed into the function, the function will find the maximum by index.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | numbers and/or arrays of numbers |
+| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The maximum value of all numbers if all inputs are numbers or an array of maximum values at each index, including scalar numbers.  
 **Example**  
@@ -237,12 +237,12 @@ max([1, 9], 4, [3, 5]) //returns [4, 9]
 ```
 ***
 ## mean( ...args )
-Finds the mean value of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the mean by index.
+Finds the mean value of one of more numbers/arrays of numbers into the function. If at least one array of numbers is passed into the function, the function will find the mean by index.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | numbers and/or arrays of numbers |
+| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The mean value of all numbers if all inputs are numbers or an array of mean values of each index, including scalar numbers.  
 **Example**  
@@ -253,12 +253,12 @@ mean([1, 9], 5, [3, 4]) //returns [3, 6]
 ```
 ***
 ## median( ...args )
-Finds the median value(s) of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the median by index.
+Finds the median value(s) of one of more numbers/arrays of numbers into the function. If at least one array of numbers is passed into the function, the function will find the median by index.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | numbers and/or arrays of numbers |
+| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
 **Returns**: <code>Array.&lt;number&gt;</code> \| <code>Array.&lt;Array.&lt;number&gt;&gt;</code> - an array median value(s) of all numbers if all inputs are numbers or an array of arrays of median values of each index, including scalar numbers.  
 **Example**  
@@ -270,12 +270,12 @@ median([1, 9], 4, [3, 5]) //returns [3, 4]
 ```
 ***
 ## min( ...args )
-Finds the minimum value of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the minimum by index.
+Finds the minimum value of one of more numbers/arrays of numbers into the function. If at least one array of numbers is passed into the function, the function will find the minimum by index.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | numbers and/or arrays of numbers |
+| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The minimum value of all numbers if all inputs are numbers or an array of minimum values of each index, including scalar numbers.  
 **Example**  
@@ -304,12 +304,12 @@ mod([14, 42, 65, 108], [5, 4, 14, 2]) //returns [5, 2, 9, 0]
 ```
 ***
 ## mode( ...args )
-Finds the mode value(s) of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the mode by index.
+Finds the mode value(s) of one of more numbers/arrays of numbers into the function. If at least one array of numbers is passed into the function, the function will find the mode by index.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | numbers and/or arrays of numbers |
+| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
 **Returns**: <code>Array.&lt;number&gt;</code> \| <code>Array.&lt;Array.&lt;number&gt;&gt;</code> - an array mode value(s) of all numbers if all inputs are numbers or an array of arrays of mode values of each index, including scalar numbers.  
 **Example**  
@@ -372,12 +372,12 @@ random(-10,10) //returns a number between -10 and 10
 ```
 ***
 ## range( ...args )
-Finds the range of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the range by index.
+Finds the range of one of more numbers/arrays of numbers into the function. If at least one array of numbers is passed into the function, the function will find the range by index.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | numbers and/or arrays of numbers |
+| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The range value of all numbers if all inputs are numbers or an array of range values at each index, including scalar numbers.  
 **Example**  
@@ -470,14 +470,14 @@ subtract([14, 42, 65, 108], [2, 7, 5, 12]) //returns [12, 35, 52, 96]
 ```
 ***
 ## sum( ...args )
-Calculates the sum of all numbers and distinct values in arrays passed into the function.
+Calculates the sum of one or more numbers/arrays passed into the function. If at least one array is passed, the function will sum up one or more numbers/arrays of numbers and distinct values of an array.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | numbers and/or arrays of numbers |
+| ...args | <code>number</code> \| <code>Array.&lt;number&gt;</code> | any number of arguments |
 
-**Returns**: <code>number</code> - The sum of all numbers including distinct values in any arrays.  
+**Returns**: <code>number</code> - The sum of one or more numbers/arrays of numbers including distinct values in arrays  
 **Example**  
 ```js
 sum(1, 2, 3) //returns 6

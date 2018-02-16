@@ -21,8 +21,8 @@ const findMode = a => {
 };
 
 /**
- * Finds the mode value(s) of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the mode by index.
- * @param {...(number|number[])} args numbers and/or arrays of numbers
+ * Finds the mode value(s) of one of more numbers/arrays of numbers into the function. If at least one array of numbers is passed into the function, the function will find the mode by index.
+ * @param {...(number|number[])} args any number of arguments
  * @return {(number[]|number[][])} an array mode value(s) of all numbers if all inputs are numbers or an array of arrays of mode values of each index, including scalar numbers.
  *
  * @example

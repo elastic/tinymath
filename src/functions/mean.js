@@ -1,8 +1,8 @@
 import { add } from './add.js';
 
 /**
- * Finds the mean value of all numbers passed into the function. If at least one array of numbers is passed into the function, the function will find the mean by index.
- * @param {...(number|number[])} args numbers and/or arrays of numbers
+ * Finds the mean value of one of more numbers/arrays of numbers into the function. If at least one array of numbers is passed into the function, the function will find the mean by index.
+ * @param {...(number|number[])} args any number of arguments
  * @return {(number|number[])} The mean value of all numbers if all inputs are numbers or an array of mean values of each index, including scalar numbers.
  *
  * @example
