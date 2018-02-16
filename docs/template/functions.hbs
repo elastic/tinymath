@@ -1,5 +1,5 @@
 # Functions
-{{#functions}}
+{{!-- {{#functions}}
 {{#if @first~}}{{>heading-indent}}{{../title}}
 <dl>
 {{/if~}}
@@ -8,14 +8,14 @@
 {{#if @last~}}
 </dl>
 {{/if~}}
-{{/functions}}
+{{/functions}} --}}
 
 {{#functions}}
-## {{name}}({{#each params}}{{name}}{{#unless @last}}, {{/unless}}{{/each}})
+## {{name}}({{#each params}} {{#if variable}}...{{/if}}{{name}}{{#unless @last}}, {{/unless}} {{/each}})
 {{description}}
 
-{{>returns~}}
 {{>params~}}
+{{>returns~}}
 {{>examples~}}
 {{#unless @last}}
 ***
