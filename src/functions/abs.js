@@ -5,7 +5,8 @@
  *
  * @example
  * abs(-1) //returns 1
- * abs([-1 , -2, -3, -4]) //returns [1, 2, 3, 4]
+ * abs(2) //returns 2
+ * abs([-1 , -2, 3, -4]) //returns [1, 2, 3, 4]
  */
 
 export function abs(a) {
