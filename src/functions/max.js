@@ -1,8 +1,8 @@
 /**
  * Finds the maximum value of one of more numbers/arrays of numbers into the function. If at least one array of numbers is passed into the function, the function will find the maximum by index.
- * @param {...(number|number[])} args any number of arguments
- * @return {(number|number[])} The maximum value of all numbers if all inputs are numbers or an array of maximum values at each index, including all scalar numbers in `args` in the calculation at each index.
- *
+ * @param {...(number|number[])} args one or more numbers or arrays of numbers
+ * @return {(number|number[])} The maximum value of all numbers if `args` contains only numbers. If `a` is an array, returns an array with the the maximum values at each index, including all scalar numbers in `args` in the calculation at each index.
+ * @throws `'Matrix length mismatch'` if `args` contains arrays of different lengths
  * @example
  * max(1, 2, 3) //returns 3
  * max([10, 20, 30, 40], 15) //returns [15, 20, 30, 40]

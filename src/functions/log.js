@@ -1,9 +1,9 @@
 /**
  * Calculates the logarithm of a number. For arrays, the function will be applied index-wise to each element.
- * @param {(number|number[])} a a number or an array of numbers
- * @param {{number}} b optional base for the logarithm. If not provided a value, the default base is e, and the natural log is calculated.
- * @return {(number|number[])} The logarithm of a number or an array of logarithms of each element.
- *
+ * @param {(number|number[])} a a number or an array of numbers, all numbers must be greater than 0
+ * @param {{number}} b (optional) base for the logarithm. If not provided a value, the default base is e, and the natural log is calculated.
+ * @return {(number|number[])} The logarithm of `a`. If `a` is an array, returns an array with the the logarithms of each element.
+ * @throws `'Base out of range'` if `b` <= 0
  * @example
  * log(1) //returns 0
  * log(64, 8) //returns 2
@@ -18,7 +18,7 @@ export function log(a, b) {
     return Math.log(a);
   }
 
-  if (b <= 0) throw new Error('base out of range');
+  if (b <= 0) throw new Error('Base out of range');
 
   if (Array.isArray(a)) {
     return a.map(a => Math.log(a) / Math.log(b));

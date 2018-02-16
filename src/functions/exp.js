@@ -1,7 +1,7 @@
 /**
  * Calculates the exponent of a number. For arrays, the function will be applied index-wise to each element.
  * @param {(number|number[])} a a number or an array of numbers
- * @return {(number|number[])} The exponent of a number or an array of exponents of each element.
+ * @return {(number|number[])} The exponent of `a`. If `a` is an array, returns an array with the exponents of each element.
  *
  * @example
  * exp(2) //returns e^2 = 7.3890560989306495

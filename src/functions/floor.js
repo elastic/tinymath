@@ -1,7 +1,7 @@
 /**
  * Calculates the floor of a number, i.e. rounds a number towards negative infinity. For arrays, the function will be applied index-wise to each element.
  * @param {(number|number[])} a a number or an array of numbers
- * @return {(number|number[])} The floor of a number or an array of the floor of each element.
+ * @return {(number|number[])} The floor of `a`. If `a` is an array, returns an array with the the floor of each element.
  *
  * @example
  * floor(1.2) //returns 1

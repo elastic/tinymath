@@ -1,7 +1,7 @@
 /**
  * Returns the last element of an array. If anything other than an array is passed in, the input is returned.
  * @param {*} a preferably an array but any input is accepted
- * @return {*} The last element of an array or the same input is returned
+ * @return {*} The last element of an array. Returns `a` if `a` is not an array.
  *
  * @example
  * last(2) //returns 2

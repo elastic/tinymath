@@ -1,7 +1,7 @@
 /**
  * Counts the number of unique values in an array
  * @param {any[]} a array of any values
- * @return {number} number of unique values in the array or 1 if anything other than an array is passed in
+ * @return {number} number of unique values in the array. Returns 1 if `a` is not an array.
  *
  * @example
  * unique(100) //returns 1
