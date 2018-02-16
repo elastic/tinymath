@@ -7,6 +7,7 @@ describe('Log', () => {
     expect(log(1, null)).to.be.equal(Math.log(1, null));
     expect(log(3, 2)).to.be.equal(Math.log(3) / Math.log(2));
     expect(log(11, 3)).to.be.equal(Math.log(11) / Math.log(3));
+    expect(log(42, 5)).to.be.equal(2.322344707681546);
   });
 
   it('arrays', () => {

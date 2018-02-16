@@ -5,6 +5,7 @@ describe('Cbrt', () => {
   it('numbers', () => {
     expect(cbrt(27)).to.be.equal(3);
     expect(cbrt(-1)).to.be.equal(-1);
+    expect(cbrt(94)).to.be.equal(4.546835943776344);
   });
 
   it('arrays', () => {
