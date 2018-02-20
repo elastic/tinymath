@@ -26,6 +26,11 @@ describe('Parser', () => {
     it('strings', () => {
       expect(parse('foo')).to.be.equal('foo');
     });
+
+    it('allowed characters', () => {
+      expect(parse('.foo')).to.be.equal('.foo');
+      expect(parse('@foo')).to.be.equal('@foo');
+    });
   });
 
   describe('Functions', () => {
