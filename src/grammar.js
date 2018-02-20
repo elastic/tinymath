@@ -186,10 +186,10 @@ function peg$parse(input, options) {
       peg$c26 = peg$otherExpectation("whitespace"),
       peg$c27 = /^[ \t\n\r]/,
       peg$c28 = peg$classExpectation([" ", "\t", "\n", "\r"], false, false),
-      peg$c29 = /^[A-Za-z_]/,
-      peg$c30 = peg$classExpectation([["A", "Z"], ["a", "z"], "_"], false, false),
-      peg$c31 = /^[0-9A-Za-z._]/,
-      peg$c32 = peg$classExpectation([["0", "9"], ["A", "Z"], ["a", "z"], ".", "_"], false, false),
+      peg$c29 = /^[A-Za-z_@.\-]/,
+      peg$c30 = peg$classExpectation([["A", "Z"], ["a", "z"], "_", "@", ".", "-"], false, false),
+      peg$c31 = /^[0-9A-Za-z._@\-]/,
+      peg$c32 = peg$classExpectation([["0", "9"], ["A", "Z"], ["a", "z"], ".", "_", "@", "-"], false, false),
       peg$c33 = function(first, rest) { // We can open this up later. Strict for now.
         return [first].concat(rest).join('');
        },
