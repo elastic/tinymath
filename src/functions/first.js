@@ -14,3 +14,5 @@ export function first(a) {
   }
   return a;
 }
+
+first.skipNumberValidation = true;

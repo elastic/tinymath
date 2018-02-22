@@ -13,4 +13,8 @@ describe('Unique', () => {
     expect(unique([-13, 30, -90, 200])).to.be.eql(4);
     expect(unique([1, 2, 3, 4, 2, 2, 2, 3, 4, 2, 4, 5, 2, 1, 4, 2])).to.be.eql(5);
   });
+
+  it('skips number validation', () => {
+    expect(unique).to.have.property('skipNumberValidation', true);
+  });
 });

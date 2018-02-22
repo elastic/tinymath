@@ -16,3 +16,5 @@ export function unique(a) {
   }
   return 1;
 }
+
+unique.skipNumberValidation = true;
