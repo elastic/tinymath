@@ -1,6 +1,6 @@
 {
   "name": "tinymath",
-  "version": "0.1.12",
+  "version": "0.2.0",
   "description": "A tiny math expression library with only the stuff I personally care about. Deal with it.",
   "main": "lib/tinymath.js",
   "scripts": {
@@ -25,7 +25,9 @@
   "bugs": {
     "url": "https://github.com/elastic/tinymath"
   },
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
