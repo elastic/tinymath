@@ -24,6 +24,7 @@
   "bugs": {
     "url": "https://github.com/elastic/tinymath"
   },
+  "files": ["lib"],
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
