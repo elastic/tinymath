@@ -10,7 +10,8 @@
     "lint": "eslint src/*.js src/**/*.js test/*.js test/**/*.js",
     "lint:fix": "eslint --fix src/*.js src/**/*.js test/*.js test/**/*.js",
     "test": "mocha --require babel-core/register --colors ./test/*.spec.js ./test/**/*.spec.js ",
-    "test:watch": "mocha --require babel-core/register --colors -w ./test/*.spec.js ./test/**/*.spec.js "
+    "test:watch": "mocha --require babel-core/register --colors -w ./test/*.spec.js ./test/**/*.spec.js ",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
