@@ -16,4 +16,8 @@ describe('Size (also Count)', () => {
     expect(() => size({})).to.throw();
     expect(() => size(function() {})).to.throw();
   });
+
+  it('skips number validation', () => {
+    expect(size).to.have.property('skipNumberValidation', true);
+  });
 });

@@ -13,4 +13,8 @@ describe('Last', () => {
     expect(last([-10, -20, -30, -40])).to.be.eql(-40);
     expect(last([-13, 30, -90, 200])).to.be.eql(200);
   });
+
+  it('skips number validation', () => {
+    expect(last).to.have.property('skipNumberValidation', true);
+  });
 });

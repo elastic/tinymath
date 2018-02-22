@@ -149,4 +149,11 @@ describe('Evaluate', () => {
       })
     ).to.throw('Unknown variable: foo');
   });
+  it('invalid context datatypes', () => {
+    expect(evaluate('mean(foo)', { foo: [true, true, false] })).to.be.NaN;
+    expect(evaluate('mean(foo + bar)', { foo: [true, true, false], bar: [1, 2, 3] })).to.be.NaN;
+    expect(evaluate('mean(foo)', { foo: ['dog', 'cat', 'mouse'] })).to.be.NaN;
+    expect(evaluate('mean(foo + 2)', { foo: ['dog', 'cat', 'mouse'] })).to.be.NaN;
+    expect(evaluate('foo + bar', { foo: NaN, bar: [4, 5, 6] })).to.be.NaN;
+  });
 });

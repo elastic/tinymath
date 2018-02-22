@@ -13,4 +13,8 @@ describe('First', () => {
     expect(first([-10, -20, -30, -40])).to.be.eql(-10);
     expect(first([-13, 30, -90, 200])).to.be.eql(-13);
   });
+
+  it('skips number validation', () => {
+    expect(first).to.have.property('skipNumberValidation', true);
+  });
 });
