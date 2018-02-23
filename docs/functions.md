@@ -28,7 +28,7 @@ Calculates the sum of one or more numbers/arrays passed into the function. If at
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The sum of all numbers in `args` if `args` contains only numbers. Returns an array of sums of the elements at each index, including all scalar numbers in `args` in the calculation at each index if `args` contains at least one array.  
 **Throws**:
 
-- `'Matrix length mismatch'` if `args` contains arrays of different lengths
+- `'Array length mismatch'` if `args` contains arrays of different lengths
 
 **Example**  
 ```js
@@ -116,7 +116,7 @@ Divides two numbers. If at least one array of numbers is passed into the functio
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The quotient of `a` and `b` if both are numbers. Returns an array with the quotients applied index-wise to each element if `a` or `b` is an array.  
 **Throws**:
 
-- `'Matrix length mismatch'` if `a` and `b` are arrays with different lengths
+- `'Array length mismatch'` if `a` and `b` are arrays with different lengths
 - `'Cannot divide by 0'` if `b` equals 0 or contains 0
 
 **Example**  
@@ -254,7 +254,7 @@ Finds the maximum value of one of more numbers/arrays of numbers into the functi
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The maximum value of all numbers if `args` contains only numbers. Returns an array with the the maximum values at each index, including all scalar numbers in `args` in the calculation at each index if `args` contains at least one array.  
 **Throws**:
 
-- `'Matrix length mismatch'` if `args` contains arrays of different lengths
+- `'Array length mismatch'` if `args` contains arrays of different lengths
 
 **Example**  
 ```js
@@ -307,7 +307,7 @@ Finds the minimum value of one of more numbers/arrays of numbers into the functi
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The minimum value of all numbers if `args` contains only numbers. Returns an array with the the minimum values of each index, including all scalar numbers in `args` in the calculation at each index if `a` is an array.  
 **Throws**:
 
-- `'Matrix length mismatch'` if `args` contains arrays of different lengths
+- `'Array length mismatch'` if `args` contains arrays of different lengths
 
 **Example**  
 ```js
@@ -328,7 +328,7 @@ Remainder after dividing two numbers. If at least one array of numbers is passed
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The remainder of `a` divided by `b` if both are numbers. Returns an array with the the remainders applied index-wise to each element if `a` or `b` is an array.  
 **Throws**:
 
-- `'Matrix length mismatch'` if `a` and `b` are arrays with different lengths
+- `'Array length mismatch'` if `a` and `b` are arrays with different lengths
 - `'Cannot divide by 0'` if `b` equals 0 or contains 0
 
 **Example**  
@@ -368,7 +368,7 @@ Multiplies two numbers. If at least one array of numbers is passed into the func
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The product of `a` and `b` if both are numbers. Returns an array with the the products applied index-wise to each element if `a` or `b` is an array.  
 **Throws**:
 
-- `'Matrix length mismatch'` if `a` and `b` are arrays with different lengths
+- `'Array length mismatch'` if `a` and `b` are arrays with different lengths
 
 **Example**  
 ```js
@@ -521,7 +521,7 @@ Subtracts two numbers. If at least one array of numbers is passed into the funct
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The difference of `a` and `b` if both are numbers or an array of differences applied index-wise to each element.  
 **Throws**:
 
-- `'Matrix length mismatch'` if `a` and `b` are arrays with different lengths
+- `'Array length mismatch'` if `a` and `b` are arrays with different lengths
 
 **Example**  
 ```js

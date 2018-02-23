@@ -3,7 +3,7 @@
  * @param {any[][]} args an array or an array that contains arrays
  * @param {number} index index of the first array element in args
  * @return {any[][]} transpose of args
- * @throws `'Matrix length mismatch'` if `args` contains arrays of different lengths
+ * @throws `'Array length mismatch'` if `args` contains arrays of different lengths
  * @example
  * transpose([[1,2], [3,4], [5,6]], 0) // returns [[1, 3, 5], [2, 4, 6]]
  * transpose([10, 20, [10, 20, 30, 40], 30], 2) // returns [[10, 20, 10, 30], [10, 20, 20, 30], [10, 20, 30, 30], [10, 20, 40, 30]]
@@ -15,7 +15,7 @@ export function transpose(args, index) {
   return args[index].map((col, i) =>
     args.map(row => {
       if (Array.isArray(row)) {
-        if (row.length !== len) throw new Error('Matrix length mismatch');
+        if (row.length !== len) throw new Error('Array length mismatch');
         return row[i];
       }
       return row;
