@@ -1,26 +1,25 @@
 {
   "name": "tinymath",
-  "version": "0.1.11",
-  "description":
-    "A tiny math expression library with only the stuff I personally care about. Deal with it.",
+  "version": "0.1.12",
+  "description": "A tiny math expression library with only the stuff I personally care about. Deal with it.",
   "main": "lib/tinymath.js",
   "scripts": {
     "build": "webpack --env dev && webpack --env build && npm run test",
     "dev": "webpack --progress --colors --watch --env dev",
-    "docs":
-      "jsdoc2md --template docs/template/functions.hbs src/functions/*.js > docs/functions.md",
+    "docs": "jsdoc2md --template docs/template/functions.hbs src/functions/*.js > docs/functions.md",
     "lint": "eslint src/*.js src/**/*.js test/*.js test/**/*.js",
     "lint:fix": "eslint --fix src/*.js src/**/*.js test/*.js test/**/*.js",
     "test": "mocha --require babel-core/register --colors ./test/*.spec.js ./test/**/*.spec.js ",
-    "test:watch":
-      "mocha --require babel-core/register --colors -w ./test/*.spec.js ./test/**/*.spec.js "
+    "test:watch": "mocha --require babel-core/register --colors -w ./test/*.spec.js ./test/**/*.spec.js "
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/elastic/tinymath.git"
   },
   "author": "Rashid Khan <rashid.khan@elastic.co>",
-  "contributors": ["Catherine Liu <catherine.liu@elastic.co>"],
+  "contributors": [
+    "Catherine Liu <catherine.liu@elastic.co>"
+  ],
   "license": "Apache 2",
   "bugs": {
     "url": "https://github.com/elastic/tinymath"
@@ -56,5 +55,8 @@
     "prettier": "^1.9.2",
     "webpack": "^3.8.1",
     "yargs": "^10.0.3"
+  },
+  "dependencies": {
+    "lodash.get": "^4.4.2"
   }
 }

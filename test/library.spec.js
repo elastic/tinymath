@@ -64,6 +64,12 @@ describe('Evaluate', () => {
 
   it('variables', () => {
     expect(evaluate('foo', { foo: 10 })).to.be.equal(10);
+    expect(evaluate('foo.bar', { foo: { bar: 20 } })).to.be.equal(20);
+
+    expect(evaluate('foo.bar[0].baz', { foo: { bar: [{ baz: 30 }, { beer: 40 }] } })).to.be.equal(
+      30
+    );
+
     expect(evaluate('bar', { bar: [1, 2] })).to.be.eql([1, 2]);
   });
 
