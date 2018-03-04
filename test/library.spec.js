@@ -64,8 +64,10 @@ describe('Evaluate', () => {
 
   it('variables', () => {
     expect(evaluate('foo', { foo: 10 })).to.be.equal(10);
-    expect(evaluate('foo.bar', { foo: { bar: 20 } })).to.be.equal(20);
+  });
 
+  it('variables with dot notation', () => {
+    expect(evaluate('foo.bar', { foo: { bar: 20 } })).to.be.equal(20);
     expect(evaluate('foo.bar[0].baz', { foo: { bar: [{ baz: 30 }, { beer: 40 }] } })).to.be.equal(
       30
     );
@@ -154,5 +156,12 @@ describe('Evaluate', () => {
         },
       })
     ).to.throw('Unknown variable: foo');
+  });
+  it('invalid context datatypes', () => {
+    expect(evaluate('mean(foo)', { foo: [true, true, false] })).to.be.NaN;
+    expect(evaluate('mean(foo + bar)', { foo: [true, true, false], bar: [1, 2, 3] })).to.be.NaN;
+    expect(evaluate('mean(foo)', { foo: ['dog', 'cat', 'mouse'] })).to.be.NaN;
+    expect(evaluate('mean(foo + 2)', { foo: ['dog', 'cat', 'mouse'] })).to.be.NaN;
+    expect(evaluate('foo + bar', { foo: NaN, bar: [4, 5, 6] })).to.be.NaN;
   });
 });

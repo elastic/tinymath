@@ -3,7 +3,7 @@
  * @param {(number|number[])} a a number or an array of numbers
  * @param {(number|number[])} b a number or an array of numbers
  * @return {(number|number[])} The product of `a` and `b` if both are numbers. Returns an array with the the products applied index-wise to each element if `a` or `b` is an array.
- * @throws `'Matrix length mismatch'` if `a` and `b` are arrays with different lengths
+ * @throws `'Array length mismatch'` if `a` and `b` are arrays with different lengths
  * @example
  * multiply(6, 3) // returns 18
  * multiply([10, 20, 30, 40], 10) // returns [100, 200, 300, 400]
@@ -14,7 +14,7 @@
 export function multiply(...args) {
   return args.reduce((result, current) => {
     if (Array.isArray(result) && Array.isArray(current)) {
-      if (current.length !== result.length) throw new Error('Matrix length mismatch');
+      if (current.length !== result.length) throw new Error('Array length mismatch');
       return result.map((val, i) => val * current[i]);
     }
     if (Array.isArray(result)) return result.map(val => val * current);

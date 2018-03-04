@@ -14,3 +14,5 @@ export function last(a) {
   }
   return a;
 }
+
+last.skipNumberValidation = true;

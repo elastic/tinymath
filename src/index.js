@@ -42,8 +42,11 @@ export function interpret(node, scope, injectedFunctions) {
 
   function invoke(node) {
     const { name, args } = node;
-    if (!functions[name]) throw new Error(`No such function: ${name}`);
-    return functions[name](...args.map(exec));
+    const fn = functions[name];
+    if (!fn) throw new Error(`No such function: ${name}`);
+    const execOutput = args.map(exec);
+    if (fn.skipNumberValidation || isOperable(execOutput)) return fn(...execOutput);
+    return NaN;
   }
 }
 
@@ -56,4 +59,11 @@ function getType(x) {
   }
   if (type === 'string' || type === 'number') return type;
   throw new Error(`Unknown AST property type: ${type}`);
+}
+
+function isOperable(args) {
+  return args.every(arg => {
+    if (Array.isArray(arg)) return isOperable(arg);
+    return typeof arg === 'number' && !isNaN(arg);
+  });
 }
