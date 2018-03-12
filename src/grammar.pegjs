@@ -42,7 +42,7 @@ Function "function"
  }
 
 Literal "literal"
- = _ literal:(Number / Variable) _ { return literal;}
+ = _ literal:(Number / Variable / QuotedString) _ { return literal;}
 
 _ "whitespace"
   = [ \t\n\r]*
@@ -51,6 +51,11 @@ Variable
  = _ first:[A-Za-z_@.-] rest:[0-9A-Za-z._@-]* _ { // We can open this up later. Strict for now.
   return [first].concat(rest).join('');
  }
+
+QuotedString
+ = _ '"' str:[ 0-9A-Za-z._@-]* '"' _ {
+ return str.join('');
+}
 
 // Numbers. Lol.
 
