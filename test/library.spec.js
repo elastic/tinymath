@@ -24,12 +24,22 @@ describe('Parser', () => {
 
   describe('Variables', () => {
     it('strings', () => {
+      expect(parse('f')).to.be.equal('f');
       expect(parse('foo')).to.be.equal('foo');
+    });
+
+    it('strings with spaces', () => {
+      expect(parse('"foo bar"')).to.be.equal('foo bar');
+      expect(parse('"foo bar     "')).to.be.equal('foo bar     ');
+      expect(parse('"  foo bar     "')).to.be.equal('  foo bar     ');
     });
 
     it('allowed characters', () => {
       expect(parse('.foo')).to.be.equal('.foo');
       expect(parse('@foo')).to.be.equal('@foo');
+      expect(parse('_foo_')).to.be.equal('_foo_');
+      expect(parse('foo-bar')).to.be.equal('foo-bar');
+      expect(parse('foo9bar')).to.be.equal('foo9bar');
     });
   });
 
@@ -40,6 +50,10 @@ describe('Parser', () => {
 
     it('arguments', () => {
       expect(parse('foo(5,10)')).to.be.eql({ name: 'foo', args: [5, 10] });
+    });
+
+    it('arguments with strings', () => {
+      expect(parse('foo("string with spaces")')).to.be.eql({ name: 'foo', args: ['string with spaces'] });
     });
   });
 
@@ -95,6 +109,9 @@ describe('Evaluate', () => {
       10,
       18,
     ]);
+    expect(evaluate('"b" * 7', { b: 3 })).to.be.eql(21);
+    expect(evaluate('"space name" * 2', { 'space name': [1, 2, 21] })).to.be.eql([2, 4, 42]);
+    expect(evaluate('sum("space name")', { 'space name': [1, 2, 21] })).to.be.eql(24);
   });
 
   it('equations with injected functions', () => {
