@@ -43,6 +43,7 @@ module.exports = [
         file: `${outputPath}/${filename}.js`,
         format: 'umd',
         name: pkg.name,
+        sourcemap: true,
         banner,
       },
     ],
