@@ -25,6 +25,9 @@ const config = {
     }),
     filesize(),
   ],
+  watch: {
+    include: 'src/**',
+  },
 };
 
 module.exports = [
