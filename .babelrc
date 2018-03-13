@@ -1,4 +1,17 @@
 {
-  "presets": ["es2015"],
-  "plugins": ["babel-plugin-external-helpers"]
+  "plugins": [
+    "external-helpers"
+  ],
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": ["last 2 versions", "ie >= 11"],
+          "node": "6.12"
+        }
+      }
+    ]
+  ]
 }
