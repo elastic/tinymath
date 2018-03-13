@@ -7,9 +7,9 @@
   "jsnext:main": "lib/tinymath.mjs",
   "browser": "lib/tinymath.min.js",
   "scripts": {
-    "build": "npm run build:grammar && rollup -c rollup.config.js",
+    "build": "npm run build:grammar && rimraf lib && rollup -c rollup.config.js",
     "build:grammar": "pegjs -o src/grammar.js src/grammar.pegjs",
-    "dev": "rollup --watch -c rollup.config.js",
+    "dev": "rimraf lib && rollup --watch -c rollup.config.js",
     "docs": "jsdoc2md --template docs/template/functions.hbs src/functions/*.js > docs/functions.md",
     "lint": "eslint src/*.js src/**/*.js test/*.js test/**/*.js",
     "lint:fix": "eslint --fix src/*.js src/**/*.js test/*.js test/**/*.js",
@@ -38,8 +38,7 @@
     "trailingComma": "es5"
   },
   "@std/esm": "cjs",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@elastic/eslint-config-kibana": "^0.15.0",
     "@elastic/eslint-import-resolver-kibana": "^2.0.0",
@@ -64,6 +63,7 @@
     "mocha": "^4.0.1",
     "pegjs": "^0.10.0",
     "prettier": "^1.9.2",
+    "rimraf": "^2.6.2",
     "rollup": "^0.56.5",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-babel-minify": "^4.0.0",
