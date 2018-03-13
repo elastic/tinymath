@@ -4,7 +4,7 @@
 */
 
 import { expect } from 'chai';
-import { evaluate, parse } from '../lib/tinymath.js';
+import { evaluate, parse } from '..';
 
 describe('Parser', () => {
   describe('Numbers', () => {
