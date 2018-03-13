@@ -72,4 +72,21 @@ module.exports = [
       }),
     ]),
   },
+  {
+    ...config,
+    input: 'src/polyfill.js',
+    output: {
+      file: `${outputPath}/${filename}.es5.js`,
+      format: 'umd',
+      name: pkg.name,
+      sourcemap: true,
+    },
+    plugins: config.plugins.concat([
+      minify({
+        comments: false,
+        sourceMap: true,
+        banner,
+      }),
+    ]),
+  },
 ];
