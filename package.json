@@ -4,6 +4,7 @@
   "description": "A tiny math expression library with only the stuff I personally care about. Deal with it.",
   "main": "lib/tinymath.js",
   "module": "lib/tinymath.mjs",
+  "jsnext:main": "lib/tinymath.mjs",
   "browser": "lib/tinymath.min.js",
   "scripts": {
     "build": "npm run build:grammar && rollup -c rollup.config.js",
