@@ -37,56 +37,56 @@ const config = {
   },
 };
 
-module.exports = [
-  {
-    ...config,
-    output: [
-      {
-        file: `${outputPath}/${filename}.mjs`,
-        format: 'es',
-        name: pkg.name,
-        banner,
-      },
-      {
-        file: `${outputPath}/${filename}.js`,
-        format: 'umd',
-        name: pkg.name,
-        sourcemap: true,
-        banner,
-      },
-    ],
-  },
-  {
-    ...config,
-    output: {
-      file: `${outputPath}/${filename}.min.js`,
+exports.main = {
+  ...config,
+  output: [
+    {
+      file: `${outputPath}/${filename}.mjs`,
+      format: 'es',
+      name: pkg.name,
+      banner,
+    },
+    {
+      file: `${outputPath}/${filename}.js`,
       format: 'umd',
       name: pkg.name,
       sourcemap: true,
+      banner,
     },
-    plugins: config.plugins.concat([
-      minify({
-        comments: false,
-        sourceMap: true,
-        banner,
-      }),
-    ]),
+  ],
+};
+
+exports.min = {
+  ...config,
+  output: {
+    file: `${outputPath}/${filename}.min.js`,
+    format: 'umd',
+    name: pkg.name,
+    sourcemap: true,
   },
-  {
-    ...config,
-    input: 'src/polyfill.js',
-    output: {
-      file: `${outputPath}/${filename}.es5.js`,
-      format: 'umd',
-      name: pkg.name,
-      sourcemap: true,
-    },
-    plugins: config.plugins.concat([
-      minify({
-        comments: false,
-        sourceMap: true,
-        banner,
-      }),
-    ]),
+  plugins: config.plugins.concat([
+    minify({
+      comments: false,
+      sourceMap: true,
+      banner,
+    }),
+  ]),
+};
+
+exports.legacy = {
+  ...config,
+  input: 'src/polyfill.js',
+  output: {
+    file: `${outputPath}/${filename}.es5.js`,
+    format: 'umd',
+    name: pkg.name,
+    sourcemap: true,
   },
-];
+  plugins: config.plugins.concat([
+    minify({
+      comments: false,
+      sourceMap: true,
+      banner,
+    }),
+  ]),
+};

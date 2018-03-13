@@ -7,9 +7,9 @@
   "jsnext:main": "lib/tinymath.mjs",
   "browser": "lib/tinymath.min.js",
   "scripts": {
-    "build": "npm run build:grammar && rimraf lib && rollup -c rollup.config.js",
+    "build": "npm run build:grammar && rimraf lib && rollup -c rollup.build.js",
     "build:grammar": "pegjs -o src/grammar.js src/grammar.pegjs",
-    "dev": "rimraf lib && rollup --watch -c rollup.config.js",
+    "dev": "rimraf lib && rollup --watch -c rollup.dev.js",
     "docs": "jsdoc2md --template docs/template/functions.hbs src/functions/*.js > docs/functions.md",
     "lint": "eslint src/*.js src/**/*.js test/*.js test/**/*.js",
     "lint:fix": "eslint --fix src/*.js src/**/*.js test/*.js test/**/*.js",
