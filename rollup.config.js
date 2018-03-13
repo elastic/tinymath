@@ -1,4 +1,5 @@
 const commonjs = require('rollup-plugin-commonjs');
+const nodeResolve = require('rollup-plugin-node-resolve');
 const babel = require('rollup-plugin-babel');
 const progress = require('rollup-plugin-progress');
 const filesize = require('rollup-plugin-filesize');
@@ -19,6 +20,13 @@ const config = {
   plugins: [
     progress(),
     commonjs(),
+    nodeResolve({
+      module: true,
+      main: true,
+      jsnext: false,
+      browser: false,
+      preferBuiltings: true,
+    }),
     babel({
       exclude: 'node_modules/**', // only transpile our source code
     }),

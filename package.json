@@ -38,7 +38,8 @@
     "trailingComma": "es5"
   },
   "@std/esm": "cjs",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "@elastic/eslint-config-kibana": "^0.15.0",
     "@elastic/eslint-import-resolver-kibana": "^2.0.0",
@@ -48,6 +49,7 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
+    "core-js": "^2.5.3",
     "eslint": "^4.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-babel": "^4.1.1",
@@ -67,6 +69,7 @@
     "rollup-plugin-babel-minify": "^4.0.0",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-filesize": "^1.5.0",
+    "rollup-plugin-node-resolve": "^3.2.0",
     "rollup-plugin-progress": "^0.4.0",
     "yargs": "^10.0.3"
   }
