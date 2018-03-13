@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "A tiny math expression library with only the stuff I personally care about. Deal with it.",
   "main": "lib/tinymath.js",
+  "module": "lib/tinymath.mjs",
   "scripts": {
     "build": "npm run build:grammar && rollup -c rollup.config.js",
     "build:grammar": "pegjs -o src/grammar.js src/grammar.pegjs",
