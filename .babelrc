@@ -1,4 +1,18 @@
 {
-  "presets": ["es2015"],
-  "plugins": ["babel-plugin-add-module-exports"]
+  "plugins": [
+    "external-helpers"
+  ],
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "useBuiltIns": true,
+        "targets": {
+          "browsers": ["last 2 versions", "> 5%", "ie >= 11", "Safari 7"],
+          "node": "6.12"
+        }
+      }
+    ]
+  ]
 }
