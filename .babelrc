@@ -7,8 +7,9 @@
       "env",
       {
         "modules": false,
+        "useBuiltIns": true,
         "targets": {
-          "browsers": ["last 2 versions", "ie >= 11"],
+          "browsers": ["last 2 versions", "> 5%", "ie >= 11", "Safari 7"],
           "node": "6.12"
         }
       }
