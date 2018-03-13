@@ -10,8 +10,8 @@
     "docs": "jsdoc2md --template docs/template/functions.hbs src/functions/*.js > docs/functions.md",
     "lint": "eslint src/*.js src/**/*.js test/*.js test/**/*.js",
     "lint:fix": "eslint --fix src/*.js src/**/*.js test/*.js test/**/*.js",
-    "test": "mocha --require babel-core/register --colors ./test/*.spec.js ./test/**/*.spec.js ",
-    "test:watch": "mocha --require babel-core/register --colors -w ./test/*.spec.js ./test/**/*.spec.js ",
+    "test": "mocha --require @std/esm --colors ./test/*.spec.js ./test/**/*.spec.js ",
+    "test:watch": "mocha --require @std/esm --colors -w ./test/*.spec.js ./test/**/*.spec.js ",
     "prepublishOnly": "npm run build && npm run test"
   },
   "repository": {
@@ -34,9 +34,11 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
+  "@std/esm": "cjs",
   "devDependencies": {
     "@elastic/eslint-config-kibana": "^0.15.0",
     "@elastic/eslint-import-resolver-kibana": "^2.0.0",
+    "@std/esm": "^0.25.2",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
     "babel-plugin-external-helpers": "^6.22.0",
