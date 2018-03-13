@@ -1,4 +1,3 @@
-/* eslint prefer-object-spread/prefer-object-spread: 0 */
 const commonjs = require('rollup-plugin-commonjs');
 const babel = require('rollup-plugin-babel');
 const progress = require('rollup-plugin-progress');
@@ -31,7 +30,8 @@ const config = {
 };
 
 module.exports = [
-  Object.assign({}, config, {
+  {
+    ...config,
     output: [
       {
         file: `${outputPath}/${filename}.mjs`,
@@ -47,8 +47,9 @@ module.exports = [
         banner,
       },
     ],
-  }),
-  Object.assign({}, config, {
+  },
+  {
+    ...config,
     output: {
       file: `${outputPath}/${filename}.min.js`,
       format: 'umd',
@@ -62,5 +63,5 @@ module.exports = [
         banner,
       }),
     ]),
-  }),
+  },
 ];
