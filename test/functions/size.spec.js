@@ -8,13 +8,13 @@ describe('Size (also Count)', () => {
   });
 
   it('not an array', () => {
-    expect(() => size(null)).to.throw();
-    expect(() => size(undefined)).to.throw();
-    expect(() => size('string')).to.throw();
-    expect(() => size(10)).to.throw();
-    expect(() => size(true)).to.throw();
-    expect(() => size({})).to.throw();
-    expect(() => size(function() {})).to.throw();
+    expect(() => size(null)).to.throw('Must pass an array');
+    expect(() => size(undefined)).to.throw('Must pass an array');
+    expect(() => size('string')).to.throw('Must pass an array');
+    expect(() => size(10)).to.throw('Must pass an array');
+    expect(() => size(true)).to.throw('Must pass an array');
+    expect(() => size({})).to.throw('Must pass an array');
+    expect(() => size(function() {})).to.throw('Must pass an array');
   });
 
   it('skips number validation', () => {

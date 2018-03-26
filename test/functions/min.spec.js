@@ -22,6 +22,6 @@ describe('Min', () => {
   });
 
   it('array length mismatch', () => {
-    expect(() => min([1, 2], [3])).to.throw();
+    expect(() => min([1, 2], [3])).to.throw('Array length mismatch');
   });
 });
