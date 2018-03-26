@@ -1,61 +1,82 @@
 // tinymath parsing grammar
 
 start
- = Expression
+  = Expression
 
-Expression
- = AddSubtract
-
-AddSubtract
- = _ left:MultiplyDivide rest:(('+' / '-') MultiplyDivide)* _ {
-  return rest.reduce((acc, curr) => ({
-   name: curr[0] === '+' ? 'add' : 'subtract',
-   args: [acc, curr[1]]
-  }), left)
- }
-
-MultiplyDivide
- = _ left:Factor rest:(('*' / '/') Factor)* _ {
-  return rest.reduce((acc, curr) => ({
-   name: curr[0] === '*' ? 'multiply' : 'divide',
-   args: [acc, curr[1]]
-  }), left)
- }
-
-Factor
- = Group
- / Function
- / Literal
-
-Group = _ '(' _ expr:Expression _ ')' _ {
- return expr
-}
-
-Arguments 'arguments'
- = _ first:Expression rest:(_ ',' _ arg:Expression {return arg})* _ ','? _ {
-  return [first].concat(rest);
- }
-
-Function "function"
- = _ name:[a-z]+ '(' _ args:Arguments? _ ')' _ {
-  return {name: name.join(''), args: args || []};
- }
-
-Literal "literal"
- = _ literal:(Number / Variable / QuotedString) _ { return literal;}
+// characters
 
 _ "whitespace"
   = [ \t\n\r]*
 
-Variable
- = _ first:[A-Za-z_@.-] rest:[0-9A-Za-z._@-]* _ { // We can open this up later. Strict for now.
-  return [first].concat(rest).join('');
- }
+Space
+  = [ ]
 
-QuotedString
- = _ '"' str:[ 0-9A-Za-z._@-]* '"' _ {
- return str.join('');
-}
+Quote
+  = [\"\']
+
+StartChar
+  = [A-Za-z_@.-]
+
+ValidChar
+  = [0-9A-Za-z_@.-]
+
+// literals and variables
+
+Literal "literal"
+  = _ literal:(Number / VariableWithQuote / Variable) _ {
+    return literal;
+  }
+
+Variable
+  = _ first:StartChar rest:ValidChar* _ { // We can open this up later. Strict for now.
+    return [first].concat(rest).join('');
+  }
+
+VariableWithQuote
+  = _ Quote first:StartChar mid:(Space* ValidChar+)* Quote _ {
+    return first + mid.map(m => [m[0]].concat(m[1]).join('')).join('')
+  }
+
+// expressions
+
+Expression
+  = AddSubtract
+
+AddSubtract
+  = _ left:MultiplyDivide rest:(('+' / '-') MultiplyDivide)* _ {
+    return rest.reduce((acc, curr) => ({
+      name: curr[0] === '+' ? 'add' : 'subtract',
+      args: [acc, curr[1]]
+    }), left)
+  }
+
+MultiplyDivide
+  = _ left:Factor rest:(('*' / '/') Factor)* _ {
+    return rest.reduce((acc, curr) => ({
+      name: curr[0] === '*' ? 'multiply' : 'divide',
+      args: [acc, curr[1]]
+    }), left)
+  }
+
+Factor
+  = Group
+  / Function
+  / Literal
+
+Group
+  = _ '(' _ expr:Expression _ ')' _ {
+    return expr
+  }
+
+Arguments "arguments"
+  = _ first:Expression rest:(_ ',' _ arg:Expression {return arg})* _ ','? _ {
+    return [first].concat(rest);
+  }
+
+Function "function"
+  = _ name:[a-z]+ '(' _ args:Arguments? _ ')' _ {
+    return {name: name.join(''), args: args || []};
+  }
 
 // Numbers. Lol.
 
@@ -65,7 +86,7 @@ Number "number"
 E
   = [eE]
 
-Exp
+Exp "exponent"
   = E '-'? Digit+
 
 Fraction
@@ -76,4 +97,4 @@ Integer
   / ([1-9] Digit*)
 
 Digit
- = [0-9]
+  = [0-9]
