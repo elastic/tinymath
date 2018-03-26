@@ -29,12 +29,12 @@ Literal "literal"
 
 Variable
   = _ first:StartChar rest:ValidChar* _ { // We can open this up later. Strict for now.
-    return [first].concat(rest).join('');
+    return first + rest.join('');
   }
 
 VariableWithQuote
   = _ Quote first:StartChar mid:(Space* ValidChar+)* Quote _ {
-    return first + mid.map(m => [m[0]].concat(m[1]).join('')).join('')
+    return first + mid.map(m => m[0].join('') + m[1].join('')).join('')
   }
 
 // expressions

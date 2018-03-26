@@ -46,6 +46,7 @@ describe('Parser', () => {
       expect(parse('"f b"')).to.be.equal('f b');
       expect(parse('"foo bar"')).to.be.equal('foo bar');
       expect(parse('"foo bar fizz buzz"')).to.be.equal('foo bar fizz buzz');
+      expect(parse('"foo   bar   baby"')).to.be.equal('foo   bar   baby');
     });
 
     it('strings with single quotes', () => {
@@ -54,6 +55,7 @@ describe('Parser', () => {
       expect(parse('\'f b\'')).to.be.equal('f b');
       expect(parse('\'foo bar\'')).to.be.equal('foo bar');
       expect(parse('\'foo bar fizz buzz\'')).to.be.equal('foo bar fizz buzz');
+      expect(parse('\'foo   bar   baby\'')).to.be.equal('foo   bar   baby');
       /* eslint-enable prettier/prettier */
     });
 

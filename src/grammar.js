@@ -157,10 +157,10 @@ function peg$parse(input, options) {
           return literal;
         },
       peg$c13 = function(first, rest) { // We can open this up later. Strict for now.
-          return [first].concat(rest).join('');
+          return first + rest.join('');
         },
       peg$c14 = function(first, mid) {
-          return first + mid.map(m => [m[0]].concat(m[1]).join('')).join('')
+          return first + mid.map(m => m[0].join('') + m[1].join('')).join('')
         },
       peg$c15 = "+",
       peg$c16 = peg$literalExpectation("+", false),
