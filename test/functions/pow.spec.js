@@ -14,6 +14,6 @@ describe('Pow', () => {
   });
 
   it('missing exponent', () => {
-    expect(() => pow(1)).to.throw();
+    expect(() => pow(1)).to.throw('Missing exponent');
   });
 });

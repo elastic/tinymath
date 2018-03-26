@@ -2,9 +2,9 @@ import { log } from './log.js';
 
 /**
  * Calculates the logarithm base 10 of a number. For arrays, the function will be applied index-wise to each element.
- * @param {(number|number[])} a a number or an array of numbers
+ * @param {(number|number[])} a a number or an array of numbers, `a` must be greater than 0
  * @return {(number|number[])} The logarithm of `a`. Returns an array with the the logarithms base 10 of each element if `a` is an array.
- *
+ * @throws `'Must be greater than 0'` if `a` < 0
  * @example
  * log(10) // returns 1
  * log(100) // returns 2

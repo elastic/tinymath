@@ -4,7 +4,6 @@ import { log } from '../../src/functions/log.js';
 describe('Log', () => {
   it('numbers', () => {
     expect(log(1)).to.be.equal(Math.log(1));
-    expect(log(1, null)).to.be.equal(Math.log(1, null));
     expect(log(3, 2)).to.be.equal(Math.log(3) / Math.log(2));
     expect(log(11, 3)).to.be.equal(Math.log(11) / Math.log(3));
     expect(log(42, 5)).to.be.equal(2.322344707681546);
@@ -23,7 +22,11 @@ describe('Log', () => {
     ]);
   });
 
+  it('number less than 1', () => {
+    expect(() => log(-1)).to.throw('Must be greater than 0');
+  });
+
   it('base out of range', () => {
-    expect(() => log(1, -1)).to.throw();
+    expect(() => log(1, -1)).to.throw('Base out of range');
   });
 });

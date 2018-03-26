@@ -20,6 +20,6 @@ describe('Subtract', () => {
   });
 
   it('array length mismatch', () => {
-    expect(() => subtract([1, 2], [3])).to.throw();
+    expect(() => subtract([1, 2], [3])).to.throw('Array length mismatch');
   });
 });

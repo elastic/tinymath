@@ -12,4 +12,8 @@ describe('transpose', () => {
     ]);
     expect(transpose([4, [1, 9], [3, 5]], 1)).to.be.eql([[4, 1, 3], [4, 9, 5]]);
   });
+
+  it('array length mismatch', () => {
+    expect(() => transpose([[1], [2, 3]], 0)).to.throw('Array length mismatch');
+  });
 });

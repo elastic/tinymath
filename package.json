@@ -1,21 +1,22 @@
 {
   "name": "tinymath",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "description": "A tiny math expression library with only the stuff I personally care about. Deal with it.",
   "main": "lib/tinymath.js",
   "module": "lib/tinymath.mjs",
   "jsnext:main": "lib/tinymath.mjs",
   "browser": "lib/tinymath.min.js",
   "scripts": {
-    "build": "npm run build:grammar && rollup -c rollup.config.js",
+    "build": "npm run build:grammar && npm run clean && rollup -c rollup.build.js",
     "build:grammar": "pegjs -o src/grammar.js src/grammar.pegjs",
-    "dev": "rollup --watch -c rollup.config.js",
+    "clean": "rimraf lib",
+    "dev": "npm run clean && rollup --watch -c rollup.dev.js",
     "docs": "jsdoc2md --template docs/template/functions.hbs src/functions/*.js > docs/functions.md",
     "lint": "eslint src/*.js src/**/*.js test/*.js test/**/*.js",
     "lint:fix": "eslint --fix src/*.js src/**/*.js test/*.js test/**/*.js",
-    "test": "mocha --require @std/esm --colors ./test/*.spec.js ./test/**/*.spec.js ",
-    "test:watch": "mocha --require @std/esm --colors -w ./test/*.spec.js ./test/**/*.spec.js ",
-    "prepublishOnly": "npm run build && npm run test"
+    "test": "mocha --require @std/esm --colors ./test/*.spec.js ./test/**/*.spec.js",
+    "test:watch": "mocha --require @std/esm --colors -w ./test/*.spec.js ./test/**/*.spec.js",
+    "version": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
+    "core-js": "^2.5.3",
     "eslint": "^4.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-babel": "^4.1.1",
@@ -62,11 +64,13 @@
     "mocha": "^4.0.1",
     "pegjs": "^0.10.0",
     "prettier": "^1.9.2",
+    "rimraf": "^2.6.2",
     "rollup": "^0.56.5",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-babel-minify": "^4.0.0",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-filesize": "^1.5.0",
+    "rollup-plugin-node-resolve": "^3.2.0",
     "rollup-plugin-progress": "^0.4.0",
     "yargs": "^10.0.3"
   }
