@@ -24,12 +24,72 @@ describe('Parser', () => {
 
   describe('Variables', () => {
     it('strings', () => {
+      expect(parse('f')).to.be.equal('f');
       expect(parse('foo')).to.be.equal('foo');
     });
 
     it('allowed characters', () => {
-      expect(parse('.foo')).to.be.equal('.foo');
+      expect(parse('_foo')).to.be.equal('_foo');
       expect(parse('@foo')).to.be.equal('@foo');
+      expect(parse('.foo')).to.be.equal('.foo');
+      expect(parse('-foo')).to.be.equal('-foo');
+      expect(parse('_foo0')).to.be.equal('_foo0');
+      expect(parse('@foo0')).to.be.equal('@foo0');
+      expect(parse('.foo0')).to.be.equal('.foo0');
+      expect(parse('-foo0')).to.be.equal('-foo0');
+    });
+  });
+
+  describe('quoted variables', () => {
+    it('strings with double quotes', () => {
+      expect(parse('"foo"')).to.be.equal('foo');
+      expect(parse('"f b"')).to.be.equal('f b');
+      expect(parse('"foo bar"')).to.be.equal('foo bar');
+      expect(parse('"foo bar fizz buzz"')).to.be.equal('foo bar fizz buzz');
+      expect(parse('"foo   bar   baby"')).to.be.equal('foo   bar   baby');
+    });
+
+    it('strings with single quotes', () => {
+      /* eslint-disable prettier/prettier */
+      expect(parse('\'foo\'')).to.be.equal('foo');
+      expect(parse('\'f b\'')).to.be.equal('f b');
+      expect(parse('\'foo bar\'')).to.be.equal('foo bar');
+      expect(parse('\'foo bar fizz buzz\'')).to.be.equal('foo bar fizz buzz');
+      expect(parse('\'foo   bar   baby\'')).to.be.equal('foo   bar   baby');
+      /* eslint-enable prettier/prettier */
+    });
+
+    it('allowed characters', () => {
+      expect(parse('"_foo bar"')).to.be.equal('_foo bar');
+      expect(parse('"@foo bar"')).to.be.equal('@foo bar');
+      expect(parse('".foo bar"')).to.be.equal('.foo bar');
+      expect(parse('"-foo bar"')).to.be.equal('-foo bar');
+      expect(parse('"_foo0 bar1"')).to.be.equal('_foo0 bar1');
+      expect(parse('"@foo0 bar1"')).to.be.equal('@foo0 bar1');
+      expect(parse('".foo0 bar1"')).to.be.equal('.foo0 bar1');
+      expect(parse('"-foo0 bar1"')).to.be.equal('-foo0 bar1');
+    });
+
+    it('invalid characters in double quotes', () => {
+      const check = str => () => parse(str);
+      expect(check('" foo bar"')).to.throw('but "\\"" found');
+      expect(check('"foo bar "')).to.throw('but "\\"" found');
+      expect(check('"0foo"')).to.throw('but "\\"" found');
+      expect(check('" foo bar"')).to.throw('but "\\"" found');
+      expect(check('"foo bar "')).to.throw('but "\\"" found');
+      expect(check('"0foo"')).to.throw('but "\\"" found');
+    });
+
+    it('invalid characters in single quotes', () => {
+      const check = str => () => parse(str);
+      /* eslint-disable prettier/prettier */
+      expect(check('\' foo bar\'')).to.throw('but "\'" found');
+      expect(check('\'foo bar \'')).to.throw('but "\'" found');
+      expect(check('\'0foo\'')).to.throw('but "\'" found');
+      expect(check('\' foo bar\'')).to.throw('but "\'" found');
+      expect(check('\'foo bar \'')).to.throw('but "\'" found');
+      expect(check('\'0foo\'')).to.throw('but "\'" found');
+      /* eslint-enable prettier/prettier */
     });
   });
 
@@ -40,6 +100,20 @@ describe('Parser', () => {
 
     it('arguments', () => {
       expect(parse('foo(5,10)')).to.be.eql({ name: 'foo', args: [5, 10] });
+    });
+
+    it('arguments with strings', () => {
+      expect(parse('foo("string with spaces")')).to.be.eql({
+        name: 'foo',
+        args: ['string with spaces'],
+      });
+
+      /* eslint-disable prettier/prettier */
+      expect(parse('foo(\'string with spaces\')')).to.be.eql({
+        name: 'foo',
+        args: ['string with spaces'],
+      });
+      /* eslint-enable prettier/prettier */
     });
   });
 
@@ -97,6 +171,12 @@ describe('Evaluate', () => {
     ]);
   });
 
+  it('equations with quoted variables', () => {
+    expect(evaluate('"b" * 7', { b: 3 })).to.be.eql(21);
+    expect(evaluate('"space name" * 2', { 'space name': [1, 2, 21] })).to.be.eql([2, 4, 42]);
+    expect(evaluate('sum("space name")', { 'space name': [1, 2, 21] })).to.be.eql(24);
+  });
+
   it('equations with injected functions', () => {
     expect(
       evaluate(
@@ -149,6 +229,7 @@ describe('Evaluate', () => {
       })
     ).to.throw('Unknown variable: foo');
   });
+
   it('invalid context datatypes', () => {
     expect(evaluate('mean(foo)', { foo: [true, true, false] })).to.be.NaN;
     expect(evaluate('mean(foo + bar)', { foo: [true, true, false], bar: [1, 2, 3] })).to.be.NaN;
