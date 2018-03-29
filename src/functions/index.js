@@ -2,6 +2,7 @@ import { abs } from './abs';
 import { add } from './add';
 import { cbrt } from './cbrt';
 import { ceil } from './ceil';
+import { clamp } from './clamp';
 import { count } from './count';
 import { cube } from './cube';
 import { divide } from './divide';
@@ -35,6 +36,7 @@ export const functions = {
   add,
   cbrt,
   ceil,
+  clamp,
   count,
   cube,
   divide,

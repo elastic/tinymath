@@ -1,6 +1,6 @@
 {
   "name": "tinymath",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "A tiny math expression library with only the stuff I personally care about. Deal with it.",
   "main": "lib/tinymath.js",
   "module": "lib/tinymath.mjs",
@@ -16,7 +16,8 @@
     "lint:fix": "eslint --fix src/*.js src/**/*.js test/*.js test/**/*.js",
     "test": "mocha --require @std/esm --colors ./test/*.spec.js ./test/**/*.spec.js",
     "test:watch": "mocha --require @std/esm --colors -w ./test/*.spec.js ./test/**/*.spec.js",
-    "version": "npm run build"
+    "version": "npm run docs",
+    "pretest": "npm run build"
   },
   "repository": {
     "type": "git",
