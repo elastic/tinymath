@@ -16,7 +16,7 @@
     "lint:fix": "eslint --fix src/*.js src/**/*.js test/*.js test/**/*.js",
     "test": "mocha --require @std/esm --colors ./test/*.spec.js ./test/**/*.spec.js",
     "test:watch": "mocha --require @std/esm --colors -w ./test/*.spec.js ./test/**/*.spec.js",
-    "version": "npm run build"
+    "pretest": "npm run build"
   },
   "repository": {
     "type": "git",
