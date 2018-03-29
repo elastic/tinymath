@@ -1,9 +1,7 @@
-// import { max as findMax } from './max';
-// import { min as findMin } from './min';
-
-const findClamp = (a, min, max = Number.POSITIVE_INFINITY) => {
+const findClamp = (a, min, max) => {
   if (min > max) throw new Error('Min must be less than max');
-  return Math.min(Math.max(a, min), max);
+  if (max) return Math.min(Math.max(a, min), max);
+  return Math.max(a, min);
 };
 
 /**
