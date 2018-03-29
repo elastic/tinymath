@@ -69,6 +69,31 @@ ceil(-1.8) // returns -1
 ceil([1.1, 2.2, 3.3]) // returns [2, 3, 4]
 ```
 ***
+## _clamp(_ ..._a_,  _min_,  _max_ _)_
+Restricts value to a given range and returns closed available value. If only min is provided, values are restricted to only a lower bound.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| ...a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | one or more numbers or arrays of numbers |
+| min | <code>number</code> \| <code>Array.&lt;number&gt;</code> | (optional) The minimum value this function will return. |
+| max | <code>number</code> \| <code>Array.&lt;number&gt;</code> | (optional) The maximum value this function will return. |
+
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The closest value between `min` (inclusive) and `max` (inclusive). Returns an array with values greater than or equal to `min` and less than or equal to `max` (if provided) at each index.  
+**Throws**:
+
+- `'Array length mismatch'` if `a`, `min`, and/or `max` are arrays of different lengths
+- `Min must be less than max` if `max` is less than `min`
+
+**Example**  
+```js
+clamp(1, 2, 3) // returns 2
+clamp([10, 20, 30, 40], 15, 25) // returns [15, 20, 25, 25]
+clamp(10, [15, 2, 4, 20], 25) // returns [15, 10, 10, 20]
+clamp(35, 10, [20, 30, 40, 50]) // returns [20, 30, 35, 35]
+clamp([1, 9], 3, [4, 5]) // returns [clamp([1, 3, 4]), clamp([9, 3, 5])] = [3, 5]
+```
+***
 ## _count(_ _a_ _)_
 Returns the length of an array. Alias for size
 
@@ -210,13 +235,14 @@ Calculates the logarithm of a number. For arrays, the function will be applied i
 
 | Param | Type | Description |
 | --- | --- | --- |
-| a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers, all numbers must be greater than 0 |
+| a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers, `a` must be greater than 0 |
 | b | <code>Object</code> | (optional) base for the logarithm. If not provided a value, the default base is e, and the natural log is calculated. |
 
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The logarithm of `a`. Returns an array with the the logarithms of each element if `a` is an array.  
 **Throws**:
 
 - `'Base out of range'` if `b` <= 0
+- 'Must be greater than 0' if `a` > 0
 
 **Example**  
 ```js
@@ -232,9 +258,13 @@ Calculates the logarithm base 10 of a number. For arrays, the function will be a
 
 | Param | Type | Description |
 | --- | --- | --- |
-| a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers |
+| a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers, `a` must be greater than 0 |
 
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The logarithm of `a`. Returns an array with the the logarithms base 10 of each element if `a` is an array.  
+**Throws**:
+
+- `'Must be greater than 0'` if `a` < 0
+
 **Example**  
 ```js
 log(10) // returns 1
