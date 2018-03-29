@@ -26,21 +26,17 @@ export function clamp(a, min, max) {
   if (!min) return a;
 
   if (max && Array.isArray(max)) {
-    console.log('has max');
     if (Array.isArray(a) && Array.isArray(min)) {
-      console.log('max: a and min');
       if (a.length !== max.length || a.length !== min.length)
         throw new Error('Array length mismatch');
       return max.map((max, i) => findClamp(a[i], min[i], max));
     }
     if (Array.isArray(a)) {
-      console.log('max: a only');
       if (a.length !== max.length) throw new Error('Array length mismatch');
       return max.map((max, i) => findClamp(a[i], min, max));
     }
 
     if (Array.isArray(min)) {
-      console.log('max: min only');
       if (min.length !== max.length) throw new Error('Array length mismatch');
       return max.map((max, i) => findClamp(a, min[i], max));
     }
@@ -49,22 +45,17 @@ export function clamp(a, min, max) {
   }
 
   if (Array.isArray(a) && Array.isArray(min)) {
-    console.log('a and min');
     if (a.length !== min.length) throw new Error('Array length mismatch');
     return a.map((a, i) => findClamp(a, min[i]));
   }
 
   if (Array.isArray(a)) {
-    console.log('a only');
     return a.map(a => findClamp(a, min, max));
   }
 
   if (Array.isArray(min)) {
-    console.log('min only');
     return min.map(min => findClamp(a, min, max));
   }
 
-  console.log('none arrays');
-  console.log(max);
   return findClamp(a, min, max);
 }
