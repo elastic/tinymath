@@ -61,8 +61,6 @@ parse('1 + random()')
 */
 ```
 
-#### TODO
+#### Notes
 
-* Functions are just functions. This needs definition files so we can generate documentation
-* An AST here is overkill, we could definitely do this by injecting functions and scope into the peg parser.
 * Floating point operations have the normal Javascript limitations
