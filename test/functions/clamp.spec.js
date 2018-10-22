@@ -7,6 +7,9 @@ describe('Clamp', () => {
     expect(clamp(10, 5, 8)).to.be.equal(8);
     expect(clamp(1, 2, 3)).to.be.equal(2);
     expect(clamp(0.5, 0.2, 0.4)).to.be.equal(0.4);
+    expect(clamp(3.58, 0, 1)).to.be.equal(1);
+    expect(clamp(-0.48, 0, 1)).to.be.equal(0);
+    expect(clamp(1.38, -1, 0)).to.be.equal(0);
   });
 
   it('arrays & numbers', () => {

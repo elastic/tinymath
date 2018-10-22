@@ -1,6 +1,6 @@
 const findClamp = (a, min, max) => {
   if (min > max) throw new Error('Min must be less than max');
-  if (max) return Math.min(Math.max(a, min), max);
+  if (max != null) return Math.min(Math.max(a, min), max);
   return Math.max(a, min);
 };
 
@@ -21,14 +21,15 @@ const findClamp = (a, min, max) => {
  */
 
 export function clamp(a, min, max) {
-  if (!min) return a;
+  if (min === null) return a;
 
-  if (max && Array.isArray(max)) {
+  if (max !== null && Array.isArray(max)) {
     if (Array.isArray(a) && Array.isArray(min)) {
       if (a.length !== max.length || a.length !== min.length)
         throw new Error('Array length mismatch');
       return max.map((max, i) => findClamp(a[i], min[i], max));
     }
+
     if (Array.isArray(a)) {
       if (a.length !== max.length) throw new Error('Array length mismatch');
       return max.map((max, i) => findClamp(a[i], min, max));
