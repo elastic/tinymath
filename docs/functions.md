@@ -83,7 +83,7 @@ Restricts value to a given range and returns closed available value. If only min
 **Throws**:
 
 - `'Array length mismatch'` if `a`, `min`, and/or `max` are arrays of different lengths
-- `Min must be less than max` if `max` is less than `min`
+- `'Min must be less than max'` if `max` is less than `min`
 - `'Missing minimum value. You may want to use the 'max' function instead'` if min is not provided
 - `'Missing maximum value. You may want to use the 'min' function instead'` if max is not provided
 

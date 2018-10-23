@@ -10,7 +10,7 @@ const findClamp = (a, min, max) => {
  * @param {(number|number[])} max The maximum value this function will return.
  * @return {(number|number[])} The closest value between `min` (inclusive) and `max` (inclusive). Returns an array with values greater than or equal to `min` and less than or equal to `max` (if provided) at each index.
  * @throws `'Array length mismatch'` if `a`, `min`, and/or `max` are arrays of different lengths
- * @throws `Min must be less than max` if `max` is less than `min`
+ * @throws `'Min must be less than max'` if `max` is less than `min`
  * @throws `'Missing minimum value. You may want to use the 'max' function instead'` if min is not provided
  * @throws `'Missing maximum value. You may want to use the 'min' function instead'` if max is not provided
  *
