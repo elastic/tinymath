@@ -76,14 +76,16 @@ Restricts value to a given range and returns closed available value. If only min
 | Param | Type | Description |
 | --- | --- | --- |
 | ...a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | one or more numbers or arrays of numbers |
-| min | <code>number</code> \| <code>Array.&lt;number&gt;</code> | (optional) The minimum value this function will return. |
-| max | <code>number</code> \| <code>Array.&lt;number&gt;</code> | (optional) The maximum value this function will return. |
+| min | <code>number</code> \| <code>Array.&lt;number&gt;</code> | The minimum value this function will return. |
+| max | <code>number</code> \| <code>Array.&lt;number&gt;</code> | The maximum value this function will return. |
 
 **Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The closest value between `min` (inclusive) and `max` (inclusive). Returns an array with values greater than or equal to `min` and less than or equal to `max` (if provided) at each index.  
 **Throws**:
 
 - `'Array length mismatch'` if `a`, `min`, and/or `max` are arrays of different lengths
 - `Min must be less than max` if `max` is less than `min`
+- `'Missing minimum value. You may want to use the 'max' function instead'` if min is not provided
+- `'Missing maximum value. You may want to use the 'min' function instead'` if max is not provided
 
 **Example**  
 ```js

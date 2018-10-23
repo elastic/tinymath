@@ -1,17 +1,19 @@
 const findClamp = (a, min, max) => {
   if (min > max) throw new Error('Min must be less than max');
-  if (max != null) return Math.min(Math.max(a, min), max);
-  return Math.max(a, min);
+  return Math.min(Math.max(a, min), max);
 };
 
 /**
  * Restricts value to a given range and returns closed available value. If only min is provided, values are restricted to only a lower bound.
  * @param {...(number|number[])} a one or more numbers or arrays of numbers
- * @param {(number|number[])} min (optional) The minimum value this function will return.
- * @param {(number|number[])} max (optional) The maximum value this function will return.
+ * @param {(number|number[])} min The minimum value this function will return.
+ * @param {(number|number[])} max The maximum value this function will return.
  * @return {(number|number[])} The closest value between `min` (inclusive) and `max` (inclusive). Returns an array with values greater than or equal to `min` and less than or equal to `max` (if provided) at each index.
  * @throws `'Array length mismatch'` if `a`, `min`, and/or `max` are arrays of different lengths
  * @throws `Min must be less than max` if `max` is less than `min`
+ * @throws `'Missing minimum value. You may want to use the 'max' function instead'` if min is not provided
+ * @throws `'Missing maximum value. You may want to use the 'min' function instead'` if max is not provided
+ *
  * @example
  * clamp(1, 2, 3) // returns 2
  * clamp([10, 20, 30, 40], 15, 25) // returns [15, 20, 25, 25]
@@ -21,9 +23,12 @@ const findClamp = (a, min, max) => {
  */
 
 export function clamp(a, min, max) {
-  if (min === null) return a;
+  if (max === null)
+    throw new Error("Missing maximum value. You may want to use the 'min' function instead");
+  if (min === null)
+    throw new Error("Missing minimum value. You may want to use the 'max' function instead");
 
-  if (max !== null && Array.isArray(max)) {
+  if (Array.isArray(max)) {
     if (Array.isArray(a) && Array.isArray(min)) {
       if (a.length !== max.length || a.length !== min.length)
         throw new Error('Array length mismatch');
