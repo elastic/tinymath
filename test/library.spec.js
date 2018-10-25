@@ -51,11 +51,11 @@ describe('Parser', () => {
 
     it('strings with single quotes', () => {
       /* eslint-disable prettier/prettier */
-      expect(parse('\'foo\'')).to.be.equal('foo');
-      expect(parse('\'f b\'')).to.be.equal('f b');
-      expect(parse('\'foo bar\'')).to.be.equal('foo bar');
-      expect(parse('\'foo bar fizz buzz\'')).to.be.equal('foo bar fizz buzz');
-      expect(parse('\'foo   bar   baby\'')).to.be.equal('foo   bar   baby');
+      expect(parse("'foo'")).to.be.equal('foo');
+      expect(parse("'f b'")).to.be.equal('f b');
+      expect(parse("'foo bar'")).to.be.equal('foo bar');
+      expect(parse("'foo bar fizz buzz'")).to.be.equal('foo bar fizz buzz');
+      expect(parse("'foo   bar   baby'")).to.be.equal('foo   bar   baby');
       /* eslint-enable prettier/prettier */
     });
 
@@ -83,12 +83,12 @@ describe('Parser', () => {
     it('invalid characters in single quotes', () => {
       const check = str => () => parse(str);
       /* eslint-disable prettier/prettier */
-      expect(check('\' foo bar\'')).to.throw('but "\'" found');
-      expect(check('\'foo bar \'')).to.throw('but "\'" found');
-      expect(check('\'0foo\'')).to.throw('but "\'" found');
-      expect(check('\' foo bar\'')).to.throw('but "\'" found');
-      expect(check('\'foo bar \'')).to.throw('but "\'" found');
-      expect(check('\'0foo\'')).to.throw('but "\'" found');
+      expect(check("' foo bar'")).to.throw('but "\'" found');
+      expect(check("'foo bar '")).to.throw('but "\'" found');
+      expect(check("'0foo'")).to.throw('but "\'" found');
+      expect(check("' foo bar'")).to.throw('but "\'" found');
+      expect(check("'foo bar '")).to.throw('but "\'" found');
+      expect(check("'0foo'")).to.throw('but "\'" found');
       /* eslint-enable prettier/prettier */
     });
   });
@@ -109,7 +109,7 @@ describe('Parser', () => {
       });
 
       /* eslint-disable prettier/prettier */
-      expect(parse('foo(\'string with spaces\')')).to.be.eql({
+      expect(parse("foo('string with spaces')")).to.be.eql({
         name: 'foo',
         args: ['string with spaces'],
       });
