@@ -141,6 +141,13 @@ describe('Evaluate', () => {
     expect(evaluate('bar', { bar: [1, 2] })).to.be.eql([1, 2]);
   });
 
+  it('variables with dot notation', () => {
+    expect(evaluate('foo.bar', { foo: { bar: 20 } })).to.be.equal(20);
+    expect(evaluate('foo.bar[0].baz', { foo: { bar: [{ baz: 30 }, { beer: 40 }] } })).to.be.equal(
+      30
+    );
+  });
+
   it('equations', () => {
     expect(evaluate('3 + 4')).to.be.equal(7);
     expect(evaluate('10 - 2')).to.be.equal(8);
