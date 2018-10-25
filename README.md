@@ -1,6 +1,7 @@
 # Tinymath
 
 [![Apache License](https://img.shields.io/badge/license-apache_2.0-a9215a.svg)](https://raw.githubusercontent.com/elastic/tinymath/master/LICENSE)
+[![Build Status](https://img.shields.io/travis/elastic/tinymath.svg?branch=master)](https://travis-ci.org/elastic/tinymath)
 [![npm](https://img.shields.io/npm/v/tinymath.svg)](https://www.npmjs.com/package/tinymath)
 
 Tinymath is a tiny arithmetic and function evaluator for simple numbers and arrays. Named properties can be accessed from an optional scope parameter and new functions can be added without rebuilding. Enjoy.
