@@ -148,10 +148,10 @@ function peg$parse(input, options) {
       peg$c4 = peg$classExpectation([" "], false, false),
       peg$c5 = /^["']/,
       peg$c6 = peg$classExpectation(["\"", "'"], false, false),
-      peg$c7 = /^[A-Za-z_@.\-]/,
-      peg$c8 = peg$classExpectation([["A", "Z"], ["a", "z"], "_", "@", ".", "-"], false, false),
-      peg$c9 = /^[0-9A-Za-z_@.\-]/,
-      peg$c10 = peg$classExpectation([["0", "9"], ["A", "Z"], ["a", "z"], "_", "@", ".", "-"], false, false),
+      peg$c7 = /^[A-Za-z_@.[\]\-]/,
+      peg$c8 = peg$classExpectation([["A", "Z"], ["a", "z"], "_", "@", ".", "[", "]", "-"], false, false),
+      peg$c9 = /^[0-9A-Za-z._@[\]\-]/,
+      peg$c10 = peg$classExpectation([["0", "9"], ["A", "Z"], ["a", "z"], ".", "_", "@", "[", "]", "-"], false, false),
       peg$c11 = peg$otherExpectation("literal"),
       peg$c12 = function(literal) {
           return literal;
