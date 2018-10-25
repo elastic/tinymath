@@ -1,3 +1,4 @@
+import get from 'object-get';
 import { parse as parseFn } from './grammar';
 import { functions as includedFunctions } from './functions';
 
@@ -32,8 +33,9 @@ export function interpret(node, scope, injectedFunctions) {
       return invoke(node);
     }
     if (type === 'string') {
-      if (typeof scope[node] === 'undefined') throw new Error(`Unknown variable: ${node}`);
-      return scope[node];
+      const val = get(scope, node);
+      if (typeof val === 'undefined') throw new Error(`Unknown variable: ${node}`);
+      return val;
     }
     return node; // Can only be a number at this point
   }

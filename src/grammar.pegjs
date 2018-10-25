@@ -15,10 +15,10 @@ Quote
   = [\"\']
 
 StartChar
-  = [A-Za-z_@.-]
+  = [A-Za-z_@.\[\]-]
 
 ValidChar
-  = [0-9A-Za-z_@.-]
+  = [0-9A-Za-z._@\[\]-]
 
 // literals and variables
 
