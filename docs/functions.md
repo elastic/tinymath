@@ -410,6 +410,15 @@ multiply(10, [1, 2, 5, 10]) // returns [10, 20, 50, 100]
 multiply([1, 2, 3, 4], [2, 7, 5, 12]) // returns [2, 14, 15, 48]
 ```
 ***
+## _pi(__)_
+Returns the mathematical constant PI
+
+**Returns**: <code>number</code> - The mathematical constant PI  
+**Example**  
+```js
+pi() // 3.141592653589793
+```
+***
 ## _pow(_ _a_,  _b_ _)_
 Calculates the cube root of a number. For arrays, the function will be applied index-wise to each element.
 

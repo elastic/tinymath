@@ -20,6 +20,7 @@ import { min } from './min';
 import { mod } from './mod';
 import { mode } from './mode';
 import { multiply } from './multiply';
+import { pi } from './pi';
 import { pow } from './pow';
 import { random } from './random';
 import { range } from './range';
@@ -54,6 +55,7 @@ export const functions = {
   mod,
   mode,
   multiply,
+  pi,
   pow,
   random,
   range,

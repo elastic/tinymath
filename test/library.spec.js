@@ -163,6 +163,7 @@ describe('Evaluate', () => {
   it('equations with functions', () => {
     expect(evaluate('3 + multiply(10, 4)')).to.be.equal(43);
     expect(evaluate('3 + multiply(10, 4, 5)')).to.be.equal(203);
+    expect(evaluate('pi()')).to.be.equal(Math.PI);
   });
 
   it('equations with variables', () => {
