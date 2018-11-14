@@ -96,6 +96,22 @@ clamp(35, 10, [20, 30, 40, 50]) // returns [20, 30, 35, 35]
 clamp([1, 9], 3, [4, 5]) // returns [clamp([1, 3, 4]), clamp([9, 3, 5])] = [3, 5]
 ```
 ***
+## _cos(_ _a_ _)_
+Calculates the the cosine of a number. For arrays, the function will be applied index-wise to each element.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers, `a` is expected to be given in radians. |
+
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The cosine of `a`. Returns an array with the the cosine of each element if `a` is an array.  
+**Example**  
+```js
+cos(0) // returns 1
+cos(1.5707963267948966) // returns 6.123233995736766e-17
+cos([0, 1.5707963267948966]) // returns [1, 6.123233995736766e-17]
+```
+***
 ## _count(_ _a_ _)_
 Returns the length of an array. Alias for size
 
@@ -129,6 +145,22 @@ Calculates the cube of a number. For arrays, the function will be applied index-
 ```js
 cube(-3) // returns -27
 cube([3, 4, 5]) // returns [27, 64, 125]
+```
+***
+## _degtorad(_ _a_ _)_
+Converts degrees to radians for a number. For arrays, the function will be applied index-wise to each element.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers, `a` is expected to be given in degrees. |
+
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The radians of `a`. Returns an array with the the radians of each element if `a` is an array.  
+**Example**  
+```js
+degtorad(0) // returns 0
+degtorad(90) // returns 1.5707963267948966
+degtorad([0, 90, 180, 360]) // returns [0, 1.5707963267948966, 3.141592653589793, 6.283185307179586]
 ```
 ***
 ## _divide(_ _a_,  _b_ _)_
@@ -439,6 +471,22 @@ pow(2,3) // returns 8
 pow([1, 2, 3], 4) // returns [1, 16, 81]
 ```
 ***
+## _radtodeg(_ _a_ _)_
+Converts radians to degrees for a number. For arrays, the function will be applied index-wise to each element.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers, `a` is expected to be given in radians. |
+
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The degrees of `a`. Returns an array with the the degrees of each element if `a` is an array.  
+**Example**  
+```js
+radtodeg(0) // returns 0
+radtodeg(1.5707963267948966) // returns 90
+radtodeg([0, 1.5707963267948966, 3.141592653589793, 6.283185307179586]) // returns [0, 90, 180, 360]
+```
+***
 ## _random(_ _a_,  _b_ _)_
 Generates a random number within the given range where the lower bound is inclusive and the upper bound is exclusive. If no numbers are passed in, it will return a number between 0 and 1. If only one number is passed in, it will return .
 
@@ -493,6 +541,22 @@ round(-10.51) // returns -11
 round(-10.1, 2) // returns -10.1
 round(10.93745987, 4) // returns 10.9375
 round([2.9234, 5.1234, 3.5234, 4.49234324], 2) // returns [2.92, 5.12, 3.52, 4.49]
+```
+***
+## _sin(_ _a_ _)_
+Calculates the the sine of a number. For arrays, the function will be applied index-wise to each element.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers, `a` is expected to be given in radians. |
+
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The sine of `a`. Returns an array with the the sine of each element if `a` is an array.  
+**Example**  
+```js
+sin(0) // returns 0
+sin(1.5707963267948966) // returns 1
+sin([0, 1.5707963267948966]) // returns [0, 1]
 ```
 ***
 ## _size(_ _a_ _)_
@@ -587,6 +651,22 @@ sum(1, 2, 3) // returns 6
 sum([10, 20, 30, 40], 10, 20, 30) // returns 160
 sum([1, 2], 3, [4, 5], 6) // returns sum(1, 2, 3, 4, 5, 6) = 21
 sum([10, 20, 30, 40], 10, [1, 2, 3], 22) // returns sum(10, 20, 30, 40, 10, 1, 2, 3, 22) = 138
+```
+***
+## _tan(_ _a_ _)_
+Calculates the the tangent of a number. For arrays, the function will be applied index-wise to each element.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>number</code> \| <code>Array.&lt;number&gt;</code> | a number or an array of numbers, `a` is expected to be given in radians. |
+
+**Returns**: <code>number</code> \| <code>Array.&lt;number&gt;</code> - The tangent of `a`. Returns an array with the the tangent of each element if `a` is an array.  
+**Example**  
+```js
+tan(0) // returns 0
+tan(1) // returns 1.5574077246549023
+tan([0, 1, -1]) // returns [0, 1.5574077246549023, -1.5574077246549023]
 ```
 ***
 ## _unique(_ _a_ _)_

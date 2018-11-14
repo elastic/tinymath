@@ -163,7 +163,16 @@ describe('Evaluate', () => {
   it('equations with functions', () => {
     expect(evaluate('3 + multiply(10, 4)')).to.be.equal(43);
     expect(evaluate('3 + multiply(10, 4, 5)')).to.be.equal(203);
+  });
+
+  it('equations with trigonometry', () => {
     expect(evaluate('pi()')).to.be.equal(Math.PI);
+    expect(evaluate('sin(degtorad(0))')).to.be.equal(0);
+    expect(evaluate('sin(degtorad(180))')).to.be.equal(1.2246467991473532e-16);
+    expect(evaluate('cos(degtorad(0))')).to.be.equal(1);
+    expect(evaluate('cos(degtorad(180))')).to.be.equal(-1);
+    expect(evaluate('tan(degtorad(0))')).to.be.equal(0);
+    expect(evaluate('tan(degtorad(180))')).to.be.equal(-1.2246467991473532e-16);
   });
 
   it('equations with variables', () => {
