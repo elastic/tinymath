@@ -29,14 +29,16 @@ export function interpret(node, scope, injectedFunctions) {
 
   function exec(node) {
     const type = getType(node);
-    if (type === 'function') {
-      return invoke(node);
-    }
+
+    if (type === 'function') return invoke(node);
+
     if (type === 'string') {
-      const val = get(scope, node);
+      // attempt to read value, or reach into an object if value is undefined
+      const val = scope[node] || get(scope, node);
       if (typeof val === 'undefined') throw new Error(`Unknown variable: ${node}`);
       return val;
     }
+
     return node; // Can only be a number at this point
   }
 
