@@ -150,7 +150,8 @@ describe('Evaluate', () => {
 
   it('valiables with dots', () => {
     expect(evaluate('foo.bar', { 'foo.bar': 20 })).to.be.equal(20);
-    expect(evaluate('"red.green"', { 'red.green': 30 })).to.be.equal(30);
+    expect(evaluate('"is.null"', { 'is.null': null })).to.be.equal(null);
+    expect(evaluate('"is.false"', { 'is.null': null, 'is.false': false })).to.be.equal(false);
     expect(evaluate('"with space.val"', { 'with space.val': 42 })).to.be.equal(42);
   });
 

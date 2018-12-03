@@ -33,8 +33,7 @@ export function interpret(node, scope, injectedFunctions) {
     if (type === 'function') return invoke(node);
 
     if (type === 'string') {
-      // attempt to read value, or reach into an object if value is undefined
-      const val = scope[node] || get(scope, node);
+      const val = getValue(scope, node);
       if (typeof val === 'undefined') throw new Error(`Unknown variable: ${node}`);
       return val;
     }
@@ -50,6 +49,12 @@ export function interpret(node, scope, injectedFunctions) {
     if (fn.skipNumberValidation || isOperable(execOutput)) return fn(...execOutput);
     return NaN;
   }
+}
+
+function getValue(scope, node) {
+  // attempt to read value, or reach into an object if value is undefined
+  const val = scope[node];
+  return typeof val !== 'undefined' ? val : get(scope, node);
 }
 
 function getType(x) {
