@@ -160,6 +160,7 @@ describe('Evaluate', () => {
     expect(evaluate('foo.bar[0].baz', { foo: { bar: [{ baz: 30 }, { beer: 40 }] } })).to.be.equal(
       30
     );
+    expect(evaluate('"is.false"', { is: { null: null, false: false } })).to.be.equal(false);
   });
 
   it('equations', () => {
