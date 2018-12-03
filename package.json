@@ -14,8 +14,8 @@
     "docs": "jsdoc2md --template docs/template/functions.hbs src/functions/*.js > docs/functions.md",
     "lint": "eslint src/*.js src/**/*.js test/*.js test/**/*.js",
     "lint:fix": "eslint --fix src/*.js src/**/*.js test/*.js test/**/*.js",
-    "test": "mocha --require @std/esm --colors ./test/*.spec.js ./test/**/*.spec.js",
-    "test:watch": "mocha --require @std/esm --colors -w ./test/*.spec.js ./test/**/*.spec.js",
+    "test": "mocha --require esm --colors ./test/*.spec.js ./test/**/*.spec.js",
+    "test:watch": "mocha --require esm --colors -w ./test/*.spec.js ./test/**/*.spec.js",
     "version": "npm run docs",
     "pretest": "npm run build"
   },
@@ -39,12 +39,13 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "@std/esm": "cjs",
+  "esm": {
+    "cjs": true
+  },
   "dependencies": {},
   "devDependencies": {
     "@elastic/eslint-config-kibana": "^0.15.0",
     "@elastic/eslint-import-resolver-kibana": "^2.0.0",
-    "@std/esm": "^0.25.2",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
     "babel-plugin-external-helpers": "^6.22.0",
@@ -60,6 +61,7 @@
     "eslint-plugin-prefer-object-spread": "^1.2.1",
     "eslint-plugin-prettier": "^2.4.0",
     "eslint-plugin-react": "^7.1.0",
+    "esm": "^3.0.84",
     "jsdoc": "^3.5.5",
     "jsdoc-to-markdown": "^4.0.1",
     "mocha": "^4.0.1",

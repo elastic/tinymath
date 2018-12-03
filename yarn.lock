@@ -81,11 +81,6 @@
     glob-all "^3.1.0"
     webpack "3.6.0"
 
-"@std/esm@^0.25.2":
-  version "0.25.2"
-  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.25.2.tgz#b71e1545764f96134935fd1cb5f3785e0cb19d15"
-  integrity sha512-YvgAIsOl5gQhiln2ZZrC2gfCvav41LkDNj3RGmNM+aSPpYJuCYUgemJkz8t3T5wGSsPUsuswxZfh7RAZLHuKJQ==
-
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -2173,6 +2168,11 @@ eslint-scope@^3.7.1:
   dependencies:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
+
+esm@^3.0.84:
+  version "3.0.84"
+  resolved "https://registry.yarnpkg.com/esm/-/esm-3.0.84.tgz#bb108989f4673b32d4f62406869c28eed3815a63"
+  integrity sha512-SzSGoZc17S7P+12R9cg21Bdb7eybX25RnIeRZ80xZs+VZ3kdQKzqTp2k4hZJjR7p9l0186TTXSgrxzlMDBktlw==
 
 espree@^3.5.2:
   version "3.5.2"
