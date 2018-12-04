@@ -141,11 +141,26 @@ describe('Evaluate', () => {
     expect(evaluate('bar', { bar: [1, 2] })).to.be.eql([1, 2]);
   });
 
+  it('variables with spaces', () => {
+    expect(evaluate('"foo bar"', { 'foo bar': 10 })).to.be.equal(10);
+    expect(
+      evaluate('"key with many spaces in it"', { 'key with many spaces in it': 10 })
+    ).to.be.equal(10);
+  });
+
+  it('valiables with dots', () => {
+    expect(evaluate('foo.bar', { 'foo.bar': 20 })).to.be.equal(20);
+    expect(evaluate('"is.null"', { 'is.null': null })).to.be.equal(null);
+    expect(evaluate('"is.false"', { 'is.null': null, 'is.false': false })).to.be.equal(false);
+    expect(evaluate('"with space.val"', { 'with space.val': 42 })).to.be.equal(42);
+  });
+
   it('variables with dot notation', () => {
     expect(evaluate('foo.bar', { foo: { bar: 20 } })).to.be.equal(20);
     expect(evaluate('foo.bar[0].baz', { foo: { bar: [{ baz: 30 }, { beer: 40 }] } })).to.be.equal(
       30
     );
+    expect(evaluate('"is.false"', { is: { null: null, false: false } })).to.be.equal(false);
   });
 
   it('equations', () => {

@@ -29,14 +29,15 @@ export function interpret(node, scope, injectedFunctions) {
 
   function exec(node) {
     const type = getType(node);
-    if (type === 'function') {
-      return invoke(node);
-    }
+
+    if (type === 'function') return invoke(node);
+
     if (type === 'string') {
-      const val = get(scope, node);
+      const val = getValue(scope, node);
       if (typeof val === 'undefined') throw new Error(`Unknown variable: ${node}`);
       return val;
     }
+
     return node; // Can only be a number at this point
   }
 
@@ -48,6 +49,12 @@ export function interpret(node, scope, injectedFunctions) {
     if (fn.skipNumberValidation || isOperable(execOutput)) return fn(...execOutput);
     return NaN;
   }
+}
+
+function getValue(scope, node) {
+  // attempt to read value from nested object first, check for exact match if value is undefined
+  const val = get(scope, node);
+  return typeof val !== 'undefined' ? val : scope[node];
 }
 
 function getType(x) {
