@@ -52,9 +52,9 @@ export function interpret(node, scope, injectedFunctions) {
 }
 
 function getValue(scope, node) {
-  // attempt to read value, or reach into an object if value is undefined
-  const val = scope[node];
-  return typeof val !== 'undefined' ? val : get(scope, node);
+  // attempt to read value from nested object first, check for exact match if value is undefined
+  const val = get(scope, node);
+  return typeof val !== 'undefined' ? val : scope[node];
 }
 
 function getType(x) {
