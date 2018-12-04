@@ -1,6 +1,6 @@
 {
   "name": "tinymath",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A tiny math expression library with only the stuff I personally care about. Deal with it.",
   "main": "lib/tinymath.js",
   "module": "lib/tinymath.mjs",
