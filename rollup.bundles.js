@@ -3,7 +3,7 @@ const nodeResolve = require('rollup-plugin-node-resolve');
 const babel = require('rollup-plugin-babel');
 const progress = require('rollup-plugin-progress');
 const filesize = require('rollup-plugin-filesize');
-const minify = require('rollup-plugin-babel-minify');
+const minifyPlugin = require('rollup-plugin-babel-minify');
 const pkg = require('./package.json');
 
 const outputPath = 'lib';
@@ -15,9 +15,12 @@ License: ${pkg.license}
 Built: ${new Date().toISOString()}
 */`;
 
-const config = {
-  input: 'src/index.js',
-  plugins: [
+const config = ({ minify = false } = {}) => {
+  const input = 'src/index.js';
+  const watch = {
+    include: 'src/**',
+  };
+  const plugins = [
     progress(),
     commonjs(),
     nodeResolve({
@@ -25,20 +28,33 @@ const config = {
       main: true,
       jsnext: false,
       browser: false,
-      preferBuiltings: true,
+      preferBuiltins: true,
     }),
     babel({
       exclude: 'node_modules/**', // only transpile our source code
     }),
     filesize(),
-  ],
-  watch: {
-    include: 'src/**',
-  },
+  ];
+
+  if (minify) {
+    plugins.push(
+      minifyPlugin({
+        comments: false,
+        sourceMap: true,
+        banner,
+      })
+    );
+  }
+
+  return {
+    input,
+    plugins,
+    watch,
+  };
 };
 
 exports.main = {
-  ...config,
+  ...config(),
   output: [
     {
       file: `${outputPath}/${filename}.mjs`,
@@ -57,24 +73,17 @@ exports.main = {
 };
 
 exports.min = {
-  ...config,
+  ...config({ minify: true }),
   output: {
     file: `${outputPath}/${filename}.min.js`,
     format: 'umd',
     name: pkg.name,
     sourcemap: true,
   },
-  plugins: config.plugins.concat([
-    minify({
-      comments: false,
-      sourceMap: true,
-      banner,
-    }),
-  ]),
 };
 
 exports.legacy = {
-  ...config,
+  ...config({ minify: true }),
   input: 'src/polyfill.js',
   output: {
     file: `${outputPath}/${filename}.es5.js`,
@@ -82,11 +91,4 @@ exports.legacy = {
     name: pkg.name,
     sourcemap: true,
   },
-  plugins: config.plugins.concat([
-    minify({
-      comments: false,
-      sourceMap: true,
-      banner,
-    }),
-  ]),
 };
