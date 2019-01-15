@@ -50,7 +50,7 @@ const config = ({ minify = false, legacy = false } = {}) => {
         '@babel/preset-env',
         {
           modules: false,
-          useBuiltIns: 'entry',
+          useBuiltIns: 'usage',
           targets: {
             browsers: [
               'last 2 versions',
@@ -129,7 +129,6 @@ exports.min = {
 
 exports.legacy = {
   ...config({ minify: true, legacy: true }),
-  input: 'src/polyfill.js',
   output: {
     file: `${outputPath}/${filename}.es5.js`,
     format: 'umd',
