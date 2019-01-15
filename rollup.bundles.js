@@ -15,11 +15,58 @@ License: ${pkg.license}
 Built: ${new Date().toISOString()}
 */`;
 
-const config = ({ minify = false } = {}) => {
+const config = ({ minify = false, legacy = false } = {}) => {
   const input = 'src/index.js';
   const watch = {
     include: 'src/**',
   };
+
+  const babelConfig = {
+    exclude: 'node_modules/**', // only transpile our source code
+    // plugins: ['@babel/plugin-external-helpers'],
+    presets: [
+      [
+        '@babel/preset-env',
+        {
+          modules: false,
+          useBuiltIns: false,
+          targets: {
+            browsers: [
+              'last 2 chrome versions',
+              'last 2 firefox versions',
+              'last 1 edge version',
+              'last 1 safari version',
+            ],
+            node: '8.14',
+          },
+        },
+      ],
+    ],
+  };
+
+  if (legacy) {
+    babelConfig.presets = [
+      [
+        '@babel/preset-env',
+        {
+          modules: false,
+          useBuiltIns: 'entry',
+          targets: {
+            browsers: [
+              'last 2 versions',
+              '> 5%',
+              'ie >= 11',
+              'Safari >= 7',
+              'not op_mini all',
+              'not dead',
+            ],
+            node: '6.16',
+          },
+        },
+      ],
+    ];
+  }
+
   const plugins = [
     progress(),
     commonjs(),
@@ -30,9 +77,7 @@ const config = ({ minify = false } = {}) => {
       browser: false,
       preferBuiltins: true,
     }),
-    babel({
-      exclude: 'node_modules/**', // only transpile our source code
-    }),
+    babel(babelConfig),
     filesize(),
   ];
 
@@ -83,7 +128,7 @@ exports.min = {
 };
 
 exports.legacy = {
-  ...config({ minify: true }),
+  ...config({ minify: true, legacy: true }),
   input: 'src/polyfill.js',
   output: {
     file: `${outputPath}/${filename}.es5.js`,
