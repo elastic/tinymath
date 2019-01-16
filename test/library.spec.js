@@ -180,6 +180,16 @@ describe('Evaluate', () => {
     expect(evaluate('3 + multiply(10, 4, 5)')).to.be.equal(203);
   });
 
+  it('equations with trigonometry', () => {
+    expect(evaluate('pi()')).to.be.equal(Math.PI);
+    expect(evaluate('sin(degtorad(0))')).to.be.equal(0);
+    expect(evaluate('sin(degtorad(180))')).to.be.equal(1.2246467991473532e-16);
+    expect(evaluate('cos(degtorad(0))')).to.be.equal(1);
+    expect(evaluate('cos(degtorad(180))')).to.be.equal(-1);
+    expect(evaluate('tan(degtorad(0))')).to.be.equal(0);
+    expect(evaluate('tan(degtorad(180))')).to.be.equal(-1.2246467991473532e-16);
+  });
+
   it('equations with variables', () => {
     expect(evaluate('3 + foo', { foo: 5 })).to.be.equal(8);
     expect(evaluate('3 + foo', { foo: [5, 10] })).to.be.eql([8, 13]);

@@ -3,8 +3,10 @@ import { add } from './add';
 import { cbrt } from './cbrt';
 import { ceil } from './ceil';
 import { clamp } from './clamp';
+import { cos } from './cos';
 import { count } from './count';
 import { cube } from './cube';
+import { degtorad } from './degtorad';
 import { divide } from './divide';
 import { exp } from './exp';
 import { first } from './first';
@@ -20,15 +22,19 @@ import { min } from './min';
 import { mod } from './mod';
 import { mode } from './mode';
 import { multiply } from './multiply';
+import { pi } from './pi';
 import { pow } from './pow';
+import { radtodeg } from './radtodeg';
 import { random } from './random';
 import { range } from './range';
 import { round } from './round';
+import { sin } from './sin';
 import { size } from './size';
 import { sqrt } from './sqrt';
 import { square } from './square';
 import { subtract } from './subtract';
 import { sum } from './sum';
+import { tan } from './tan';
 import { unique } from './unique';
 
 export const functions = {
@@ -37,8 +43,10 @@ export const functions = {
   cbrt,
   ceil,
   clamp,
+  cos,
   count,
   cube,
+  degtorad,
   divide,
   exp,
   first,
@@ -54,14 +62,18 @@ export const functions = {
   mod,
   mode,
   multiply,
+  pi,
   pow,
+  radtodeg,
   random,
   range,
   round,
+  sin,
   size,
   sqrt,
   square,
   subtract,
   sum,
+  tan,
   unique,
 };
