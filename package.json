@@ -44,14 +44,14 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.2.3",
     "@elastic/eslint-config-kibana": "^0.15.0",
     "@elastic/eslint-import-resolver-kibana": "^2.0.0",
-    "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
-    "core-js": "^2.5.3",
     "eslint": "^4.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-babel": "^4.1.1",
@@ -69,12 +69,12 @@
     "pegjs": "^0.10.0",
     "prettier": "^1.9.2",
     "rimraf": "^2.6.2",
-    "rollup": "^0.56.5",
-    "rollup-plugin-babel": "^3.0.3",
-    "rollup-plugin-babel-minify": "^4.0.0",
-    "rollup-plugin-commonjs": "^9.1.0",
-    "rollup-plugin-filesize": "^1.5.0",
-    "rollup-plugin-node-resolve": "^3.2.0",
-    "rollup-plugin-progress": "^0.4.0"
+    "rollup": "^1.1.0",
+    "rollup-plugin-babel": "^4.3.0",
+    "rollup-plugin-babel-minify": "^6.2.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-filesize": "^6.0.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-progress": "^1.0.0"
   }
 }
