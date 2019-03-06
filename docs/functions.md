@@ -452,7 +452,7 @@ pi() // 3.141592653589793
 ```
 ***
 ## _pow(_ _a_,  _b_ _)_
-Calculates the cube root of a number. For arrays, the function will be applied index-wise to each element.
+Raises a number to a given exponent. For arrays, the function will be applied index-wise to each element.
 
 
 | Param | Type | Description |
