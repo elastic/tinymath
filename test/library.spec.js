@@ -26,6 +26,13 @@ describe('Parser', () => {
     it('strings', () => {
       expect(parse('f')).to.be.equal('f');
       expect(parse('foo')).to.be.equal('foo');
+      expect(parse('foo1')).to.be.equal('foo1');
+      expect(() => parse('1foo1')).to.throw('but "f" found');
+    });
+
+    it('strings with spaces', () => {
+      expect(parse(' foo ')).to.be.equal('foo');
+      expect(() => parse(' foo bar ')).to.throw('but "b" found');
     });
 
     it('allowed characters', () => {
@@ -56,6 +63,12 @@ describe('Parser', () => {
       expect(parse("'foo bar'")).to.be.equal('foo bar');
       expect(parse("'foo bar fizz buzz'")).to.be.equal('foo bar fizz buzz');
       expect(parse("'foo   bar   baby'")).to.be.equal('foo   bar   baby');
+      expect(parse("' foo bar'")).to.equal(" foo bar");
+      expect(parse("'foo bar '")).to.equal("foo bar ");
+      expect(parse("'0foo'")).to.equal("0foo");
+      expect(parse("' foo bar'")).to.equal(" foo bar");
+      expect(parse("'foo bar '")).to.equal("foo bar ");
+      expect(parse("'0foo'")).to.equal("0foo");
       /* eslint-enable prettier/prettier */
     });
 
@@ -68,28 +81,12 @@ describe('Parser', () => {
       expect(parse('"@foo0 bar1"')).to.be.equal('@foo0 bar1');
       expect(parse('".foo0 bar1"')).to.be.equal('.foo0 bar1');
       expect(parse('"-foo0 bar1"')).to.be.equal('-foo0 bar1');
-    });
-
-    it('invalid characters in double quotes', () => {
-      const check = str => () => parse(str);
-      expect(check('" foo bar"')).to.throw('but "\\"" found');
-      expect(check('"foo bar "')).to.throw('but "\\"" found');
-      expect(check('"0foo"')).to.throw('but "\\"" found');
-      expect(check('" foo bar"')).to.throw('but "\\"" found');
-      expect(check('"foo bar "')).to.throw('but "\\"" found');
-      expect(check('"0foo"')).to.throw('but "\\"" found');
-    });
-
-    it('invalid characters in single quotes', () => {
-      const check = str => () => parse(str);
-      /* eslint-disable prettier/prettier */
-      expect(check("' foo bar'")).to.throw('but "\'" found');
-      expect(check("'foo bar '")).to.throw('but "\'" found');
-      expect(check("'0foo'")).to.throw('but "\'" found');
-      expect(check("' foo bar'")).to.throw('but "\'" found');
-      expect(check("'foo bar '")).to.throw('but "\'" found');
-      expect(check("'0foo'")).to.throw('but "\'" found');
-      /* eslint-enable prettier/prettier */
+      expect(parse('" foo bar"')).to.equal(' foo bar');
+      expect(parse('"foo bar "')).to.equal('foo bar ');
+      expect(parse('"0foo"')).to.equal('0foo');
+      expect(parse('" foo bar"')).to.equal(' foo bar');
+      expect(parse('"foo bar "')).to.equal('foo bar ');
+      expect(parse('"0foo"')).to.equal('0foo');
     });
   });
 
@@ -108,12 +105,46 @@ describe('Parser', () => {
         args: ['string with spaces'],
       });
 
-      /* eslint-disable prettier/prettier */
       expect(parse("foo('string with spaces')")).to.be.eql({
         name: 'foo',
         args: ['string with spaces'],
       });
-      /* eslint-enable prettier/prettier */
+    });
+
+    it('named only', () => {
+      expect(parse('foo(q=10)')).to.be.eql({ name: 'foo', args: [{ name: 'q', value: 10 }] });
+    });
+
+    it('named and positional', () => {
+      expect(parse('foo(ref, q="bar")')).to.be.eql({
+        name: 'foo',
+        args: ['ref', { name: 'q', value: 'bar' }],
+      });
+    });
+
+    it('numerically named', () => {
+      expect(() => parse('foo(1=2)')).to.throw('but "(" found');
+    });
+
+    it('multiple named', () => {
+      expect(parse('foo(q_param="bar", offset-type="1d")')).to.be.eql({
+        name: 'foo',
+        args: [{ name: 'q_param', value: 'bar' }, { name: 'offset-type', value: '1d' }],
+      });
+    });
+
+    it('multiple named and positional', () => {
+      expect(parse('foo(q="bar", ref, offset="1d", 100)')).to.be.eql({
+        name: 'foo',
+        args: [{ name: 'q', value: 'bar' }, 'ref', { name: 'offset', value: '1d' }, 100],
+      });
+    });
+
+    it('duplicate named', () => {
+      expect(parse('foo(q="bar", q="test")')).to.be.eql({
+        name: 'foo',
+        args: [{ name: 'q', value: 'bar' }, { name: 'q', value: 'test' }],
+      });
     });
   });
 
