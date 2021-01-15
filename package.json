@@ -45,11 +45,7 @@
   "esm": {
     "cjs": true
   },
-  "dependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "core-js": "2",
-    "rollup-plugin-terser": "^7.0.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-external-helpers": "^7.2.0",
@@ -57,8 +53,10 @@
     "@babel/preset-env": "^7.2.3",
     "@elastic/eslint-config-kibana": "^0.15.0",
     "@elastic/eslint-import-resolver-kibana": "^2.0.0",
+    "@rollup/plugin-commonjs": "^17.0.0",
     "babel-eslint": "^10.1.0",
     "chai": "^4.2.0",
+    "core-js": "2",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-babel": "^5.3.1",
@@ -80,6 +78,7 @@
     "rollup-plugin-babel": "^4.3.0",
     "rollup-plugin-filesize": "^9.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-progress": "^1.0.0"
+    "rollup-plugin-progress": "^1.0.0",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }
