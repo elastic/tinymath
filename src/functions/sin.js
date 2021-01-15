@@ -10,7 +10,7 @@
 
 export function sin(a) {
   if (Array.isArray(a)) {
-    return a.map(a => Math.sin(a));
+    return a.map((a) => Math.sin(a));
   }
   return Math.sin(a);
 }

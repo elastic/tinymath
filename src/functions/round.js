@@ -16,7 +16,7 @@ const rounder = (a, b) => Math.round(a * Math.pow(10, b)) / Math.pow(10, b);
 
 export function round(a, b = 0) {
   if (Array.isArray(a)) {
-    return a.map(a => rounder(a, b));
+    return a.map((a) => rounder(a, b));
   }
   return rounder(a, b);
 }

@@ -21,8 +21,8 @@ export function min(...args) {
       if (current.length !== result.length) throw new Error('Array length mismatch');
       return result.map((val, i) => Math.min(val, current[i]));
     }
-    if (Array.isArray(result)) return result.map(val => Math.min(val, current));
-    if (Array.isArray(current)) return current.map(val => Math.min(val, result));
+    if (Array.isArray(result)) return result.map((val) => Math.min(val, current));
+    if (Array.isArray(current)) return current.map((val) => Math.min(val, result));
     return Math.min(result, current);
   });
 }

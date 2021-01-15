@@ -1,3 +1,3 @@
 const bundles = require('./rollup.bundles');
 
-module.exports = [bundles.main, bundles.min, bundles.legacy];
+module.exports = [bundles.main, bundles.min];

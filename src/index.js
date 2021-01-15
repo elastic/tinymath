@@ -69,7 +69,7 @@ function getType(x) {
 }
 
 function isOperable(args) {
-  return args.every(arg => {
+  return args.every((arg) => {
     if (Array.isArray(arg)) return isOperable(arg);
     return typeof arg === 'number' && !isNaN(arg);
   });
