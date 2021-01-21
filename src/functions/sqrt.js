@@ -11,7 +11,7 @@
 
 export function sqrt(a) {
   if (Array.isArray(a)) {
-    return a.map(a => {
+    return a.map((a) => {
       if (a < 0) throw new Error('Unable find the square root of a negative number');
       return Math.sqrt(a);
     });

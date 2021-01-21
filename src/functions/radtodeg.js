@@ -10,7 +10,7 @@
 
 export function radtodeg(a) {
   if (Array.isArray(a)) {
-    return a.map(a => a * 180 / Math.PI);
+    return a.map((a) => (a * 180) / Math.PI);
   }
-  return a * 180 / Math.PI;
+  return (a * 180) / Math.PI;
 }

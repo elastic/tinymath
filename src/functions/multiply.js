@@ -17,8 +17,8 @@ export function multiply(...args) {
       if (current.length !== result.length) throw new Error('Array length mismatch');
       return result.map((val, i) => val * current[i]);
     }
-    if (Array.isArray(result)) return result.map(val => val * current);
-    if (Array.isArray(current)) return current.map(val => val * result);
+    if (Array.isArray(result)) return result.map((val) => val * current);
+    if (Array.isArray(current)) return current.map((val) => val * result);
     return result * current;
   });
 }

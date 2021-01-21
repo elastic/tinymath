@@ -6,7 +6,7 @@
 
 Tinymath is a tiny arithmetic and function evaluator for simple numbers and arrays. Named properties can be accessed from an optional scope parameter and new functions can be added without rebuilding. Enjoy.
 
-**NOTE:** Tinymath requires an ES6 or newer environment. You can use it with your build system of choice to run in older environments, or use the ES5 compatible version by importing `tinymath/lib/tinymath.es5.js`.
+**NOTE:** Tinymath requires an ES6 or newer environment. You can use it with your build system of choice to run in older environments.
 
 See [Function Documentation](/docs/functions.md) for details on built-in functions available in Tinymath.
 

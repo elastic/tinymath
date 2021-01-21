@@ -45,7 +45,7 @@ export function clamp(a, min, max) {
       return max.map((max, i) => findClamp(a, min[i], max));
     }
 
-    return max.map(max => findClamp(a, min, max));
+    return max.map((max) => findClamp(a, min, max));
   }
 
   if (Array.isArray(a) && Array.isArray(min)) {
@@ -54,11 +54,11 @@ export function clamp(a, min, max) {
   }
 
   if (Array.isArray(a)) {
-    return a.map(a => findClamp(a, min, max));
+    return a.map((a) => findClamp(a, min, max));
   }
 
   if (Array.isArray(min)) {
-    return min.map(min => findClamp(a, min, max));
+    return min.map((min) => findClamp(a, min, max));
   }
 
   return findClamp(a, min, max);

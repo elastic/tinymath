@@ -10,7 +10,7 @@
 
 export function cos(a) {
   if (Array.isArray(a)) {
-    return a.map(a => Math.cos(a));
+    return a.map((a) => Math.cos(a));
   }
   return Math.cos(a);
 }

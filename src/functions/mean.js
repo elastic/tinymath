@@ -19,7 +19,7 @@ export function mean(...args) {
   const sum = add(...args);
 
   if (Array.isArray(sum)) {
-    return sum.map(val => val / args.length);
+    return sum.map((val) => val / args.length);
   }
 
   return sum / args.length;

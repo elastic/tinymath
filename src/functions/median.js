@@ -1,10 +1,10 @@
 import { transpose } from './lib/transpose';
 
-const findMedian = a => {
+const findMedian = (a) => {
   const len = a.length;
   const half = Math.floor(len / 2);
 
-  a.sort((a, b) => a > b);
+  a.sort((a, b) => b - a);
 
   if (len % 2 === 0) {
     return (a[half] + a[half - 1]) / 2;
@@ -31,10 +31,10 @@ export function median(...args) {
     return args[0];
   }
 
-  const firstArray = args.findIndex(element => Array.isArray(element));
+  const firstArray = args.findIndex((element) => Array.isArray(element));
   if (firstArray !== -1) {
     const result = transpose(args, firstArray);
-    return result.map(val => findMedian(val));
+    return result.map((val) => findMedian(val));
   }
   return findMedian(args);
 }

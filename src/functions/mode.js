@@ -1,10 +1,10 @@
 import { transpose } from './lib/transpose';
 
-const findMode = a => {
+const findMode = (a) => {
   let maxFreq = 0;
   const mapping = {};
 
-  a.map(val => {
+  a.map((val) => {
     if (mapping[val] === undefined) {
       mapping[val] = 0;
     }
@@ -15,8 +15,8 @@ const findMode = a => {
   });
 
   return Object.keys(mapping)
-    .filter(key => mapping[key] === maxFreq)
-    .map(val => parseFloat(val))
+    .filter((key) => mapping[key] === maxFreq)
+    .map((val) => parseFloat(val))
     .sort((a, b) => a - b);
 };
 
@@ -38,10 +38,10 @@ export function mode(...args) {
     return args[0];
   }
 
-  const firstArray = args.findIndex(element => Array.isArray(element));
+  const firstArray = args.findIndex((element) => Array.isArray(element));
   if (firstArray !== -1) {
     const result = transpose(args, firstArray);
-    return result.map(val => findMode(val));
+    return result.map((val) => findMode(val));
   }
   return findMode(args);
 }

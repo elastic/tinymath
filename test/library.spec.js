@@ -246,7 +246,7 @@ describe('Evaluate', () => {
         'plustwo(foo)',
         { foo: 5 },
         {
-          plustwo: function(a) {
+          plustwo: function (a) {
             return a + 2;
           },
         }
@@ -254,14 +254,14 @@ describe('Evaluate', () => {
     ).to.be.equal(7);
     expect(
       evaluate('negate(1)', null, {
-        negate: function(a) {
+        negate: function (a) {
           return -a;
         },
       })
     ).to.be.equal(-1);
     expect(
       evaluate('stringify(2)', null, {
-        stringify: function(a) {
+        stringify: function (a) {
           return '' + a;
         },
       })
@@ -286,7 +286,7 @@ describe('Evaluate', () => {
   it('missing referenced scope when used in injected function', () => {
     expect(() =>
       evaluate('increment(foo)', null, {
-        increment: function(a) {
+        increment: function (a) {
           return a + 1;
         },
       })
