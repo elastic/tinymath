@@ -37,7 +37,7 @@ const config = ({ minify = false } = {}) => {
               'last 1 edge version',
               'last 1 safari version',
             ],
-            node: '14.15',
+            node: '12.0',
           },
         },
       ],
