@@ -14,6 +14,6 @@ describe('Last', () => {
   });
 
   it('skips number validation', () => {
-    expect(last).to.have.property('skipNumberValidation', true);
+    expect(last).toHaveProperty('skipNumberValidation', true);
   });
 });

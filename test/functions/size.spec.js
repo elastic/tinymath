@@ -17,6 +17,6 @@ describe('Size (also Count)', () => {
   });
 
   it('skips number validation', () => {
-    expect(size).to.have.property('skipNumberValidation', true);
+    expect(size).toHaveProperty('skipNumberValidation', true);
   });
 });

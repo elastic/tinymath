@@ -14,6 +14,6 @@ describe('First', () => {
   });
 
   it('skips number validation', () => {
-    expect(first).to.have.property('skipNumberValidation', true);
+    expect(first).toHaveProperty('skipNumberValidation', true);
   });
 });

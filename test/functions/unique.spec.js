@@ -14,6 +14,6 @@ describe('Unique', () => {
   });
 
   it('skips number validation', () => {
-    expect(unique).to.have.property('skipNumberValidation', true);
+    expect(unique).toHaveProperty('skipNumberValidation', true);
   });
 });
