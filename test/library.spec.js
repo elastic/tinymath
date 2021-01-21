@@ -159,6 +159,11 @@ describe('Parser', () => {
         functionEqual('foo', [namedArgumentEqual('q', 'bar'), namedArgumentEqual('q', 'test')])
       );
     });
+
+    it('incomplete named', () => {
+      expect(() => parse('foo(a=)')).toThrow('but "(" found');
+      expect(() => parse('foo(=a)')).toThrow('but "(" found');
+    });
   });
 
   it('Missing expression', () => {
@@ -192,7 +197,7 @@ describe('Evaluate', () => {
     );
   });
 
-  it('valiables with dots', () => {
+  it('variables with dots', () => {
     expect(evaluate('foo.bar', { 'foo.bar': 20 })).toEqual(20);
     expect(evaluate('"is.null"', { 'is.null': null })).toEqual(null);
     expect(evaluate('"is.false"', { 'is.null': null, 'is.false': false })).toEqual(false);
@@ -245,6 +250,10 @@ describe('Evaluate', () => {
     expect(evaluate('"b" * 7', { b: 3 })).toEqual(21);
     expect(evaluate('"space name" * 2', { 'space name': [1, 2, 21] })).toEqual([2, 4, 42]);
     expect(evaluate('sum("space name")', { 'space name': [1, 2, 21] })).toEqual(24);
+  });
+
+  it('throws on named arguments', () => {
+    expect(() => evaluate('sum(invalid=a)')).toThrow('Named arguments are not supported');
   });
 
   it('equations with injected functions', () => {
