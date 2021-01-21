@@ -1,3 +1,3 @@
-const bundles = require('./rollup.bundles');
+import { main } from './rollup.bundles';
 
-module.exports = [bundles.main];
+export default [main];

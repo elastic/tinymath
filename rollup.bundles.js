@@ -1,17 +1,17 @@
-const commonjs = require('@rollup/plugin-commonjs');
-const nodeResolve = require('rollup-plugin-node-resolve');
-const babel = require('rollup-plugin-babel');
-const progress = require('rollup-plugin-progress');
-const filesize = require('rollup-plugin-filesize');
-const { terser } = require('rollup-plugin-terser');
-const pkg = require('./package.json');
+import commonjs from '@rollup/plugin-commonjs';
+import nodeResolve from 'rollup-plugin-node-resolve';
+import babel from 'rollup-plugin-babel';
+import progress from 'rollup-plugin-progress';
+import filesize from 'rollup-plugin-filesize';
+import { terser } from 'rollup-plugin-terser';
+import { name as _name, version, license } from './package.json';
 
 const outputPath = 'lib';
-const filename = pkg.name;
+const filename = _name;
 
 const banner = `/*
-${pkg.name} @ ${pkg.version}
-License: ${pkg.license}
+${_name} @ ${version}
+License: ${license}
 Built: ${new Date().toISOString()}
 */`;
 
@@ -21,42 +21,7 @@ const config = ({ minify = false } = {}) => {
     include: 'src/**',
   };
 
-  const babelConfig = {
-    exclude: 'node_modules/**', // only transpile our source code
-    presets: [
-      [
-        '@babel/preset-env',
-        {
-          modules: false,
-          useBuiltIns: 'entry',
-          corejs: '2.6.12',
-          targets: {
-            browsers: [
-              'last 2 chrome versions',
-              'last 2 firefox versions',
-              'last 1 edge version',
-              'last 1 safari version',
-            ],
-            node: '12.0',
-          },
-        },
-      ],
-    ],
-  };
-
-  const plugins = [
-    progress(),
-    commonjs(),
-    nodeResolve({
-      module: true,
-      main: true,
-      jsnext: false,
-      browser: false,
-      preferBuiltins: true,
-    }),
-    babel(babelConfig),
-    filesize(),
-  ];
+  const plugins = [progress(), commonjs(), nodeResolve(), babel(), filesize()];
 
   if (minify) {
     plugins.push(terser());
@@ -69,31 +34,31 @@ const config = ({ minify = false } = {}) => {
   };
 };
 
-exports.main = {
+export const main = {
   ...config(),
   output: [
     {
       file: `${outputPath}/${filename}.mjs`,
       format: 'es',
-      name: pkg.name,
+      name: _name,
       banner,
     },
     {
       file: `${outputPath}/${filename}.js`,
       format: 'umd',
-      name: pkg.name,
+      name: _name,
       sourcemap: true,
       banner,
     },
   ],
 };
 
-exports.min = {
+export const min = {
   ...config({ minify: true }),
   output: {
     file: `${outputPath}/${filename}.min.js`,
     format: 'umd',
-    name: pkg.name,
+    name: _name,
     sourcemap: true,
   },
 };

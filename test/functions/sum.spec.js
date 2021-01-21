@@ -1,20 +1,19 @@
-import { expect } from 'chai';
 import { sum } from '../../src/functions/sum.js';
 
 describe('Sum', () => {
   it('numbers', () => {
-    expect(sum(10, 2, 5, 8)).to.be.equal(25);
-    expect(sum(0.1, 0.2, 0.4, 0.3)).to.be.equal(0.1 + 0.2 + 0.3 + 0.4);
+    expect(sum(10, 2, 5, 8)).toEqual(25);
+    expect(sum(0.1, 0.2, 0.4, 0.3)).toEqual(0.1 + 0.2 + 0.3 + 0.4);
   });
 
   it('arrays & numbers', () => {
-    expect(sum([10, 20, 30, 40], 10, 20, 30)).to.be.eql(160);
-    expect(sum([10, 20, 30, 40], 10, [1, 2, 3], 22)).to.be.eql(138);
+    expect(sum([10, 20, 30, 40], 10, 20, 30)).toEqual(160);
+    expect(sum([10, 20, 30, 40], 10, [1, 2, 3], 22)).toEqual(138);
   });
 
   it('arrays', () => {
-    expect(sum([1, 2, 3, 4], [1, 2, 5, 10])).to.be.eql(28);
-    expect(sum([1, 2, 3, 4], [1, 2, 5, 10], [10, 20, 30, 40])).to.be.eql(128);
-    expect(sum([11, 48, 60, 72], [1, 2, 3, 4])).to.be.eql(201);
+    expect(sum([1, 2, 3, 4], [1, 2, 5, 10])).toEqual(28);
+    expect(sum([1, 2, 3, 4], [1, 2, 5, 10], [10, 20, 30, 40])).toEqual(128);
+    expect(sum([11, 48, 60, 72], [1, 2, 3, 4])).toEqual(201);
   });
 });
