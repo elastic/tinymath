@@ -3,241 +3,248 @@
   Need tests for spacing, etc
 */
 
-import { expect } from 'chai';
 import { evaluate, parse } from '..';
+
+function variableEqual(value) {
+  return expect.objectContaining({ type: 'variable', value });
+}
+
+function functionEqual(name, args) {
+  return expect.objectContaining({ type: 'function', name, args });
+}
+
+function namedArgumentEqual(name, value) {
+  return expect.objectContaining({ type: 'namedArgument', name, value });
+}
 
 describe('Parser', () => {
   describe('Numbers', () => {
     it('integers', () => {
-      expect(parse('10')).to.be.equal(10);
+      expect(parse('10')).toEqual(10);
     });
 
     it('floats', () => {
-      expect(parse('10.5')).to.be.equal(10.5);
+      expect(parse('10.5')).toEqual(10.5);
     });
 
     it('negatives', () => {
-      expect(parse('-10')).to.be.equal(-10);
-      expect(parse('-10.5')).to.be.equal(-10.5);
+      expect(parse('-10')).toEqual(-10);
+      expect(parse('-10.5')).toEqual(-10.5);
     });
   });
 
   describe('Variables', () => {
     it('strings', () => {
-      expect(parse('f')).to.be.equal('f');
-      expect(parse('foo')).to.be.equal('foo');
-      expect(parse('foo1')).to.be.equal('foo1');
-      expect(() => parse('1foo1')).to.throw('but "f" found');
+      expect(parse('f')).toEqual(variableEqual('f'));
+      expect(parse('foo')).toEqual(variableEqual('foo'));
+      expect(parse('foo1')).toEqual(variableEqual('foo1'));
+      expect(() => parse('1foo1')).toThrow('but "f" found');
     });
 
     it('strings with spaces', () => {
-      expect(parse(' foo ')).to.be.equal('foo');
-      expect(() => parse(' foo bar ')).to.throw('but "b" found');
+      expect(parse(' foo ')).toEqual(variableEqual('foo'));
+      expect(() => parse(' foo bar ')).toThrow('but "b" found');
     });
 
     it('allowed characters', () => {
-      expect(parse('_foo')).to.be.equal('_foo');
-      expect(parse('@foo')).to.be.equal('@foo');
-      expect(parse('.foo')).to.be.equal('.foo');
-      expect(parse('-foo')).to.be.equal('-foo');
-      expect(parse('_foo0')).to.be.equal('_foo0');
-      expect(parse('@foo0')).to.be.equal('@foo0');
-      expect(parse('.foo0')).to.be.equal('.foo0');
-      expect(parse('-foo0')).to.be.equal('-foo0');
+      expect(parse('_foo')).toEqual(variableEqual('_foo'));
+      expect(parse('@foo')).toEqual(variableEqual('@foo'));
+      expect(parse('.foo')).toEqual(variableEqual('.foo'));
+      expect(parse('-foo')).toEqual(variableEqual('-foo'));
+      expect(parse('_foo0')).toEqual(variableEqual('_foo0'));
+      expect(parse('@foo0')).toEqual(variableEqual('@foo0'));
+      expect(parse('.foo0')).toEqual(variableEqual('.foo0'));
+      expect(parse('-foo0')).toEqual(variableEqual('-foo0'));
     });
   });
 
   describe('quoted variables', () => {
     it('strings with double quotes', () => {
-      expect(parse('"foo"')).to.be.equal('foo');
-      expect(parse('"f b"')).to.be.equal('f b');
-      expect(parse('"foo bar"')).to.be.equal('foo bar');
-      expect(parse('"foo bar fizz buzz"')).to.be.equal('foo bar fizz buzz');
-      expect(parse('"foo   bar   baby"')).to.be.equal('foo   bar   baby');
+      expect(parse('"foo"')).toEqual(variableEqual('foo'));
+      expect(parse('"f b"')).toEqual(variableEqual('f b'));
+      expect(parse('"foo bar"')).toEqual(variableEqual('foo bar'));
+      expect(parse('"foo bar fizz buzz"')).toEqual(variableEqual('foo bar fizz buzz'));
+      expect(parse('"foo   bar   baby"')).toEqual(variableEqual('foo   bar   baby'));
     });
 
     it('strings with single quotes', () => {
       /* eslint-disable prettier/prettier */
-      expect(parse("'foo'")).to.be.equal('foo');
-      expect(parse("'f b'")).to.be.equal('f b');
-      expect(parse("'foo bar'")).to.be.equal('foo bar');
-      expect(parse("'foo bar fizz buzz'")).to.be.equal('foo bar fizz buzz');
-      expect(parse("'foo   bar   baby'")).to.be.equal('foo   bar   baby');
-      expect(parse("' foo bar'")).to.equal(" foo bar");
-      expect(parse("'foo bar '")).to.equal("foo bar ");
-      expect(parse("'0foo'")).to.equal("0foo");
-      expect(parse("' foo bar'")).to.equal(" foo bar");
-      expect(parse("'foo bar '")).to.equal("foo bar ");
-      expect(parse("'0foo'")).to.equal("0foo");
+      expect(parse("'foo'")).toEqual(variableEqual('foo'));
+      expect(parse("'f b'")).toEqual(variableEqual('f b'));
+      expect(parse("'foo bar'")).toEqual(variableEqual('foo bar'));
+      expect(parse("'foo bar fizz buzz'")).toEqual(variableEqual('foo bar fizz buzz'));
+      expect(parse("'foo   bar   baby'")).toEqual(variableEqual('foo   bar   baby'));
+      expect(parse("' foo bar'")).toEqual(variableEqual(" foo bar"));
+      expect(parse("'foo bar '")).toEqual(variableEqual("foo bar "));
+      expect(parse("'0foo'")).toEqual(variableEqual("0foo"));
+      expect(parse("' foo bar'")).toEqual(variableEqual(" foo bar"));
+      expect(parse("'foo bar '")).toEqual(variableEqual("foo bar "));
+      expect(parse("'0foo'")).toEqual(variableEqual("0foo"));
       /* eslint-enable prettier/prettier */
     });
 
     it('allowed characters', () => {
-      expect(parse('"_foo bar"')).to.be.equal('_foo bar');
-      expect(parse('"@foo bar"')).to.be.equal('@foo bar');
-      expect(parse('".foo bar"')).to.be.equal('.foo bar');
-      expect(parse('"-foo bar"')).to.be.equal('-foo bar');
-      expect(parse('"_foo0 bar1"')).to.be.equal('_foo0 bar1');
-      expect(parse('"@foo0 bar1"')).to.be.equal('@foo0 bar1');
-      expect(parse('".foo0 bar1"')).to.be.equal('.foo0 bar1');
-      expect(parse('"-foo0 bar1"')).to.be.equal('-foo0 bar1');
-      expect(parse('" foo bar"')).to.equal(' foo bar');
-      expect(parse('"foo bar "')).to.equal('foo bar ');
-      expect(parse('"0foo"')).to.equal('0foo');
-      expect(parse('" foo bar"')).to.equal(' foo bar');
-      expect(parse('"foo bar "')).to.equal('foo bar ');
-      expect(parse('"0foo"')).to.equal('0foo');
+      expect(parse('"_foo bar"')).toEqual(variableEqual('_foo bar'));
+      expect(parse('"@foo bar"')).toEqual(variableEqual('@foo bar'));
+      expect(parse('".foo bar"')).toEqual(variableEqual('.foo bar'));
+      expect(parse('"-foo bar"')).toEqual(variableEqual('-foo bar'));
+      expect(parse('"_foo0 bar1"')).toEqual(variableEqual('_foo0 bar1'));
+      expect(parse('"@foo0 bar1"')).toEqual(variableEqual('@foo0 bar1'));
+      expect(parse('".foo0 bar1"')).toEqual(variableEqual('.foo0 bar1'));
+      expect(parse('"-foo0 bar1"')).toEqual(variableEqual('-foo0 bar1'));
+      expect(parse('" foo bar"')).toEqual(variableEqual(' foo bar'));
+      expect(parse('"foo bar "')).toEqual(variableEqual('foo bar '));
+      expect(parse('"0foo"')).toEqual(variableEqual('0foo'));
+      expect(parse('" foo bar"')).toEqual(variableEqual(' foo bar'));
+      expect(parse('"foo bar "')).toEqual(variableEqual('foo bar '));
+      expect(parse('"0foo"')).toEqual(variableEqual('0foo'));
     });
   });
 
   describe('Functions', () => {
     it('no arguments', () => {
-      expect(parse('foo()')).to.be.eql({ name: 'foo', args: [] });
+      expect(parse('foo()')).toEqual(functionEqual('foo', []));
     });
 
     it('arguments', () => {
-      expect(parse('foo(5,10)')).to.be.eql({ name: 'foo', args: [5, 10] });
+      expect(parse('foo(5,10)')).toEqual(functionEqual('foo', [5, 10]));
     });
 
     it('arguments with strings', () => {
-      expect(parse('foo("string with spaces")')).to.be.eql({
-        name: 'foo',
-        args: ['string with spaces'],
-      });
+      expect(parse('foo("string with spaces")')).toEqual(
+        functionEqual('foo', [variableEqual('string with spaces')])
+      );
 
-      expect(parse("foo('string with spaces')")).to.be.eql({
-        name: 'foo',
-        args: ['string with spaces'],
-      });
+      expect(parse("foo('string with spaces')")).toEqual(
+        functionEqual('foo', [variableEqual('string with spaces')])
+      );
     });
 
     it('named only', () => {
-      expect(parse('foo(q=10)')).to.be.eql({ name: 'foo', args: [{ name: 'q', value: 10 }] });
+      expect(parse('foo(q=10)')).toEqual(functionEqual('foo', [namedArgumentEqual('q', '10')]));
     });
 
     it('named and positional', () => {
-      expect(parse('foo(ref, q="bar")')).to.be.eql({
-        name: 'foo',
-        args: ['ref', { name: 'q', value: 'bar' }],
-      });
+      expect(parse('foo(ref, q="bar")')).toEqual(
+        functionEqual('foo', [variableEqual('ref'), namedArgumentEqual('q', 'bar')])
+      );
     });
 
     it('numerically named', () => {
-      expect(() => parse('foo(1=2)')).to.throw('but "(" found');
+      expect(() => parse('foo(1=2)')).toThrow('but "(" found');
     });
 
     it('multiple named', () => {
-      expect(parse('foo(q_param="bar", offset-type="1d")')).to.be.eql({
-        name: 'foo',
-        args: [{ name: 'q_param', value: 'bar' }, { name: 'offset-type', value: '1d' }],
-      });
+      expect(parse('foo(q_param="bar", offset-type="1d")')).toEqual(
+        functionEqual('foo', [
+          namedArgumentEqual('q_param', 'bar'),
+          namedArgumentEqual('offset-type', '1d'),
+        ])
+      );
     });
 
     it('multiple named and positional', () => {
-      expect(parse('foo(q="bar", ref, offset="1d", 100)')).to.be.eql({
-        name: 'foo',
-        args: [{ name: 'q', value: 'bar' }, 'ref', { name: 'offset', value: '1d' }, 100],
-      });
+      expect(parse('foo(q="bar", ref, offset="1d", 100)')).toEqual(
+        functionEqual('foo', [
+          namedArgumentEqual('q', 'bar'),
+          variableEqual('ref'),
+          namedArgumentEqual('offset', '1d'),
+          100,
+        ])
+      );
     });
 
     it('duplicate named', () => {
-      expect(parse('foo(q="bar", q="test")')).to.be.eql({
-        name: 'foo',
-        args: [{ name: 'q', value: 'bar' }, { name: 'q', value: 'test' }],
-      });
+      expect(parse('foo(q="bar", q="test")')).toEqual(
+        functionEqual('foo', [namedArgumentEqual('q', 'bar'), namedArgumentEqual('q', 'test')])
+      );
     });
   });
 
   it('Missing expression', () => {
-    expect(() => parse(undefined)).to.throw('Missing expression');
-    expect(() => parse(null)).to.throw('Missing expression');
+    expect(() => parse(undefined)).toThrow('Missing expression');
+    expect(() => parse(null)).toThrow('Missing expression');
   });
 
   it('Failed parse', () => {
-    expect(() => parse('')).to.throw('Failed to parse expression');
+    expect(() => parse('')).toThrow('Failed to parse expression');
   });
 
   it('Not a string', () => {
-    expect(() => parse(3)).to.throw('Expression must be a string');
+    expect(() => parse(3)).toThrow('Expression must be a string');
   });
 });
 
 describe('Evaluate', () => {
   it('numbers', () => {
-    expect(evaluate('10')).to.be.equal(10);
+    expect(evaluate('10')).toEqual(10);
   });
 
   it('variables', () => {
-    expect(evaluate('foo', { foo: 10 })).to.be.equal(10);
-    expect(evaluate('bar', { bar: [1, 2] })).to.be.eql([1, 2]);
+    expect(evaluate('foo', { foo: 10 })).toEqual(10);
+    expect(evaluate('bar', { bar: [1, 2] })).toEqual([1, 2]);
   });
 
   it('variables with spaces', () => {
-    expect(evaluate('"foo bar"', { 'foo bar': 10 })).to.be.equal(10);
-    expect(
-      evaluate('"key with many spaces in it"', { 'key with many spaces in it': 10 })
-    ).to.be.equal(10);
+    expect(evaluate('"foo bar"', { 'foo bar': 10 })).toEqual(10);
+    expect(evaluate('"key with many spaces in it"', { 'key with many spaces in it': 10 })).toEqual(
+      10
+    );
   });
 
   it('valiables with dots', () => {
-    expect(evaluate('foo.bar', { 'foo.bar': 20 })).to.be.equal(20);
-    expect(evaluate('"is.null"', { 'is.null': null })).to.be.equal(null);
-    expect(evaluate('"is.false"', { 'is.null': null, 'is.false': false })).to.be.equal(false);
-    expect(evaluate('"with space.val"', { 'with space.val': 42 })).to.be.equal(42);
+    expect(evaluate('foo.bar', { 'foo.bar': 20 })).toEqual(20);
+    expect(evaluate('"is.null"', { 'is.null': null })).toEqual(null);
+    expect(evaluate('"is.false"', { 'is.null': null, 'is.false': false })).toEqual(false);
+    expect(evaluate('"with space.val"', { 'with space.val': 42 })).toEqual(42);
   });
 
   it('variables with dot notation', () => {
-    expect(evaluate('foo.bar', { foo: { bar: 20 } })).to.be.equal(20);
-    expect(evaluate('foo.bar[0].baz', { foo: { bar: [{ baz: 30 }, { beer: 40 }] } })).to.be.equal(
-      30
-    );
-    expect(evaluate('"is.false"', { is: { null: null, false: false } })).to.be.equal(false);
+    expect(evaluate('foo.bar', { foo: { bar: 20 } })).toEqual(20);
+    expect(evaluate('foo.bar[0].baz', { foo: { bar: [{ baz: 30 }, { beer: 40 }] } })).toEqual(30);
+    expect(evaluate('"is.false"', { is: { null: null, false: false } })).toEqual(false);
   });
 
   it('equations', () => {
-    expect(evaluate('3 + 4')).to.be.equal(7);
-    expect(evaluate('10 - 2')).to.be.equal(8);
-    expect(evaluate('8 + 6 / 3')).to.be.equal(10);
-    expect(evaluate('10 * (1 + 2)')).to.be.equal(30);
-    expect(evaluate('(3 - 4) * 10')).to.be.equal(-10);
-    expect(evaluate('-1 - -12')).to.be.equal(11);
-    expect(evaluate('5/20')).to.be.equal(0.25);
-    expect(evaluate('1 + 1 + 2 + 3 + 12')).to.be.equal(19);
-    expect(evaluate('100 / 10 / 10')).to.be.equal(1);
+    expect(evaluate('3 + 4')).toEqual(7);
+    expect(evaluate('10 - 2')).toEqual(8);
+    expect(evaluate('8 + 6 / 3')).toEqual(10);
+    expect(evaluate('10 * (1 + 2)')).toEqual(30);
+    expect(evaluate('(3 - 4) * 10')).toEqual(-10);
+    expect(evaluate('-1 - -12')).toEqual(11);
+    expect(evaluate('5/20')).toEqual(0.25);
+    expect(evaluate('1 + 1 + 2 + 3 + 12')).toEqual(19);
+    expect(evaluate('100 / 10 / 10')).toEqual(1);
   });
 
   it('equations with functions', () => {
-    expect(evaluate('3 + multiply(10, 4)')).to.be.equal(43);
-    expect(evaluate('3 + multiply(10, 4, 5)')).to.be.equal(203);
+    expect(evaluate('3 + multiply(10, 4)')).toEqual(43);
+    expect(evaluate('3 + multiply(10, 4, 5)')).toEqual(203);
   });
 
   it('equations with trigonometry', () => {
-    expect(evaluate('pi()')).to.be.equal(Math.PI);
-    expect(evaluate('sin(degtorad(0))')).to.be.equal(0);
-    expect(evaluate('sin(degtorad(180))')).to.be.equal(1.2246467991473532e-16);
-    expect(evaluate('cos(degtorad(0))')).to.be.equal(1);
-    expect(evaluate('cos(degtorad(180))')).to.be.equal(-1);
-    expect(evaluate('tan(degtorad(0))')).to.be.equal(0);
-    expect(evaluate('tan(degtorad(180))')).to.be.equal(-1.2246467991473532e-16);
+    expect(evaluate('pi()')).toEqual(Math.PI);
+    expect(evaluate('sin(degtorad(0))')).toEqual(0);
+    expect(evaluate('sin(degtorad(180))')).toEqual(1.2246467991473532e-16);
+    expect(evaluate('cos(degtorad(0))')).toEqual(1);
+    expect(evaluate('cos(degtorad(180))')).toEqual(-1);
+    expect(evaluate('tan(degtorad(0))')).toEqual(0);
+    expect(evaluate('tan(degtorad(180))')).toEqual(-1.2246467991473532e-16);
   });
 
   it('equations with variables', () => {
-    expect(evaluate('3 + foo', { foo: 5 })).to.be.equal(8);
-    expect(evaluate('3 + foo', { foo: [5, 10] })).to.be.eql([8, 13]);
-    expect(evaluate('3 + foo', { foo: 5 })).to.be.equal(8);
-    expect(evaluate('sum(foo)', { foo: [5, 10, 15] })).to.be.equal(30);
-    expect(evaluate('90 / sum(foo)', { foo: [5, 10, 15] })).to.be.equal(3);
-    expect(evaluate('multiply(foo, bar)', { foo: [1, 2, 3], bar: [4, 5, 6] })).to.be.eql([
-      4,
-      10,
-      18,
-    ]);
+    expect(evaluate('3 + foo', { foo: 5 })).toEqual(8);
+    expect(evaluate('3 + foo', { foo: [5, 10] })).toEqual([8, 13]);
+    expect(evaluate('3 + foo', { foo: 5 })).toEqual(8);
+    expect(evaluate('sum(foo)', { foo: [5, 10, 15] })).toEqual(30);
+    expect(evaluate('90 / sum(foo)', { foo: [5, 10, 15] })).toEqual(3);
+    expect(evaluate('multiply(foo, bar)', { foo: [1, 2, 3], bar: [4, 5, 6] })).toEqual([4, 10, 18]);
   });
 
   it('equations with quoted variables', () => {
-    expect(evaluate('"b" * 7', { b: 3 })).to.be.eql(21);
-    expect(evaluate('"space name" * 2', { 'space name': [1, 2, 21] })).to.be.eql([2, 4, 42]);
-    expect(evaluate('sum("space name")', { 'space name': [1, 2, 21] })).to.be.eql(24);
+    expect(evaluate('"b" * 7', { b: 3 })).toEqual(21);
+    expect(evaluate('"space name" * 2', { 'space name': [1, 2, 21] })).toEqual([2, 4, 42]);
+    expect(evaluate('sum("space name")', { 'space name': [1, 2, 21] })).toEqual(24);
   });
 
   it('equations with injected functions', () => {
@@ -251,28 +258,28 @@ describe('Evaluate', () => {
           },
         }
       )
-    ).to.be.equal(7);
+    ).toEqual(7);
     expect(
       evaluate('negate(1)', null, {
         negate: function (a) {
           return -a;
         },
       })
-    ).to.be.equal(-1);
+    ).toEqual(-1);
     expect(
       evaluate('stringify(2)', null, {
         stringify: function (a) {
           return '' + a;
         },
       })
-    ).to.be.equal('2');
+    ).toEqual('2');
   });
 
   it('equations with arrays using special operator functions', () => {
-    expect(evaluate('foo + bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).to.be.eql([5, 7, 9]);
-    expect(evaluate('foo - bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).to.be.eql([-3, -3, -3]);
-    expect(evaluate('foo * bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).to.be.eql([4, 10, 18]);
-    expect(evaluate('foo / bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).to.be.eql([
+    expect(evaluate('foo + bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).toEqual([5, 7, 9]);
+    expect(evaluate('foo - bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).toEqual([-3, -3, -3]);
+    expect(evaluate('foo * bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).toEqual([4, 10, 18]);
+    expect(evaluate('foo / bar', { foo: [1, 2, 3], bar: [4, 5, 6] })).toEqual([
       1 / 4,
       2 / 5,
       3 / 6,
@@ -280,7 +287,7 @@ describe('Evaluate', () => {
   });
 
   it('missing expression', () => {
-    expect(() => evaluate('')).to.throw('Failed to parse expression');
+    expect(() => evaluate('')).toThrow('Failed to parse expression');
   });
 
   it('missing referenced scope when used in injected function', () => {
@@ -290,14 +297,14 @@ describe('Evaluate', () => {
           return a + 1;
         },
       })
-    ).to.throw('Unknown variable: foo');
+    ).toThrow('Unknown variable: foo');
   });
 
   it('invalid context datatypes', () => {
-    expect(evaluate('mean(foo)', { foo: [true, true, false] })).to.be.NaN;
-    expect(evaluate('mean(foo + bar)', { foo: [true, true, false], bar: [1, 2, 3] })).to.be.NaN;
-    expect(evaluate('mean(foo)', { foo: ['dog', 'cat', 'mouse'] })).to.be.NaN;
-    expect(evaluate('mean(foo + 2)', { foo: ['dog', 'cat', 'mouse'] })).to.be.NaN;
-    expect(evaluate('foo + bar', { foo: NaN, bar: [4, 5, 6] })).to.be.NaN;
+    expect(evaluate('mean(foo)', { foo: [true, true, false] })).toBeNaN();
+    expect(evaluate('mean(foo + bar)', { foo: [true, true, false], bar: [1, 2, 3] })).toBeNaN();
+    expect(evaluate('mean(foo)', { foo: ['dog', 'cat', 'mouse'] })).toBeNaN();
+    expect(evaluate('mean(foo + 2)', { foo: ['dog', 'cat', 'mouse'] })).toBeNaN();
+    expect(evaluate('foo + bar', { foo: NaN, bar: [4, 5, 6] })).toBeNaN();
   });
 });

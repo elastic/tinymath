@@ -1,19 +1,23 @@
-import { expect } from 'chai';
 import { random } from '../../src/functions/random.js';
 
 describe('Random', () => {
   it('numbers', () => {
-    // the upper bound of within() is inclusive, but the upper bound of random() is exclusive
-    expect(random()).to.be.within(0, 1);
-    expect(random(0)).to.be.equal(0);
-    expect(random(3)).to.be.within(0, 3);
-    expect(random(-100, 100)).to.be.within(-100, 100);
-    expect(random(1, 1)).to.be.equal(1);
-    expect(random(100, 100)).to.be.equal(100);
+    const random1 = random();
+    expect(random1).toBeGreaterThanOrEqual(0);
+    expect(random1).toBeLessThan(1);
+    expect(random(0)).toEqual(0);
+    const random3 = random(3);
+    expect(random3).toBeGreaterThanOrEqual(0);
+    expect(random3).toBeLessThan(3);
+    const random100 = random(-100, 100);
+    expect(random100).toBeGreaterThanOrEqual(-100);
+    expect(random100).toBeLessThan(100);
+    expect(random(1, 1)).toEqual(1);
+    expect(random(100, 100)).toEqual(100);
   });
 
   it('min greater than max', () => {
-    expect(() => random(-1)).to.throw('Min is greater than max');
-    expect(() => random(3, 1)).to.throw('Min is greater than max');
+    expect(() => random(-1)).toThrow('Min is greater than max');
+    expect(() => random(3, 1)).toThrow('Min is greater than max');
   });
 });

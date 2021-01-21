@@ -1,5 +1,18 @@
 // tinymath parsing grammar
 
+{
+   function simpleLocation (location) {
+  // Returns an object representing the position of the function within the expression,
+  // demarcated by the position of its first character and last character. We calculate these values
+  // using the offset because the expression could span multiple lines, and we don't want to deal
+  // with column and line values.
+  return {
+   min: location.start.offset,
+   max: location.end.offset
+  }
+ }
+}
+
 start
   = Expression
 
@@ -31,10 +44,20 @@ Literal "literal"
 // but unquoted variables are more restrictive
 Variable
   = _ Quote chars:(ValidChar / Space)* Quote _ {
-    return chars.join('');
+    return {
+      type: 'variable',
+      value: chars.join(''),
+      location: simpleLocation(location()),
+      text: text()
+    };
   }
   / _ rest:ValidChar+ _ {
-    return rest.join('');
+    return {
+      type: 'variable',
+      value: rest.join(''),
+      location: simpleLocation(location()),
+      text: text()
+    };
   }
 
 // expressions
@@ -45,16 +68,22 @@ Expression
 AddSubtract
   = _ left:MultiplyDivide rest:(('+' / '-') MultiplyDivide)* _ {
     return rest.reduce((acc, curr) => ({
+      type: 'function',
       name: curr[0] === '+' ? 'add' : 'subtract',
-      args: [acc, curr[1]]
+      args: [acc, curr[1]],
+      location: simpleLocation(location()),
+      text: text()
     }), left)
   }
 
 MultiplyDivide
   = _ left:Factor rest:(('*' / '/') Factor)* _ {
     return rest.reduce((acc, curr) => ({
+      type: 'function',
       name: curr[0] === '*' ? 'multiply' : 'divide',
-      args: [acc, curr[1]]
+      args: [acc, curr[1]],
+      location: simpleLocation(location()),
+      text: text()
     }), left)
   }
 
@@ -72,25 +101,46 @@ Argument_List "arguments"
   = first:Argument rest:(_ ',' _ arg:Argument {return arg})* _ ','? {
     return [first].concat(rest);
   }
+
+String
+  = [\"] value:(ValidChar)+ [\"] { return value.join(''); }
+  / [\'] value:(ValidChar)+ [\'] { return value.join(''); }
+  / value:(ValidChar)+ { return value.join(''); }
+
   
 Argument
- = name:[a-zA-Z_-]+ _ '=' _ value:Literal {
+ = name:[a-zA-Z_-]+ _ '=' _ value:String _ {
   return {
-   name: name.join(''),
-   value: value,
+    type: 'namedArgument',
+    name: name.join(''),
+    value: value,
+    location: simpleLocation(location()),
+    text: text()
   };
  }
  / arg:Expression
 
 Function "function"
   = _ name:[a-zA-Z_-]+ '(' _ args:Argument_List? _ ')' _ {
-    return {name: name.join(''), args: args || []};
+    return {
+      type: 'function',
+      name: name.join(''),
+      args: args || [],
+      location: simpleLocation(location()),
+      text: text()
+    };
   }
 
 // Numbers. Lol.
 
 Number "number"
-  = '-'? Integer Fraction? Exp? { return parseFloat(text()); }
+  = '-'? Integer Fraction? Exp? {
+    return parseFloat(text());
+    // return {
+    //   type: 'number',
+    //   value: parseFloat(text())
+    // };
+  }
 
 E
   = [eE]

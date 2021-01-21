@@ -28,14 +28,18 @@ export function interpret(node, scope, injectedFunctions) {
   return exec(node);
 
   function exec(node) {
-    const type = getType(node);
+    const type = node.type;
 
     if (type === 'function') return invoke(node);
 
-    if (type === 'string') {
-      const val = getValue(scope, node);
-      if (typeof val === 'undefined') throw new Error(`Unknown variable: ${node}`);
+    if (type === 'variable') {
+      const val = getValue(scope, node.value);
+      if (typeof val === 'undefined') throw new Error(`Unknown variable: ${node.value}`);
       return val;
+    }
+    if (type === 'namedArgument') {
+      // We are ignoring named arguments in the interpreter
+      throw new Error(`Named arguments are not supported in tinymath itself, at ${node.name}`);
     }
 
     return node; // Can only be a number at this point
@@ -55,17 +59,6 @@ function getValue(scope, node) {
   // attempt to read value from nested object first, check for exact match if value is undefined
   const val = get(scope, node);
   return typeof val !== 'undefined' ? val : scope[node];
-}
-
-function getType(x) {
-  const type = typeof x;
-  if (type === 'object') {
-    const keys = Object.keys(x);
-    if (keys.length !== 2 || !x.name || !x.args) throw new Error('Invalid AST object');
-    return 'function';
-  }
-  if (type === 'string' || type === 'number') return type;
-  throw new Error(`Unknown AST property type: ${type}`);
 }
 
 function isOperable(args) {
