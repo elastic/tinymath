@@ -14,7 +14,7 @@ describe('Size (also Count)', () => {
     expect(() => size(10)).to.throw('Must pass an array');
     expect(() => size(true)).to.throw('Must pass an array');
     expect(() => size({})).to.throw('Must pass an array');
-    expect(() => size(function() {})).to.throw('Must pass an array');
+    expect(() => size(function () {})).to.throw('Must pass an array');
   });
 
   it('skips number validation', () => {

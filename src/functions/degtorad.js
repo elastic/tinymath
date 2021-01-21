@@ -10,7 +10,7 @@
 
 export function degtorad(a) {
   if (Array.isArray(a)) {
-    return a.map(a => a * Math.PI / 180);
+    return a.map((a) => (a * Math.PI) / 180);
   }
-  return a * Math.PI / 180;
+  return (a * Math.PI) / 180;
 }

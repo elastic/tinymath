@@ -18,7 +18,7 @@ export function log(a, b = Math.E) {
   if (b <= 0) throw new Error('Base out of range');
 
   if (Array.isArray(a)) {
-    return a.map(a => {
+    return a.map((a) => {
       if (a < 0) throw new Error('Must be greater than 0');
       return changeOfBase(a, b);
     });

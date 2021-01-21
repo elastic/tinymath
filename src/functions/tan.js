@@ -10,7 +10,7 @@
 
 export function tan(a) {
   if (Array.isArray(a)) {
-    return a.map(a => Math.tan(a));
+    return a.map((a) => Math.tan(a));
   }
   return Math.tan(a);
 }

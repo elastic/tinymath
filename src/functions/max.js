@@ -21,8 +21,8 @@ export function max(...args) {
       if (current.length !== result.length) throw new Error('Array length mismatch');
       return result.map((val, i) => Math.max(val, current[i]));
     }
-    if (Array.isArray(result)) return result.map(val => Math.max(val, current));
-    if (Array.isArray(current)) return current.map(val => Math.max(val, result));
+    if (Array.isArray(result)) return result.map((val) => Math.max(val, current));
+    if (Array.isArray(current)) return current.map((val) => Math.max(val, result));
     return Math.max(result, current);
   });
 }
