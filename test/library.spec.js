@@ -142,9 +142,9 @@ describe('Evaluate', () => {
 
   it('variables with spaces', () => {
     expect(evaluate('"foo bar"', { 'foo bar': 10 })).toEqual(10);
-    expect(
-      evaluate('"key with many spaces in it"', { 'key with many spaces in it': 10 })
-    ).toEqual(10);
+    expect(evaluate('"key with many spaces in it"', { 'key with many spaces in it': 10 })).toEqual(
+      10
+    );
   });
 
   it('valiables with dots', () => {
@@ -156,9 +156,7 @@ describe('Evaluate', () => {
 
   it('variables with dot notation', () => {
     expect(evaluate('foo.bar', { foo: { bar: 20 } })).toEqual(20);
-    expect(evaluate('foo.bar[0].baz', { foo: { bar: [{ baz: 30 }, { beer: 40 }] } })).toEqual(
-      30
-    );
+    expect(evaluate('foo.bar[0].baz', { foo: { bar: [{ baz: 30 }, { beer: 40 }] } })).toEqual(30);
     expect(evaluate('"is.false"', { is: { null: null, false: false } })).toEqual(false);
   });
 
@@ -195,11 +193,7 @@ describe('Evaluate', () => {
     expect(evaluate('3 + foo', { foo: 5 })).toEqual(8);
     expect(evaluate('sum(foo)', { foo: [5, 10, 15] })).toEqual(30);
     expect(evaluate('90 / sum(foo)', { foo: [5, 10, 15] })).toEqual(3);
-    expect(evaluate('multiply(foo, bar)', { foo: [1, 2, 3], bar: [4, 5, 6] })).toEqual([
-      4,
-      10,
-      18,
-    ]);
+    expect(evaluate('multiply(foo, bar)', { foo: [1, 2, 3], bar: [4, 5, 6] })).toEqual([4, 10, 18]);
   });
 
   it('equations with quoted variables', () => {
