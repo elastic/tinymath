@@ -1,3 +1,7 @@
+# ⚠️ Deprecated ⚠️
+
+To our knowledge the tinymatch module was only used by [kibana](https://github.com/elastic/kibana/) and as such we've moved it into the Kibana repo to make it easier to manage for us. We no longer plan to update this repository or the packages on npm.
+
 # Tinymath
 
 [![Apache License](https://img.shields.io/badge/license-apache_2.0-a9215a.svg)](https://raw.githubusercontent.com/elastic/tinymath/master/LICENSE)
